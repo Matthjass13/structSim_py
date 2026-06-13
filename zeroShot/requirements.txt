@@ -1,0 +1,15 @@
+# StructuredSimulationFramework - Python migration
+# All dependencies are part of the Python standard library (Python >= 3.8).
+# No third-party packages are required.
+#
+# Standard library modules used:
+#   abc         - Abstract base classes (replaces Java interfaces / abstract classes)
+#   logging     - Logging framework (replaces Apache Log4j 2)
+#   os          - OS file/path operations (replaces java.nio.file / java.io.File)
+#   shutil      - High-level file operations (replaces Files.copy / Files.move)
+#   queue       - Thread-safe queues (replaces java.util.concurrent.BlockingQueue /
+#                 PriorityBlockingQueue)
+#   threading   - Threading support (replaces java.lang.Thread / Runnable)
+#   time        - Time functions (replaces System.currentTimeMillis / TimeUnit)
+#   traceback   - Exception printing (replaces e.printStackTrace())
+#   typing      - Type hints
