@@ -1,0 +1,4 @@
+# No external dependencies required — all modules used are from the Python standard library:
+# threading, queue, abc, logging, os, shutil, pathlib, typing, time
+#
+# Requires Python >= 3.10 (match/case statement used in ConcreteModifier)
