@@ -1,0 +1,11 @@
+# No third-party dependencies required.
+# All functionality is covered by the Python standard library:
+#   - abc         (abstract base classes, replaces Java abstract class / interface)
+#   - configparser (properties file loading, replaces java.util.Properties)
+#   - datetime    (date/time arithmetic, replaces java.util.Calendar)
+#   - io          (file-like objects, replaces java.io.InputStream)
+#   - logging     (structured logging, replaces Apache Log4j 2)
+#   - os / shutil (file & directory operations, replaces java.io.File / java.nio.file.Files)
+#   - queue       (thread-safe queues, replaces java.util.concurrent.BlockingQueue / PriorityBlockingQueue)
+#   - threading   (thread management, replaces java.lang.Thread / Runnable)
+#   - time        (wall-clock timing, replaces System.currentTimeMillis())
