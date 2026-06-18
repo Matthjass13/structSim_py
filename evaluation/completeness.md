@@ -125,3 +125,32 @@ Count of instance attributes declared in `__init__` (Python) or as class-level f
 | IManageParametersFile       | 0               | 0            | 0           | 0          | 0             | N/A         | N/A         | 0          | 0          | 0           | 0          | 0             | 0          |
 | IStartSimulation            | 0               | 0            | 0           | 0          | 0             | N/A         | N/A         | 0          | 0          | 0           | 0          | 0             | 0          |
 | IManageModifier             | 0               | 0            | 0           | 0          | 0             | N/A         | N/A         | 0          | 0          | 0           | 0          | 0             | 0          |
+
+---
+
+## Source Lines of Code per Class (excluding blank lines and comments)
+
+**N/A** = class absent from this migration.
+
+| Java Class                  | Original (Java) | CoT/perClass | CoT/lenient | CoT/strict | CoT/riskFirst | ZS/negConst | ZS/onlyTask | ZS/persona | ZS/withCtx | OS/aSimHdlr | OS/concMod | OS/expPlanGen | Transpiler |
+|-----------------------------|:---------------:|:------------:|:-----------:|:----------:|:-------------:|:-----------:|:-----------:|:----------:|:----------:|:-----------:|:----------:|:-------------:|:----------:|
+| Environment                 | 69              | 65           | 47          | 54         | 50            | 45          | 41          | 52         | 52         | 62          | 52         | 48            | 71         |
+| Parameter                   | 29              | 25           | 18          | 20         | 19            | 18          | 18          | 18         | 24         | 24          | 17         | 10            | 30         |
+| ExperimentPlanGenerator     | 114             | 74           | 77          | 81         | 77            | 77          | 73          | 84         | 97         | 95          | 89         | 95            | 93         |
+| ExperimentResultHandler     | 39              | 42           | 34          | 29         | 34            | 27          | 30          | 34         | 35         | 33          | 35         | 40            | 28         |
+| Measure                     | 25              | 15           | 14          | 16         | 15            | 14          | 14          | 15         | 15         | 15          | 14         | 6             | 24         |
+| ExperimentSimulatorHandler  | 52              | 52           | 43          | 49         | 43            | 39          | 37          | 47         | 49         | 54          | 51         | 59            | 42         |
+| Options                     | 62              | 45           | 43          | 42         | 44            | 42          | 42          | 44         | 43         | 45          | 42         | 12            | 62         |
+| ConcreteModifier            | 62              | 35           | 34          | 39         | 42            | 42          | 32          | 32         | 45         | 44          | 36         | 39            | 57         |
+| AModifier                   | 30              | 33           | 16          | 17         | 17            | 16          | 16          | 17         | 17         | 30          | 17         | 17            | 33         |
+| Simulation                  | 19              | 18           | 16          | 15         | 19            | 13          | 15          | 13         | 20         | 16          | 16         | 16            | 21         |
+| MySimulator                 | 29              | 18           | 20          | 19         | 17            | 16          | 18          | 13         | 21         | 21          | 20         | 17            | 20         |
+| SimpleSimulationHandler     | 116             | 68           | 66          | 71         | 74            | 57          | 58          | 50         | 78         | 81          | 74         | 66            | 96         |
+| FileManagement              | 265             | 140          | 124         | 149        | 124           | 124         | 112         | 130        | 154        | 162         | 151        | 140           | 207        |
+| ASimulationSystemHandler    | 22              | 29           | 18          | 42         | 25            | 31          | 31          | 24         | 18         | 40          | 18         | 23            | 22         |
+| StartProgram                | 39              | 32           | 24          | 30         | 31            | 24          | 25          | 29         | 29         | 31          | 36         | 28            | 33         |
+| IExtractMeasures            | 6               | 9            | 6           | 6          | 8             | N/A         | N/A         | 6          | 8          | 8           | 5          | 7             | 9          |
+| IStopProgram                | 4               | 6            | 5           | 6          | 6             | N/A         | N/A         | 5          | 7          | 6           | 5          | 5             | 7          |
+| IManageParametersFile       | 9               | 17           | 9           | 9          | 11            | N/A         | N/A         | 10         | 10         | 14          | 12         | 10            | 18         |
+| IStartSimulation            | 4               | 6            | 5           | 6          | 6             | N/A         | N/A         | 5          | 7          | 6           | 5          | 5             | 7          |
+| IManageModifier             | 5               | 10           | 6           | 6          | 7             | N/A         | N/A         | 6          | 8          | 7           | 5          | 8             | 8          |
