@@ -212,3 +212,32 @@ Number of type errors reported by `pyright` when analysing each file in isolatio
 | IManageParametersFile       | 0            | 0           | 0          | 0             | N/A         | N/A         | 0          | 0          | 0           | 0          | 0             | 10         |
 | IStartSimulation            | 0            | 0           | 0          | 0             | N/A         | N/A         | 0          | 0          | 0           | 0          | 0             | 2          |
 | IManageModifier             | 0            | 0           | 0          | 0             | N/A         | N/A         | 0          | 0          | 0           | 0          | 0             | 3          |
+
+---
+
+## Cyclomatic Complexity per Class (Radon-equivalent)
+
+Total cyclomatic complexity of all functions/methods in the file, computed via AST (Python) or decision-point counting (Java), matching Radon's algorithm: CC = Σ (1 + decision points per function). For Java the original is included for comparison. **N/A** = class absent or file has a syntax error preventing AST parsing (3 transpiler files contain invalid Python syntax).
+
+| Java Class                  | Original (Java) | CoT/perClass | CoT/lenient | CoT/strict | CoT/riskFirst | ZS/negConst | ZS/onlyTask | ZS/persona | ZS/withCtx | OS/aSimHdlr | OS/concMod | OS/expPlanGen | Transpiler |
+|-----------------------------|:---------------:|:------------:|:-----------:|:----------:|:-------------:|:-----------:|:-----------:|:----------:|:----------:|:-----------:|:----------:|:-------------:|:----------:|
+| Environment                 | 14              | 22           | 18          | 22         | 19            | 19          | 17          | 18         | 21         | 21          | 21         | 19            | 17         |
+| Parameter                   | 5               | 9            | 7           | 8          | 7             | 7           | 7           | 7          | 8          | 9           | 7          | 3             | 7          |
+| ExperimentPlanGenerator     | 19              | 16           | 18          | 19         | 17            | 19          | 19          | 19         | 21         | 18          | 20         | 15            | 19         |
+| ExperimentResultHandler     | 3               | 5            | 6           | 6          | 6             | 5           | 6           | 6          | 6          | 5           | 6          | 4             | 4          |
+| Measure                     | 5               | 6            | 6           | 7          | 6             | 6           | 6           | 6          | 6          | 6           | 6          | 2             | 6          |
+| ExperimentSimulatorHandler  | 5               | 5            | 8           | 6          | 8             | 6           | 6           | 6          | 6          | 6           | 6          | 6             | 7          |
+| Options                     | 16              | 17           | 17          | 17         | 17            | 17          | 17          | 17         | 17         | 17          | 17         | 1             | 17         |
+| ConcreteModifier            | 10              | 12           | 12          | 18         | 14            | 17          | 14          | 11         | 15         | 12          | 9          | 7             | 14         |
+| AModifier                   | 4               | 10           | 6           | 6          | 6             | 6           | 6           | 6          | 6          | 10          | 6          | 6             | 7          |
+| Simulation                  | 1               | 1            | 1           | 1          | 2             | 1           | 1           | 1          | 1          | 2           | 1          | 1             | 1          |
+| MySimulator                 | 3               | 6            | 6           | 6          | 5             | 5           | 6           | 5          | 6          | 6           | 6          | 5             | N/A        |
+| SimpleSimulationHandler     | 16              | 25           | 21          | 23         | 25            | 18          | 20          | 20         | 24         | 23          | 23         | 19            | N/A        |
+| FileManagement              | 46              | 44           | 44          | 62         | 44            | 38          | 40          | 47         | 53         | 55          | 57         | 47            | N/A        |
+| ASimulationSystemHandler    | 4               | 5            | 5           | 11         | 5             | 11          | 11          | 5          | 5          | 9           | 5          | 5             | 4          |
+| StartProgram                | 3               | 5            | 3           | 3          | 3             | 4           | 3           | 4          | 3          | 3           | 5          | 3             | 3          |
+| IExtractMeasures            | 1               | 1            | 1           | 1          | 1             | N/A         | N/A         | 1          | 1          | 1           | 1          | 1             | 1          |
+| IStopProgram                | 1               | 1            | 1           | 1          | 1             | N/A         | N/A         | 1          | 1          | 1           | 1          | 1             | 1          |
+| IManageParametersFile       | 1               | 3            | 2           | 2          | 2             | N/A         | N/A         | 3          | 2          | 3           | 3          | 2             | 3          |
+| IStartSimulation            | 1               | 1            | 1           | 1          | 1             | N/A         | N/A         | 1          | 1          | 1           | 1          | 1             | 1          |
+| IManageModifier             | 1               | 1            | 1           | 1          | 1             | N/A         | N/A         | 1          | 1          | 1           | 1          | 1             | 1          |
