@@ -154,3 +154,61 @@ Count of instance attributes declared in `__init__` (Python) or as class-level f
 | IManageParametersFile       | 9               | 17           | 9           | 9          | 11            | N/A         | N/A         | 10         | 10         | 14          | 12         | 10            | 18         |
 | IStartSimulation            | 4               | 6            | 5           | 6          | 6             | N/A         | N/A         | 5          | 7          | 6           | 5          | 5             | 7          |
 | IManageModifier             | 5               | 10           | 6           | 6          | 7             | N/A         | N/A         | 6          | 8          | 7           | 5          | 8             | 8          |
+
+---
+
+## Pylint Score per Class (out of 10)
+
+Score returned by `pylint` (all categories: errors, warnings, conventions, refactoring). The original Java code is not analysed by Pylint. **N/A** = class absent. The transpiler outputs Java-style Python (no PEP 8 compliance), which explains the systematic 0.00 scores.
+
+| Java Class                  | CoT/perClass | CoT/lenient | CoT/strict | CoT/riskFirst | ZS/negConst | ZS/onlyTask | ZS/persona | ZS/withCtx | OS/aSimHdlr | OS/concMod | OS/expPlanGen | Transpiler |
+|-----------------------------|:------------:|:-----------:|:----------:|:-------------:|:-----------:|:-----------:|:----------:|:----------:|:-----------:|:----------:|:-------------:|:----------:|
+| Environment                 | 6.98         | 5.56        | 7.25       | 6.51          | 6.82        | 5.00        | 6.22       | 6.80       | 7.35        | 6.60       | 6.38          | 0.00       |
+| Parameter                   | 6.50         | 6.47        | 6.84       | 6.47          | 6.47        | 6.47        | 6.25       | 7.27       | 6.00        | 5.62       | 6.67          | 0.00       |
+| ExperimentPlanGenerator     | 7.78         | 6.81        | 9.59       | 8.31          | 8.36        | 8.03        | 7.31       | 8.39       | 7.97        | 8.85       | 9.47          | 0.00       |
+| ExperimentResultHandler     | 7.67         | 7.67        | 8.40       | 7.74          | 7.08        | 7.04        | 5.48       | 7.74       | 7.86        | 7.42       | 8.67          | 0.00       |
+| Measure                     | 7.14         | 5.71        | 6.25       | 5.71          | 5.71        | 5.71        | 6.43       | 6.43       | 6.43        | 5.71       | 5.00          | 0.00       |
+| ExperimentSimulatorHandler  | 6.39         | 5.41        | 8.28       | 7.18          | 6.56        | 5.59        | 3.71       | 6.67       | 7.27        | 7.11       | 7.44          | 0.00       |
+| Options                     | 6.14         | 5.58        | 5.48       | 5.68          | 5.48        | 5.48        | 5.81       | 5.71       | 5.91        | 5.48       | 6.67          | 0.00       |
+| ConcreteModifier            | 5.33         | 4.84        | 9.44       | 8.29          | 8.72        | 6.77        | 3.87       | 8.46       | 9.39        | 8.06       | 8.93          | 0.00       |
+| AModifier                   | 7.31         | 5.33        | 5.33       | 6.00          | 5.33        | 5.33        | 6.00       | 6.00       | 6.96        | 5.62       | 5.62          | 0.00       |
+| Simulation                  | 0.00         | 0.00        | 8.18       | 5.33          | 8.00        | 0.00        | 0.00       | 8.00       | 8.18        | 7.50       | 5.83          | 0.00       |
+| MySimulator                 | 6.88         | 6.32        | 7.78       | 7.33          | 6.67        | 7.06        | 7.50       | 6.84       | 6.84        | 6.32       | 5.62          | 0.00       |
+| SimpleSimulationHandler     | 4.85         | 5.69        | 8.57       | 8.77          | 8.93        | 4.74        | 3.60       | 8.00       | 8.50        | 9.59       | 7.85          | 0.00       |
+| FileManagement              | 8.70         | 7.67        | 7.99       | 7.72          | 8.05        | 7.00        | 7.11       | 8.91       | 9.14        | 8.11       | 8.12          | 0.00       |
+| ASimulationSystemHandler    | 0.00         | 0.00        | 8.33       | 6.84          | 5.20        | 5.20        | 0.00       | 6.67       | 8.21        | 6.47       | 6.67          | 0.00       |
+| StartProgram                | 0.33         | 0.00        | 8.33       | 7.86          | 7.83        | 0.00        | 0.00       | 8.52       | 8.40        | 7.10       | 7.78          | 0.00       |
+| IExtractMeasures            | 0.00         | 2.00        | 0.00       | 4.00          | N/A         | N/A         | 4.00       | 4.00       | 6.00        | 0.00       | 3.33          | 0.00       |
+| IStopProgram                | 5.00         | 0.00        | 0.00       | 0.00          | N/A         | N/A         | 2.50       | 2.50       | 3.33        | 0.00       | 0.00          | 0.00       |
+| IManageParametersFile       | 1.00         | 4.29        | 3.33       | 5.00          | N/A         | N/A         | 5.56       | 4.29       | 7.14        | 3.33       | 2.50          | 0.00       |
+| IStartSimulation            | 5.00         | 0.00        | 0.00       | 0.00          | N/A         | N/A         | 2.50       | 2.50       | 3.33        | 0.00       | 0.00          | 0.00       |
+| IManageModifier             | 5.71         | 2.00        | 0.00       | 2.50          | N/A         | N/A         | 4.00       | 4.00       | 5.00        | 0.00       | 4.29          | 0.00       |
+
+---
+
+## Pyright Error Count per Class
+
+Number of type errors reported by `pyright` when analysing each file in isolation. Warnings and informational messages were 0 across all files and are omitted. The original Java code is not analysed by Pyright. **N/A** = class absent.
+
+| Java Class                  | CoT/perClass | CoT/lenient | CoT/strict | CoT/riskFirst | ZS/negConst | ZS/onlyTask | ZS/persona | ZS/withCtx | OS/aSimHdlr | OS/concMod | OS/expPlanGen | Transpiler |
+|-----------------------------|:------------:|:-----------:|:----------:|:-------------:|:-----------:|:-----------:|:----------:|:----------:|:-----------:|:----------:|:-------------:|:----------:|
+| Environment                 | 0            | 3           | 0          | 0             | 0           | 1           | 0          | 3          | 1           | 1          | 1             | 19         |
+| Parameter                   | 0            | 0           | 0          | 1             | 2           | 0           | 0          | 0          | 0           | 0          | 1             | 4          |
+| ExperimentPlanGenerator     | 6            | 1           | 0          | 4             | 0           | 1           | 3          | 0          | 6           | 3          | 1             | 45         |
+| ExperimentResultHandler     | 2            | 0           | 0          | 1             | 0           | 0           | 1          | 0          | 1           | 0          | 0             | 18         |
+| Measure                     | 0            | 0           | 0          | 0             | 0           | 0           | 0          | 0          | 0           | 0          | 0             | 0          |
+| ExperimentSimulatorHandler  | 9            | 0           | 0          | 4             | 0           | 1           | 3          | 0          | 1           | 0          | 1             | 22         |
+| Options                     | 0            | 6           | 0          | 0             | 0           | 0           | 0          | 5          | 0           | 1          | 0             | 2          |
+| ConcreteModifier            | 0            | 1           | 0          | 0             | 0           | 1           | 0          | 2          | 0           | 0          | 12            | 14         |
+| AModifier                   | 0            | 0           | 0          | 0             | 0           | 0           | 0          | 0          | 0           | 0          | 0             | 6          |
+| Simulation                  | 2            | 0           | 0          | 0             | 2           | 3           | 1          | 0          | 1           | 0          | 1             | 13         |
+| MySimulator                 | 0            | 0           | 0          | 0             | 0           | 0           | 0          | 0          | 0           | 0          | 0             | 15         |
+| SimpleSimulationHandler     | 3            | 2           | 1          | 7             | 4           | 3           | 2          | 3          | 6           | 2          | 3             | 67         |
+| FileManagement              | 13           | 7           | 11         | 8             | 9           | 9           | 10         | 7          | 7           | 0          | 0             | 106        |
+| ASimulationSystemHandler    | 0            | 0           | 0          | 0             | 0           | 0           | 0          | 0          | 0           | 0          | 0             | 12         |
+| StartProgram                | 3            | 0           | 0          | 1             | 1           | 4           | 2          | 0          | 3           | 2          | 0             | 22         |
+| IExtractMeasures            | 0            | 0           | 0          | 0             | N/A         | N/A         | 0          | 0          | 0           | 0          | 0             | 4          |
+| IStopProgram                | 0            | 0           | 0          | 0             | N/A         | N/A         | 0          | 0          | 0           | 0          | 0             | 2          |
+| IManageParametersFile       | 0            | 0           | 0          | 0             | N/A         | N/A         | 0          | 0          | 0           | 0          | 0             | 10         |
+| IStartSimulation            | 0            | 0           | 0          | 0             | N/A         | N/A         | 0          | 0          | 0           | 0          | 0             | 2          |
+| IManageModifier             | 0            | 0           | 0          | 0             | N/A         | N/A         | 0          | 0          | 0           | 0          | 0             | 3          |
