@@ -1,0 +1,6 @@
+# No third-party packages are required for the core migration.
+# The Java project used Log4j2 for logging; Python's built-in logging module is used instead.
+# The Java project used java.util.Properties; replaced by manual key=value parsing.
+# The Java project used java.util.concurrent (BlockingQueue); replaced by queue.Queue / queue.PriorityQueue.
+# The Java project used java.nio.file for file I/O; replaced by pathlib and shutil.
+# All standard library — no pip installs needed.
