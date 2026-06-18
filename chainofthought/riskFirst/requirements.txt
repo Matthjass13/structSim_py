@@ -1,0 +1,9 @@
+# structuredsim Python migration — runtime dependencies
+# The framework uses only Python standard library modules; no third-party packages are required.
+# Listed below for completeness and future extensibility.
+
+# Testing
+pytest>=7.0
+
+# Optional: structured logging (stdlib logging is used by default)
+# No log4j equivalent needed; Python's logging module covers all use cases.
