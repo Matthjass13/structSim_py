@@ -69,6 +69,16 @@
 | ══════════════════════════════ | ══  | ══════════ | ══  | ══════════ | ══  | ════════════ | ════════════ | ══════════ | ══════════ | ══  | ════════════ | ══════════ | ════════════  | ══  | ════════════ | ════════════ | ══════════ | ════════════  |
 | \***\*Σ\*\***                  |  ║  | 1000       |  ║  | 888        |  ║  | 585          | 562          | 634        | 737        |  ║  | 794          | 700        | 651           |  ║  | 739          | 625          | 706        | 669           |
 
+### Analysis
+
+**General pattern — Python is shorter than Java across all LLM migrations** — The total SLOC drops from 1000 (Java) to 562–794 (LLM migrations), a 20–45 % reduction. The main drivers are: no type declarations on every line, no explicit getter/setter pairs (replaced by direct attribute access), and no boilerplate Java scaffolding (imports of `java.util.*`, `java.io.*`, etc.). The transpiler (888) stays closest to Java because it is a line-by-line translation.
+
+**`ASimulationSystemHandler` — ZS/negConst=31, ZS/onlyTask=31, OS/aSimHdlr=40, CoT/strict=42 (vs. Java=22)** — All four are above Java. ZS/negConst and ZS/onlyTask inflate because they re-declared 11 methods (including all inherited abstract stubs), adding ~9 extra `def` lines each. OS/aSimHdlr goes further (40 SLOC) because it also adds `@property` decorators, type hints, and private backing attributes (`_options`, `_list_modifier_class`), doubling the accessor code.
+
+**Transpiler interfaces slightly above Java (e.g. IStopProgram Java=4, Transpiler=7)** — The transpiler outputs a `__metaclass__ = ABCMeta` line (Python 2 style), adds an `@abstractmethod` decorator block, and occasionally copies across Java comment stubs that did not exist in the original source SLOC count. This adds 2–3 lines per interface above the Java figure.
+
+**`OS/expPlanGen` very low: Parameter=10 (Java=29), Measure=6 (Java=25), Options=12 (Java=62)** — The one-shot example that was in the prompt focused on `ExperimentPlanGenerator`. The model generalised an extremely minimalist style to the remaining classes: it dropped all getters and setters and kept only `__init__` (and `__str__` for Parameter). Options goes from 62 SLOC (Java, with 8 getters + 8 setters + constructor) to 12 SLOC (Python, `__init__` only, 8 attribute assignments).
+
 ---
 
 ## Pylint Score (out of 10)
@@ -103,6 +113,22 @@ Score from `pylint` (errors, warnings, conventions, refactoring). No Java origin
 | 🔴 FileManagement              |  ║  | 0.00       |  ║  | 8.05         | 7.00         | 7.11       | 8.91       |  ║  | 9.14         | 8.11       | 8.12          |  ║  | 8.70         | 7.67         | 7.99       | 7.72          |
 | ══════════════════════════════ | ══  | ══════════ | ══  | ════════════ | ════════════ | ══════════ | ══════════ | ══  | ════════════ | ══════════ | ════════════  | ══  | ════════════ | ════════════ | ══════════ | ════════════  |
 | \***\*avg\*\***                |  ║  | 0.00       |  ║  | 7.01         | 5.29         | 4.39       | 6.39       |  ║  | 6.96         | 5.44       | 5.84          |  ║  | 4.94         | 4.07         | 5.97       | 5.86          |
+
+### Analysis
+
+**Transpiler = 0.00 by construction** — The transpiler outputs Java naming conventions (PascalCase methods, no docstrings, `camelCase` variables) which trigger hundreds of convention and warning messages. For most files the score turns negative under Pylint's formula (capped at 0). This is an expected and documented artefact.
+
+**Pylint=0.00 in non-transpiler files: two distinct causes**
+
+1. *Unresolvable imports (dominant cause for most 0.00 scores)* — Pylint was run on each file in isolation without adjusting `PYTHONPATH`. Files that use package-relative imports such as `from gluecode.concrete_modifier import ConcreteModifier` or `from noStrategy.experimenthandling.environment import Environment` (e.g. `ZS/onlyTask/start_program.py` which sits at the repository root and imports via a `noStrategy.*` namespace) trigger `E0401` import-error. A single `E0401` is an error-category message and heavily penalises the formula `10 − (5·E + W + R + C) / statements`. For files with few statements, this drives the score to 0. This explains the 0.00 for `Simulation` (CoT/perClass), `StartProgram` (ZS/onlyTask, ZS/persona, CoT/lenient, CoT/perClass), and `ASimulationSystemHandler` (ZS/persona, CoT/perClass, CoT/lenient).
+
+2. *Too few statements in small interface files* — `IStopProgram`, `IStartSimulation`, `IExtractMeasures`, and `IManageModifier` are 6–7 SLOC with a single `@abstractmethod`. Pylint flags missing module docstring (C0114), missing class docstring (C0115), and missing method docstring (C0116) — 3 convention messages for a file with ≈3 statements. The penalty formula yields 0 or below. This explains the scattered 0.00 and near-0 scores in the interfaces block.
+
+**`ZS/persona` is the lowest-scoring LLM strategy (avg 4.39)** — The persona prompt produced files without docstrings in many classes (triggering C0114/C0115/C0116 across large files), used non-idiomatic names (still sometimes camelCase), and for `ExperimentSimulatorHandler` generated a 3.71 score due to several missing type annotations and a deeply nested `run` method flagged for refactoring.
+
+**`OS/expPlanGen` peaks for `ExperimentPlanGenerator` (9.47) and `CoT/strict` peaks for the same class (9.59)** — Both migrations produced well-structured, fully documented, PEP-8 compliant code for `ExperimentPlanGenerator`, the class used as the one-shot example. This is the highest individual Pylint score in the table and shows that the one-shot example class received particular care.
+
+**`Options` is consistently the lowest-scoring experimenthandling class (5.48–6.67)** — Options has 17 methods (8 getters + 8 setters). Pylint penalises each missing docstring individually, and with 17 methods the absolute penalty is high even if relative quality is moderate.
 
 ---
 
@@ -139,6 +165,20 @@ Type errors from `pyright` per file in isolation. Warnings and info were 0 acros
 | ══════════════════════════════ | ══  | ══════════ | ══  | ════════════ | ════════════ | ══════════ | ══════════ | ══  | ════════════ | ══════════ | ════════════  | ══  | ════════════ | ════════════ | ══════════ | ════════════  |
 | \***\*Σ\*\***                  |  ║  | 386        |  ║  | 18           | 23           | 22         | 20         |  ║  | 26           | 9          | 20            |  ║  | 38           | 20           | 12         | 26            |
 
+### Analysis
+
+**Transpiler total=386 — one order of magnitude worse than any LLM migration** — The transpiler output is syntactically invalid Python in several files (Java `import` statements left verbatim, Java-style casts, raw `instanceof` keywords). Pyright cannot resolve any type in such files and reports a type error for every expression. `FileManagement` alone accounts for 106 of the 386 errors. The remaining high-error transpiler files (`ExperimentPlanGenerator`=45, `SimpleSimulationHandler`=67) contain the same class of structural defect.
+
+**`Measure` = 0 errors across all migrations** — `Measure` is a simple data class: two attributes (`name: str`, `value: float`) and four accessors with no complex type interactions. There is nothing for Pyright to flag — no generics, no optional chaining, no polymorphism.
+
+**`AModifier`, `ASimulationSystemHandler`, `MySimulator` = 0 across all LLM migrations** — These abstract and thin classes have trivial signatures. `AModifier` declares `modify(env: Environment) → Environment`; `ASimulationSystemHandler` stores `options` and `list_modifier_class` with loose types; `MySimulator.run()` works with plain `dict` and `str`. None of these create type ambiguity.
+
+**`ConcreteModifier` OS/expPlanGen = 12 errors** — This is the highest error count for any LLM migration cell. The file uses a `match/case` statement (Python 3.10+ syntax) for operator dispatch. Pyright defaults to checking against the project's minimum supported Python version; if that is set below 3.10, every `case` branch is flagged as a syntax/type error. No other migration uses `match/case` for this class.
+
+**`CoT/perClass` total=38 — highest among LLM migrations** — The chain-of-thought per-class strategy produced more complex implementations with richer type interactions (generics, `Optional`, cross-class calls), which increases the surface area for Pyright to find mismatches. `ExperimentSimulatorHandler` (9) and `ExperimentPlanGenerator` (6) are the main contributors.
+
+**`OS/concMod` total=9 — lowest among LLM migrations** — The concrete-modifier one-shot example favoured simple, well-typed code. The only errors come from `SimpleSimulationHandler` (2) and a handful of minor annotation gaps. No class in this migration uses advanced typing constructs that could introduce errors.
+
 ---
 
 ## Cyclomatic Complexity (Radon-equivalent)
@@ -173,3 +213,17 @@ Total CC of all functions per file: CC = Σ (1 + decision points). Computed via 
 | 🔴 FileManagement              |  ║  | 46         |  ║  | N/A        |  ║  | 38           | 40           | 47         | 53         |  ║  | 55           | 57         | 47            |  ║  | 44           | 44           | 62         | 44            |
 | ══════════════════════════════ | ══  | ══════════ | ══  | ══════════ | ══  | ════════════ | ════════════ | ══════════ | ══════════ | ══  | ════════════ | ══════════ | ════════════  | ══  | ════════════ | ════════════ | ══════════ | ════════════  |
 | \***\*Σ\*\***                  |  ║  | 159        |  ║  | 113        |  ║  | 179          | 179          | 185        | 204        |  ║  | 209          | 202        | 149           |  ║  | 195          | 184          | 221        | 190           |
+
+### Analysis
+
+**LLM migrations are universally more complex than Java (total 179–221 vs. 159)** — The transpiler is the only migration *below* Java (113), because it contains syntax errors that prevent AST parsing for three files (`MySimulator`, `SimpleSimulationHandler`, `FileManagement` → all N/A), drastically reducing its countable total.
+
+**`Options` OS/expPlanGen = 1 (vs. Java=16, all others=17)** — Options has 17 getters and setters in Java; each trivial `return field` contributes CC=1, summing to 17. The OS/expPlanGen version collapses Options to a single `__init__` method → CC=1. This is the starkest CC outlier in the table and is a direct consequence of eliminating accessor methods.
+
+**`AModifier` and `ASimulationSystemHandler` — same migrations inflated in CC as in methods** — OS/aSimHdlr and CoT/perClass show CC=10 for `AModifier` (vs. Java=4), and ZS/negConst/ZS/onlyTask/CoT/strict show CC=11 for `ASimulationSystemHandler` (vs. Java=4). This is mechanically explained by the extra abstract method stubs discussed in the Methods analysis: each additional `def` with a single `pass` body still contributes CC=1, so 6–7 extra stubs translate directly to +6/+7 CC.
+
+**`MySimulator` — Java=3 vs. Python=5–6** — The Java version has one `while` loop and one `try/catch` → CC=3. Python migrations rewrite file I/O using `with open(...) as f: for line in f:` — the `for` loop is +1, and many migrations also add an explicit `if "val1" in params and "val2" in params:` guard before the multiplication to avoid a `KeyError`, which adds another +1 or +2. The result is CC=5–6 despite semantically equivalent logic.
+
+**`SimpleSimulationHandler` and `FileManagement` — Python consistently higher than Java** — Both Java classes use checked exceptions (try/catch blocks counted once) and compact loops. Python rewrites use `isinstance` checks (each +1), multiple `except` clauses (each +1), and explicit `if path: / if not path:` null-guard patterns that Java handles via type safety. `FileManagement` is the most complex class overall; CoT/strict reaches CC=62 (vs. Java=46) because it adds more fine-grained error-path branches (e.g. separate `except OSError`, `except ValueError`, `except IOError` blocks where Java had a single `catch (Exception e)`).
+
+**`OS/expPlanGen` total=149 — lowest LLM migration** — The minimalist style (no getters/setters for Options, Parameter, Measure) removes dozens of trivial CC=1 functions. The total CC is structurally lower, not because the logic is simpler, but because large parts of the API surface were omitted.
