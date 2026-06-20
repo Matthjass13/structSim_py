@@ -4,13 +4,13 @@ import sys
 
 folders = [
     # "transpiler",
-    # "zeroShot/onlyTask",
+    "zeroShot/onlyTask",
     # "zeroShot/persona",
     # "zeroShot/withContext",
     # "zeroShot/negativeConstraint",
     # "chainOfThought/perClass",
-    # "oneShot/aSimulationSystemHandler",
-    "oneShot/concreteModifier",
+    # "oneShot/aSimulationSystemHandler", #44
+    # "oneShot/concreteModifier",
     # "oneShot/experimentPlanGenerator",
     # "chainOfThought/lenient",
     # "chainOfThought/strict",

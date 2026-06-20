@@ -1,6 +1,6 @@
-from noStrategy.gluecode.concrete_modifier import ConcreteModifier
-from noStrategy.gluecode.simple_simulation_handler import SimpleSimulationHandler
-from noStrategy.start_program import StartProgram
+from gluecode.concrete_modifier import ConcreteModifier
+from gluecode.simple_simulation_handler import SimpleSimulationHandler
+from start_program import StartProgram
 
 
 class Simulation(StartProgram):

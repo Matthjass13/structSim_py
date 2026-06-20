@@ -1,7 +1,7 @@
 import os
-from noStrategy.experimenthandling.measure import Measure
-from noStrategy.experimenthandling.parameter import Parameter
-from noStrategy.interfaces.a_simulation_system_handler import ASimulationSystemHandler
+from experimenthandling.measure import Measure
+from experimenthandling.parameter import Parameter
+from interfaces.a_simulation_system_handler import ASimulationSystemHandler
 
 
 class SimpleSimulationHandler(ASimulationSystemHandler):

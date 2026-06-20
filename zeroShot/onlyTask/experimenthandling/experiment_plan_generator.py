@@ -1,6 +1,6 @@
 import logging
 import time
-from noStrategy.experimenthandling.environment import Environment
+from experimenthandling.environment import Environment
 
 logger = logging.getLogger(__name__)
 

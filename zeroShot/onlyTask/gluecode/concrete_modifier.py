@@ -1,5 +1,5 @@
 import logging
-from noStrategy.interfaces.a_modifier import AModifier
+from interfaces.a_modifier import AModifier
 
 logger = logging.getLogger(__name__)
 

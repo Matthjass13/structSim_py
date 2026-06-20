@@ -1,10 +1,10 @@
 import queue
 import threading
 
-from noStrategy.experimenthandling.environment import Environment
-from noStrategy.experimenthandling.experiment_plan_generator import ExperimentPlanGenerator
-from noStrategy.experimenthandling.experiment_simulator_handler import ExperimentSimulatorHandler
-from noStrategy.util.file_management import FileManagement
+from experimenthandling.environment import Environment
+from experimenthandling.experiment_plan_generator import ExperimentPlanGenerator
+from experimenthandling.experiment_simulator_handler import ExperimentSimulatorHandler
+from util.file_management import FileManagement
 
 
 class StartProgram:

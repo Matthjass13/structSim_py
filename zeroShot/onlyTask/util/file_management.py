@@ -2,7 +2,7 @@ import logging
 import os
 import shutil
 
-from noStrategy.experimenthandling.options import Options
+from experimenthandling.options import Options
 
 logger = logging.getLogger(__name__)
 

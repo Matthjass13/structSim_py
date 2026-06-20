@@ -1,4 +1,4 @@
-from noStrategy.experimenthandling.parameter import Parameter
+from experimenthandling.parameter import Parameter
 
 
 class Environment:

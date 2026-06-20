@@ -1,6 +1,6 @@
 import logging
 import threading
-from noStrategy.experimenthandling.experiment_result_handler import ExperimentResultHandler
+from experimenthandling.experiment_result_handler import ExperimentResultHandler
 
 logger = logging.getLogger(__name__)
 
