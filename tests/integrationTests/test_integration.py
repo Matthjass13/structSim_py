@@ -13,6 +13,13 @@ from gluecode.simulation import Simulation
 from interfaces.a_modifier import AModifier
 
 
+_TESTS_DIR = os.path.dirname(os.path.abspath(__file__))
+_PROJECT_ROOT = os.path.dirname(os.path.dirname(_TESTS_DIR))
+_PATH_PARAMETERS = os.path.join(
+    _PROJECT_ROOT, "oneShot", "aSimulationSystemHandler", "resources", "parameters.txt"
+).replace("\\", "/")
+
+
 class TestIntegration:
 
     pathOUT = tempfile.gettempdir().replace("\\", "/") + "/structsim-results"
@@ -21,15 +28,15 @@ class TestIntegration:
     def _return_modifiers_from_scenario(self, scenario):
         modifiers = []
         if scenario == 1:
-            modifiers.append(ConcreteModifier(0.5))
+            modifiers.append(ConcreteModifier.from_delta(0.5))
         elif scenario == 2:
-            modifiers.append(ConcreteModifier(0.2))
-            modifiers.append(ConcreteModifier(0.5))
+            modifiers.append(ConcreteModifier.from_delta(0.2))
+            modifiers.append(ConcreteModifier.from_delta(0.5))
         elif scenario == 4:
-            modifiers.append(ConcreteModifier(0.1))
-            modifiers.append(ConcreteModifier(0.8))
-            modifiers.append(ConcreteModifier(0.5))
-            modifiers.append(ConcreteModifier(0.2))
+            modifiers.append(ConcreteModifier.from_delta(0.1))
+            modifiers.append(ConcreteModifier.from_delta(0.8))
+            modifiers.append(ConcreteModifier.from_delta(0.5))
+            modifiers.append(ConcreteModifier.from_delta(0.2))
         return modifiers
 
     def _return_expected_lines_from_scenario(self, scenario):
@@ -89,15 +96,7 @@ class TestIntegration:
     def _clean_output_directory(self):
         results_path = Path(self.pathOUT)
         if results_path.exists():
-            for p in sorted(results_path.rglob('*'), reverse=True):
-                if p != results_path:
-                    try:
-                        if p.is_file():
-                            p.unlink()
-                        elif p.is_dir():
-                            p.rmdir()
-                    except OSError:
-                        pass
+            shutil.rmtree(str(results_path), ignore_errors=True)
 
     def _run_and_assert_summary_file(
             self,
@@ -116,7 +115,7 @@ class TestIntegration:
 
         config_content = (
             f"pathOUT = {self.pathOUT}\n"
-            f"pathParameters = parameters.txt\n"
+            f"pathParameters = {_PATH_PARAMETERS}\n"
             f"pathSimulator = {self.pathSIM}\n"
             f"pathToSimulatorResultFile = {self.pathSIM}/results/results.txt\n"
             f"cuttOfPlanning = {cuttof_planning}\n"
@@ -266,7 +265,7 @@ class TestIntegration:
 
         config_content = (
             f"pathOUT = {self.pathOUT}\n"
-            f"pathParameters = parameters.txt\n"
+            f"pathParameters = {_PATH_PARAMETERS}\n"
             f"pathSimulator = {self.pathSIM}\n"
             f"pathToSimulatorResultFile = {self.pathSIM}/results/results.txt\n"
             f"cuttOfPlanning = {cuttof_planning}\n"
