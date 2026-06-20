@@ -13,6 +13,11 @@ from gluecode.simulation import Simulation
 from interfaces.a_modifier import AModifier
 
 
+_PATH_PARAMETERS = os.path.join(
+    os.environ["STRUCTSIM_PROJECT_DIR"], "resources", "parameters.txt"
+).replace("\\", "/")
+
+
 class TestIntegration:
 
     pathOUT = tempfile.gettempdir().replace("\\", "/") + "/structsim-results"
@@ -89,15 +94,7 @@ class TestIntegration:
     def _clean_output_directory(self):
         results_path = Path(self.pathOUT)
         if results_path.exists():
-            for p in sorted(results_path.rglob('*'), reverse=True):
-                if p != results_path:
-                    try:
-                        if p.is_file():
-                            p.unlink()
-                        elif p.is_dir():
-                            p.rmdir()
-                    except OSError:
-                        pass
+            shutil.rmtree(str(results_path), ignore_errors=True)
 
     def _run_and_assert_summary_file(
             self,
@@ -116,7 +113,7 @@ class TestIntegration:
 
         config_content = (
             f"pathOUT = {self.pathOUT}\n"
-            f"pathParameters = parameters.txt\n"
+            f"pathParameters = {_PATH_PARAMETERS}\n"
             f"pathSimulator = {self.pathSIM}\n"
             f"pathToSimulatorResultFile = {self.pathSIM}/results/results.txt\n"
             f"cuttOfPlanning = {cuttof_planning}\n"
@@ -266,7 +263,7 @@ class TestIntegration:
 
         config_content = (
             f"pathOUT = {self.pathOUT}\n"
-            f"pathParameters = parameters.txt\n"
+            f"pathParameters = {_PATH_PARAMETERS}\n"
             f"pathSimulator = {self.pathSIM}\n"
             f"pathToSimulatorResultFile = {self.pathSIM}/results/results.txt\n"
             f"cuttOfPlanning = {cuttof_planning}\n"
