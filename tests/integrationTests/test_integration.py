@@ -26,15 +26,15 @@ class TestIntegration:
     def _return_modifiers_from_scenario(self, scenario):
         modifiers = []
         if scenario == 1:
-            modifiers.append(ConcreteModifier.from_delta(0.5))
+            modifiers.append(ConcreteModifier(0.5))
         elif scenario == 2:
-            modifiers.append(ConcreteModifier.from_delta(0.2))
-            modifiers.append(ConcreteModifier.from_delta(0.5))
+            modifiers.append(ConcreteModifier(0.2))
+            modifiers.append(ConcreteModifier(0.5))
         elif scenario == 4:
-            modifiers.append(ConcreteModifier.from_delta(0.1))
-            modifiers.append(ConcreteModifier.from_delta(0.8))
-            modifiers.append(ConcreteModifier.from_delta(0.5))
-            modifiers.append(ConcreteModifier.from_delta(0.2))
+            modifiers.append(ConcreteModifier(0.1))
+            modifiers.append(ConcreteModifier(0.8))
+            modifiers.append(ConcreteModifier(0.5))
+            modifiers.append(ConcreteModifier(0.2))
         return modifiers
 
     def _return_expected_lines_from_scenario(self, scenario):
