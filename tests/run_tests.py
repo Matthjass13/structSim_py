@@ -3,7 +3,7 @@ import subprocess
 import sys
 
 folders = [
-    "zeroShot/persona",
+    "oneShot/aSimulationSystemHandler",
 ]
 
 tests_dir = os.path.dirname(os.path.abspath(__file__))
