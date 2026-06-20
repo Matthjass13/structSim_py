@@ -18,6 +18,7 @@ for folder in folders:
 
     env = os.environ.copy()
     env["PYTHONPATH"] = folder_path
+    env["STRUCTSIM_PROJECT_DIR"] = folder_path
 
     result = subprocess.run(
         [sys.executable, "-m", "pytest", tests_dir, "-v"],

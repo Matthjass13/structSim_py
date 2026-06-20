@@ -13,10 +13,8 @@ from gluecode.simulation import Simulation
 from interfaces.a_modifier import AModifier
 
 
-_TESTS_DIR = os.path.dirname(os.path.abspath(__file__))
-_PROJECT_ROOT = os.path.dirname(os.path.dirname(_TESTS_DIR))
 _PATH_PARAMETERS = os.path.join(
-    _PROJECT_ROOT, "oneShot", "aSimulationSystemHandler", "resources", "parameters.txt"
+    os.environ["STRUCTSIM_PROJECT_DIR"], "resources", "parameters.txt"
 ).replace("\\", "/")
 
 
