@@ -3,8 +3,21 @@ import subprocess
 import sys
 
 folders = [
-    "oneShot/aSimulationSystemHandler",
+    # "transpiler",
+    # "zeroShot/onlyTask",
+    # "zeroShot/persona",
+    # "zeroShot/withContext",
+    # "zeroShot/negativeConstraint",
+    # "chainOfThought/perClass",
+    # "oneShot/aSimulationSystemHandler", # 31/44
+    "oneShot/concreteModifier",
+    # "oneShot/experimentPlanGenerator",
+    # "chainOfThought/lenient",
+    # "chainOfThought/strict",
+    # "chainOfThought/riskFirst/structuredsim"
+    # "chainOfThought/perClass",
 ]
+
 
 tests_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(tests_dir)
