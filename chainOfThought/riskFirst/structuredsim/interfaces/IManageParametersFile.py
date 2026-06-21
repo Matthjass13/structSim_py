@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import IO, List, Union
-from experimenthandling.Parameter import Parameter
+from experimenthandling.parameter import Parameter
 
 
 class IManageParametersFile(ABC):

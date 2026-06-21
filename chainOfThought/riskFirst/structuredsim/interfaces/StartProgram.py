@@ -4,11 +4,11 @@ import threading
 from io import IOBase
 from typing import IO, Union
 
-from experimenthandling.Environment import Environment
+from experimenthandling.environment import Environment
 from experimenthandling.ExperimentPlanGenerator import ExperimentPlanGenerator
 from experimenthandling.ExperimentSimulatorHandler import ExperimentSimulatorHandler
-from interfaces.ASimulationSystemHandler import ASimulationSystemHandler
-from util.FileManagement import FileManagement
+from interfaces.a_simulation_system_handler import ASimulationSystemHandler
+from util.file_management import FileManagement
 
 
 class StartProgram:

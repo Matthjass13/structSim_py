@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from experimenthandling.Environment import Environment
+from experimenthandling.environment import Environment
 
 
 class AModifier(ABC):

@@ -2,9 +2,9 @@ import logging
 import queue
 import threading
 
-from experimenthandling.Environment import Environment
-from experimenthandling.ExperimentResultHandler import ExperimentResultHandler
-from experimenthandling.Options import Options
+from experimenthandling.environment import Environment
+from experimenthandling.experiment_result_handler import ExperimentResultHandler
+from experimenthandling.options import Options
 
 logger = logging.getLogger(__name__)
 

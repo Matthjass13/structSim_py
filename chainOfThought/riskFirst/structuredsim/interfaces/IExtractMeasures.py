@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import List
-from experimenthandling.Measure import Measure
+from experimenthandling.measure import Measure
 
 
 class IExtractMeasures(ABC):

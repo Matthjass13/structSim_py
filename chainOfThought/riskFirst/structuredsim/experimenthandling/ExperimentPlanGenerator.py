@@ -4,8 +4,8 @@ import time
 from datetime import datetime
 from typing import List
 
-from experimenthandling.Environment import Environment
-from experimenthandling.Options import Options
+from experimenthandling.environment import Environment
+from experimenthandling.options import Options
 
 logger = logging.getLogger(__name__)
 
