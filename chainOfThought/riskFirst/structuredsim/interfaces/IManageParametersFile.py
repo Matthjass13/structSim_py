@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import IO, List, Union
-from structuredsim.experimenthandling.Parameter import Parameter
+from experimenthandling.Parameter import Parameter
 
 
 class IManageParametersFile(ABC):

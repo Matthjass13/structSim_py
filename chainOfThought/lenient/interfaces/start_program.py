@@ -38,3 +38,6 @@ class StartProgram:
             simulator = ExperimentSimulatorHandler(planning_queue, result_queue, options, glue_code, fm, planning)
             simulation_thread = threading.Thread(target=simulator.run, name="Simulation Thread")
             simulation_thread.start()
+
+            planning_thread.join()
+            simulation_thread.join()

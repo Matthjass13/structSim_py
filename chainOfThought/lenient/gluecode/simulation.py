@@ -9,6 +9,10 @@ from gluecode.simple_simulation_handler import SimpleSimulationHandler
 from interfaces.start_program import StartProgram
 
 
+class Simulation(StartProgram):
+    pass
+
+
 def main():
     config_file = os.path.join(os.path.dirname(__file__), "..", "config.properties")
 

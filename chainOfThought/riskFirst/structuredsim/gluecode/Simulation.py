@@ -1,9 +1,9 @@
 from typing import IO, List, Union
 
-from structuredsim.gluecode.ConcreteModifier import ConcreteModifier
-from structuredsim.gluecode.SimpleSimulationHandler import SimpleSimulationHandler
-from structuredsim.interfaces.AModifier import AModifier
-from structuredsim.interfaces.StartProgram import StartProgram
+from gluecode.ConcreteModifier import ConcreteModifier
+from gluecode.SimpleSimulationHandler import SimpleSimulationHandler
+from interfaces.AModifier import AModifier
+from interfaces.StartProgram import StartProgram
 
 
 class Simulation(StartProgram):

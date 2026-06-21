@@ -25,8 +25,7 @@ class StartProgram:
         glue_code.set_options(options)
 
         # Load base parameters
-        with open(options.get_path_parameters(), "r", encoding="utf-8") as fh:
-            params = glue_code.read_parameters_file_from_stream(fh)
+        params = glue_code.read_parameters_file(options.get_path_parameters())
 
         base_env = Environment(0, params, 1.0)
 
@@ -45,3 +44,6 @@ class StartProgram:
             simulator = ExperimentSimulatorHandler(env_queue, result_queue, options, glue_code, fm, planning)
             simulation_thread = threading.Thread(target=simulator.run, name="Simulation Thread")
             simulation_thread.start()
+
+            planning_thread.join()
+            simulation_thread.join()

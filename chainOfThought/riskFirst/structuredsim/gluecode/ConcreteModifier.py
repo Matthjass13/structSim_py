@@ -1,9 +1,9 @@
 import logging
 from typing import List, Optional
 
-from structuredsim.experimenthandling.Environment import Environment
-from structuredsim.experimenthandling.Parameter import Parameter
-from structuredsim.interfaces.AModifier import AModifier
+from experimenthandling.Environment import Environment
+from experimenthandling.Parameter import Parameter
+from interfaces.AModifier import AModifier
 
 logger = logging.getLogger(__name__)
 

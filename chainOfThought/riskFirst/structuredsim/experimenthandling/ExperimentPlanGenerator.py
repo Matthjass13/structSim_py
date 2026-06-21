@@ -4,8 +4,8 @@ import time
 from datetime import datetime
 from typing import List
 
-from structuredsim.experimenthandling.Environment import Environment
-from structuredsim.experimenthandling.Options import Options
+from experimenthandling.Environment import Environment
+from experimenthandling.Options import Options
 
 logger = logging.getLogger(__name__)
 

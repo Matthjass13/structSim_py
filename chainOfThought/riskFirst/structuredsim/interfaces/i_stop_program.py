@@ -1,0 +1,1 @@
+from interfaces.IStopProgram import IStopProgram

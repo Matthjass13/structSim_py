@@ -1,11 +1,11 @@
 from typing import List, Optional
 
-from structuredsim.interfaces.IExtractMeasures import IExtractMeasures
-from structuredsim.interfaces.IManageModifier import IManageModifier
-from structuredsim.interfaces.IManageParametersFile import IManageParametersFile
-from structuredsim.interfaces.IStartSimulation import IStartSimulation
-from structuredsim.interfaces.IStopProgram import IStopProgram
-from structuredsim.experimenthandling.Options import Options
+from interfaces.IExtractMeasures import IExtractMeasures
+from interfaces.IManageModifier import IManageModifier
+from interfaces.IManageParametersFile import IManageParametersFile
+from interfaces.IStartSimulation import IStartSimulation
+from interfaces.IStopProgram import IStopProgram
+from experimenthandling.Options import Options
 
 
 class ASimulationSystemHandler(

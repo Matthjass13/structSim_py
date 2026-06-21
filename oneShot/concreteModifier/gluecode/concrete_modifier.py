@@ -9,6 +9,12 @@ class ConcreteModifier(AModifier):
 
     def __init__(self, key_to_change: str = "", operator: str = "",
                  delta: float = 0.0, probability: float = 0.0):
+        if isinstance(key_to_change, (int, float)) and operator == "" and delta == 0.0:
+            d = float(key_to_change)
+            key_to_change = "val1"
+            operator = "*"
+            delta = d
+            probability = d
         super().__init__(probability, operator + str(delta))
         self.key_to_change = key_to_change
         self.operator = operator

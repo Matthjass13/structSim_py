@@ -46,3 +46,6 @@ class StartProgram:
             )
             simulator.name = "Simulation Thread"
             simulator.start()
+
+            planning.join()
+            simulator.join()

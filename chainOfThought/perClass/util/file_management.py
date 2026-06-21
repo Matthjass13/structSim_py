@@ -102,16 +102,16 @@ class FileManagement:
         """Populate an Options object from a parsed properties dict."""
         o = Options()
         o.set_path_parameters(props.get("pathParameters", ""))
-        o.set_folder_path_out(props.get("folderPathOUT", ""))
+        o.set_folder_path_out(props.get("pathOUT", props.get("folderPathOUT", "")))
         o.set_path_simulator(props.get("pathSimulator", ""))
         o.set_path_to_simulator_result_file(props.get("pathToSimulatorResultFile", ""))
-        type_cutoff = props.get("typeOfCuttOfPlanning", "INT")
+        type_cutoff = props.get("typeCuttOfPlanning", props.get("typeOfCuttOfPlanning", "INT"))
         o.set_type_of_cutt_of_planning(type_cutoff)
 
         if type_cutoff == "INT":
             o.set_cutt_of_planning(int(props.get("cuttOfPlanning", "1")))
         elif type_cutoff == "CRITERIA":
-            o.set_stop_criteria(float(props.get("stopCriteria", "0.0")))
+            o.set_stop_criteria(float(props.get("cuttOfPlanning", props.get("stopCriteria", "0.0"))))
         elif type_cutoff in ("DAY", "HOURS", "MINUTES"):
             amount = int(props.get("cuttOfPlanning", "1"))
             now = datetime.now()

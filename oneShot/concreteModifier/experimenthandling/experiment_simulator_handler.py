@@ -29,7 +29,12 @@ class ExperimentSimulatorHandler:
         while True:
             try:
                 logger.debug(f"Size of the Simulation Queue : {self.environment_queue.qsize()}")
-                env: Environment = self.environment_queue.get()
+                try:
+                    env: Environment = self.environment_queue.get(timeout=0.5)
+                except queue.Empty:
+                    if self.plan.is_finish:
+                        break
+                    continue
 
                 self.glue_code.start_simulation(self.options.get_path_parameters())
 
@@ -65,3 +70,4 @@ class ExperimentSimulatorHandler:
                 logger.error("Error in the run of the Thread Simulator")
 
         result_thread.start()
+        result_thread.join()

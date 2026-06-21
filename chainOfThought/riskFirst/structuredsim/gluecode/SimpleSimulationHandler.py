@@ -2,10 +2,10 @@ import os
 from io import IOBase
 from typing import IO, List, Union
 
-from structuredsim.experimenthandling.Measure import Measure
-from structuredsim.experimenthandling.Parameter import Parameter
-from structuredsim.interfaces.AModifier import AModifier
-from structuredsim.interfaces.ASimulationSystemHandler import ASimulationSystemHandler
+from experimenthandling.Measure import Measure
+from experimenthandling.Parameter import Parameter
+from interfaces.AModifier import AModifier
+from interfaces.ASimulationSystemHandler import ASimulationSystemHandler
 
 
 class SimpleSimulationHandler(ASimulationSystemHandler):

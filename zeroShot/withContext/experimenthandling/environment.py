@@ -60,14 +60,12 @@ class Environment:
         return f"Simulation ID : {self.id}\t Probability : {self.probability}\t Modifier implemented : {result}"
 
     def __lt__(self, other: "Environment") -> bool:
-        if self.probability != other.probability:
-            return self.probability < other.probability
-        return self.id < other.id
+        return self.probability < other.probability
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, Environment):
             return False
-        return self.probability == other.probability and self.id == other.id
+        return self.probability == other.probability
 
     def __str__(self) -> str:
         return self.to_string_modifier()

@@ -60,7 +60,7 @@ class StartProgram:
 
         glue_code_class.options = o
 
-        type_cutoff = o.type_of_cutoff_planning or ""
+        type_cutoff = o.type_of_cutt_of_planning or ""
         if type_cutoff != "CRITERIA" or o.stop_criteria > 0:
             planning = ExperimentPlanGenerator(planning_queue, base_env, o, glue_code_class, fm)
             planning_thread = threading.Thread(target=planning.run, name="Planning Thread", daemon=True)

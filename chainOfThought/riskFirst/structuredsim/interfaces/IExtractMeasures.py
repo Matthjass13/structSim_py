@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import List
-from structuredsim.experimenthandling.Measure import Measure
+from experimenthandling.Measure import Measure
 
 
 class IExtractMeasures(ABC):

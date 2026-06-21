@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from structuredsim.experimenthandling.Environment import Environment
+from experimenthandling.Environment import Environment
 
 
 class AModifier(ABC):

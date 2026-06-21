@@ -83,6 +83,23 @@ class SimpleSimulationHandler(ASimulationSystemHandler):
                     pass
         return params
 
+    def read_parameters_file_stream(self, input_stream) -> list:
+        raw = input_stream.read()
+        if isinstance(raw, bytes):
+            raw = raw.decode("utf-8")
+        params = []
+        for line in raw.splitlines():
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            if "=" in line:
+                key, _, val = line.partition("=")
+                try:
+                    params.append(Parameter(key.strip(), float(val.strip())))
+                except ValueError:
+                    pass
+        return params
+
     def write_parameters_file(self, set_of_parameters: list, location_to_store: str) -> None:
         out_path = os.path.join(location_to_store, "myParamFile.txt")
         try:

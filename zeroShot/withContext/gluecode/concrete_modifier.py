@@ -10,6 +10,11 @@ class ConcreteModifier(AModifier):
     """A concrete implementation of AModifier that applies arithmetic operations to parameters."""
 
     def __init__(self, key_to_change: str = None, operator: str = None, delta: float = 0.0, probability: float = 1.0):
+        if isinstance(key_to_change, (int, float)) and operator is None:
+            delta = float(key_to_change)
+            key_to_change = "val1"
+            operator = "*"
+            probability = delta
         if key_to_change is None and operator is None:
             super().__init__(0.0, "AModifier")
             self.key_to_change = None

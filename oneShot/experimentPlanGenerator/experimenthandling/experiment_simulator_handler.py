@@ -1,4 +1,5 @@
 import logging
+import queue as _queue
 import threading
 from queue import Queue
 
@@ -40,7 +41,12 @@ class ExperimentSimulatorHandler:
         while True:
             try:
                 logger.debug("Size of the Simulation Queue : %d", self.environment_queue.qsize())
-                env: Environment = self.environment_queue.get(block=True)
+                try:
+                    env: Environment = self.environment_queue.get(block=True, timeout=0.1)
+                except _queue.Empty:
+                    if self.plan.is_finish and self.environment_queue.empty():
+                        break
+                    continue
 
                 self.glue_code.start_simulation(self.options.path_parameters)
                 result_path_for_this_simulation = (
@@ -73,3 +79,4 @@ class ExperimentSimulatorHandler:
                 logger.error("Error in the run of the Thread Simulator")
 
         result_thread.start()
+        result_thread.join(timeout=30)
