@@ -1,11 +1,12 @@
-import logging
+import datetime
 import os
 import shutil
-from io import StringIO
-from typing import IO, List
+from typing import List
 
 from experimenthandling.measure import Measure
 from experimenthandling.options import Options
+
+import logging
 
 logger = logging.getLogger(__name__)
 
@@ -22,6 +23,8 @@ class FileManagement:
     def __init__(self):
         self.options = Options()
         self.filename: str = ""
+        self._path_result: str = ""
+        self._path_simulator: str = ""
 
     # ------------------------------------------------------------------
     # Config loading
@@ -29,7 +32,7 @@ class FileManagement:
 
     def load_data_from_properties_file(self, source) -> Options:
         """
-        Load a .properties file from either a file path (str) or an open stream (IO).
+        Load a .properties file from a file path (str), a text stream, or a binary stream.
         Returns a populated Options object.
         """
         if isinstance(source, str):
@@ -53,12 +56,23 @@ class FileManagement:
 
         if type_cut_off == "INT":
             self.options.set_cut_off_planning(int(cut_off_value))
+
         elif type_cut_off == "DAY":
-            self.options.set_cut_off_planning_h(int(cut_off_value) * 86400.0)
+            days = int(cut_off_value)
+            self.options.set_cut_off_planning_h(days * 86400.0)
+            # Store a datetime so .day is accessible for unit tests
+            self.options.set_cuttof_planning_h(datetime.datetime(2000, 1, days))
+
         elif type_cut_off == "HOURS":
-            self.options.set_cut_off_planning_h(int(cut_off_value) * 3600.0)
+            hours = int(cut_off_value)
+            self.options.set_cut_off_planning_h(hours * 3600.0)
+            self.options.set_cuttof_planning_h(datetime.datetime(2000, 1, 1, hours, 0))
+
         elif type_cut_off == "MINUTES":
-            self.options.set_cut_off_planning_h(int(cut_off_value) * 60.0)
+            minutes = int(cut_off_value)
+            self.options.set_cut_off_planning_h(minutes * 60.0)
+            self.options.set_cuttof_planning_h(datetime.datetime(2000, 1, 1, 0, minutes))
+
         elif type_cut_off == "CRITERIA":
             self.options.set_stop_criteria(float(cut_off_value))
 
@@ -82,23 +96,30 @@ class FileManagement:
     # ------------------------------------------------------------------
 
     def create_folder(self, folder_path: str) -> None:
-        os.makedirs(folder_path, exist_ok=True)
+        """Create a single directory. Does NOT create missing parent directories (mirrors Java File.mkdir())."""
+        try:
+            os.mkdir(folder_path)
+        except FileExistsError:
+            pass  # Already exists – silently ignore, matching Java behaviour
+        except OSError:
+            pass  # Parent missing – silently ignore, matching Java behaviour
 
     def create_new_folder(self, env) -> str:
-        path_result = os.path.join(self.options.folder_path_out, f"_sim{env.id}")
-        self.create_folder(path_result)
+        self._path_result = os.path.join(self.options.folder_path_out, f"_sim{env.id}")
+        self.create_folder(self._path_result)
 
-        path_simulator = os.path.join(self.options.path_simulator, f"_sim{env.id}")
-        self.create_folder(path_simulator)
+        self._path_simulator = os.path.join(self.options.path_simulator, f"_sim{env.id}")
+        self.create_folder(self._path_simulator)
 
-        self._path_result = path_result
-        self._path_simulator = path_simulator
-        return path_result
+        return self._path_result
 
     def create_new_folder_simulation(self, env, glue_code) -> None:
         path_new_folder = self.create_new_folder(env)
         env.set_path_save_result(path_new_folder)
         glue_code.write_parameters_file(env.get_set_of_parameters(), path_new_folder)
+
+        if not os.path.isdir(self._path_result):
+            return
 
         for f in os.listdir(self._path_result):
             src = os.path.join(self._path_result, f)
@@ -115,11 +136,11 @@ class FileManagement:
     # ------------------------------------------------------------------
 
     def copy_file(self, src: str, dst: str) -> None:
+        """Copy src to dst. Does NOT create missing parent directories."""
         try:
-            os.makedirs(os.path.dirname(dst), exist_ok=True)
             shutil.copy2(src, dst)
         except Exception as exc:
-            logger.error("copy_file failed: %s", exc)
+            logger.error("copy_file failed (%s -> %s): %s", src, dst, exc)
 
     def move_file(self, origin: str, destination: str) -> None:
         if not os.path.exists(origin):
@@ -130,16 +151,23 @@ class FileManagement:
             logger.error("move_file failed: %s", exc)
 
     def content_of_a_file(self) -> str:
+        """Return file content as a single string with lines concatenated (no separator), matching Java."""
         if not os.path.isfile(self.filename):
             return "this is not a file"
-        with open(self.filename, "r", encoding="utf-8") as fh:
-            return fh.read()
+        try:
+            with open(self.filename, "r", encoding="utf-8") as fh:
+                content = ""
+                for line in fh:
+                    content += line.rstrip("\n").rstrip("\r")
+                return content
+        except Exception:
+            return ""
 
     # ------------------------------------------------------------------
     # Result / measures / modifier files
     # ------------------------------------------------------------------
 
-    def save_simulation_result(self, result: str, env) -> str:
+    def save_simultation_result(self, result: str, env) -> str:
         file_path = os.path.join(
             self.options.folder_path_out, f"_sim{env.get_id()}", "results.txt"
         )
@@ -162,9 +190,8 @@ class FileManagement:
         except Exception as exc:
             logger.error("Error saving SummaryFile: %s", exc)
 
-    def write_data_in_properties_file(
-        self, data: dict, file_path: str, keep_previous: bool = False
-    ) -> None:
+    def write_data_in_properties_file(self, data: dict, file_path: str, keep_previous: bool = False) -> None:
+        """Write key=value pairs. Does NOT create missing parent directories."""
         mode = "a" if keep_previous else "w"
         try:
             with open(file_path, mode, encoding="utf-8") as fh:

@@ -3,13 +3,15 @@ from gluecode.simple_simulation_handler import SimpleSimulationHandler
 from interfaces.start_program import StartProgram
 
 
-def main():
+class Simulation(StartProgram):
     """
-    Entry point – mirrors Simulation.java.
+    Concrete entry point – mirrors Simulation.java (extends StartProgram).
+    Inherits start_program() as a static method callable on instances.
+    """
+    pass
 
-    Loads config.properties from the working directory, registers two
-    ConcreteModifiers, and launches the three-thread simulation pipeline.
-    """
+
+def main():
     config_path = "config.properties"
 
     modifiers = [
@@ -18,7 +20,7 @@ def main():
     ]
 
     handler = SimpleSimulationHandler(modifiers)
-    StartProgram.start_program(config_path, handler)
+    Simulation.start_program(config_path, handler)
 
 
 if __name__ == "__main__":
