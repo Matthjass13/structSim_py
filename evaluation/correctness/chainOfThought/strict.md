@@ -80,6 +80,20 @@ if isinstance(key_to_change, (int, float)) and operator is None and delta is Non
 Added `planning.join()` and `simulator.join()` so `start_program` blocks until
 all simulation work is complete before returning.
 
+### `experimenthandling/experiment_simulator_handler.py` — result thread not joined (Windows race condition)
+
+`result_handler.start()` was called at the end of the simulator thread's `run()`
+method but `result_handler.join()` was never called. On Linux this went unnoticed
+because thread scheduling is fast enough that the result thread always finishes
+writing the SummaryFile before the next test's `_clean_output_directory()` runs.
+On Windows, thread startup is slower and the OS scheduler less predictable, so
+`start_program()` would return while the result thread was still writing the
+SummaryFile. The next test would then delete the output directory, recreate it,
+and start a new simulation — but the stale result thread would still be writing
+to the old path, or the new test would read a partially-written file and stop at
+the first blank line, seeing only 1 line instead of N. Fixed by adding
+`result_handler.join()` immediately after `result_handler.start()`.
+
 ### Result
 
 Integration tests: **44 / 44 passed**.

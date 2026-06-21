@@ -63,12 +63,22 @@ getters (and `set_value()`) so that `ConcreteModifier.apply_modifier()` and
 Added `planning_thread.join()` and `simulation_thread.join()` so `start_program`
 waits for the full simulation pipeline before returning.
 
-### `experimenthandling/experiment_simulator_handler.py` — potential deadlock
+### `experimenthandling/experiment_simulator_handler.py` — result thread join timeout (Windows race condition)
 
 The `get(block=True)` call (no timeout in the original) was already wrapped with
 `timeout=0.1` in this migration. However `result_thread.join(timeout=30)` capped
-the result thread wait at 30 seconds. Changed to an unbounded join so the
-simulation thread only exits once result processing is complete.
+the result thread wait at 30 seconds, which caused a race condition on Windows.
+
+On Linux, thread scheduling is fast enough that the result thread finishes writing
+the SummaryFile well within the 30-second cap, so all tests passed. On Windows,
+thread startup overhead and slower I/O mean the result thread occasionally did not
+complete within the timeout. `start_program()` would then return while the result
+thread was still writing, and the next test's `_clean_output_directory()` would
+race against it: the new simulation would start, the test would read a
+partially-written SummaryFile and stop at the first blank line, seeing only 1 line
+instead of N. Fixed by changing `result_thread.join(timeout=30)` to an unbounded
+`result_thread.join()` so `start_program` only returns once result processing is
+fully complete.
 
 ### Result
 
