@@ -55,7 +55,7 @@ class SimpleSimulationHandler(ASimulationSystemHandler):
         try:
             with open(location_to_store + "/myParamFile.txt", "w", encoding="utf-8") as f:
                 for p in set_of_parameters:
-                    f.write(p.get_key() + "=" + str(p.get_value()) + "\n")
+                    f.write(p.get_key() + "=" + str(float(p.get_value())) + "\n")
         except Exception as e:
             print(f"Error in write_parameters_file: {e}")
 
