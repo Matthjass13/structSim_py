@@ -59,3 +59,4 @@ class ExperimentSimulatorHandler(threading.Thread):
                 print(e)
 
         result_handler.start()
+        result_handler.join()

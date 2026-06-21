@@ -79,4 +79,4 @@ class ExperimentSimulatorHandler:
                 logger.error("Error in the run of the Thread Simulator")
 
         result_thread.start()
-        result_thread.join(timeout=30)
+        result_thread.join()
