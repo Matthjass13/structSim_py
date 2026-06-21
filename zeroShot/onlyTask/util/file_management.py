@@ -42,7 +42,32 @@ class FileManagement:
             logger.error(f"Error copying file: {e}")
 
     def create_folder(self, folder_path):
-        os.makedirs(folder_path, exist_ok=True)
+        try:
+            os.mkdir(folder_path)
+        except (FileNotFoundError, FileExistsError):
+            pass
+
+    def write_data_in_properties_file(self, data, file_path, append=False):
+        parent = os.path.dirname(file_path)
+        if parent and not os.path.isdir(parent):
+            return
+        mode = "a" if append else "w"
+        try:
+            with open(file_path, mode, encoding="utf-8") as f:
+                for k, v in data.items():
+                    f.write(f"{k}={v}\n")
+        except Exception as e:
+            logger.error(f"Error writing properties file: {e}")
+
+    def save_simultation_result(self, result, env):
+        folder = self.options.get_folder_path_out() + "/_sim" + str(env.get_id())
+        result_path = folder + "/results.txt"
+        try:
+            with open(result_path, "w", encoding="utf-8") as f:
+                f.write(f"Result={result}\n")
+        except Exception as e:
+            logger.error(f"Error saving simulation result: {e}")
+        return result_path
 
     def create_new_folder(self, env):
         self._path_result = self.options.get_folder_path_out() + "/_sim" + str(env.get_id())
