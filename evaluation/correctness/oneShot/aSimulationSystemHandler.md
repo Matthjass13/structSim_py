@@ -62,3 +62,24 @@ The migration only handles string paths, raising
 
 **7 — `write_parameters_file()` formats integers without decimal (1 test)**
 Whole-number floats are written as `10` instead of `10.0`.
+
+---
+
+## Corrections applied for Integration Tests
+
+### `interfaces/start_program.py` — `open()` on parameters path + thread joins
+
+The migration called `open(o.get_path_parameters(), "rb")` and passed the file
+object to `read_parameters_file()`. This raised `FileNotFoundError` because
+`get_path_parameters()` returns the absolute path string from the config, and the
+handler expected either a path string or a file-like object but the surrounding
+code opened it as binary before the handler could resolve the path.
+
+Fixed by calling `read_parameters_file(o.get_path_parameters())` directly (passing
+the path string, not an open file handle) and letting the handler open it.
+
+Also added `planning_thread.join()` and `simulation_thread.join()`.
+
+### Result
+
+Integration tests: **44 / 44 passed**.

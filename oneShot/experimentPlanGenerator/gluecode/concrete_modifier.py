@@ -17,6 +17,10 @@ class ConcreteModifier(AModifier):
         delta: float = 1.0,
         probability: float = 1.0,
     ) -> None:
+        if isinstance(key_to_change, float):
+            probability = key_to_change
+            delta = key_to_change
+            key_to_change = "val1"
         super().__init__(probability, operator + str(delta))
         self.key_to_change: str = key_to_change
         self.operator: str = operator

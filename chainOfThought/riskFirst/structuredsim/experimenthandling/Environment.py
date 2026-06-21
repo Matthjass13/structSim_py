@@ -1,5 +1,5 @@
 from typing import List, Optional
-from structuredsim.experimenthandling.Parameter import Parameter
+from experimenthandling.Parameter import Parameter
 
 
 class Environment:

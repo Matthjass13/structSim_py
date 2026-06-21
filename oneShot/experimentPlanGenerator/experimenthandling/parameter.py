@@ -7,5 +7,14 @@ class Parameter:
             self.key = key
             self.value = value
 
+    def get_key(self) -> str:
+        return self.key
+
+    def get_value(self) -> float:
+        return self.value
+
+    def set_value(self, value: float) -> None:
+        self.value = value
+
     def __str__(self) -> str:
         return f"key : {self.key} value : {self.value}"

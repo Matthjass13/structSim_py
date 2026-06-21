@@ -48,7 +48,7 @@ class Environment:
 
     def to_string_modifier(self) -> str:
         result = "   ".join(self.trace)
-        return f"Simulation ID : {self.id}\t Probability : {self.probability}\t Modifier implemented : {result}"
+        return f"Simulation ID : {self.id}\t Probability : {self.probability}\t Modifier implemented :    {result}"
 
     def __lt__(self, other: "Environment") -> bool:
         return self.probability < other.probability

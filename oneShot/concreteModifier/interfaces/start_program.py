@@ -48,3 +48,6 @@ class StartProgram:
             )
             simulation_thread = threading.Thread(target=simulator.run, name="Simulation Thread")
             simulation_thread.start()
+
+            planning_thread.join()
+            simulation_thread.join()

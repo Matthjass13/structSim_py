@@ -15,6 +15,12 @@ class ConcreteModifier(AModifier):
     """
 
     def __init__(self, key_to_change: str = "val1", operator: str = "*", delta: float = 1.0, probability: float = 1.0):
+        # Handle single-float constructor: ConcreteModifier(0.5) maps Java's
+        # ConcreteModifier(double delta) -> this("val1", '*', delta, delta)
+        if isinstance(key_to_change, (int, float)) and operator == "*" and delta == 1.0:
+            delta = float(key_to_change)
+            probability = delta
+            key_to_change = "val1"
         super().__init__(probability=probability, name=f"{operator}{delta}")
         self.key_to_change = key_to_change
         self.operator = operator

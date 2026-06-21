@@ -62,7 +62,7 @@ class Environment:
         return (
             f"Simulation ID : {self.id}\t "
             f"Probability : {self.probability}\t "
-            f"Modifier implemented : {modifiers}"
+            f"Modifier implemented :    {modifiers}"
         )
 
     # --- ordering by probability (ascending) ---

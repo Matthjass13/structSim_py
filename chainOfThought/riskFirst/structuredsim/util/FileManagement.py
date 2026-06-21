@@ -6,8 +6,8 @@ from datetime import datetime, timedelta
 from io import IOBase
 from typing import IO, List, Union
 
-from structuredsim.experimenthandling.Measure import Measure
-from structuredsim.experimenthandling.Options import Options
+from experimenthandling.Measure import Measure
+from experimenthandling.Options import Options
 
 logger = logging.getLogger(__name__)
 

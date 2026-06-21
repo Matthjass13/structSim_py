@@ -2,7 +2,7 @@ import logging
 import queue
 from typing import List
 
-from structuredsim.experimenthandling.Options import Options
+from experimenthandling.Options import Options
 
 logger = logging.getLogger(__name__)
 

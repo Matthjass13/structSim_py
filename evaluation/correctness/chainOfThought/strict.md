@@ -53,3 +53,33 @@ The method is missing from the `FileManagement` class.
 
 **6 — `write_parameters_file()` formats integers without decimal (1 test)**
 Whole-number floats are written as `10` instead of `10.0`.
+
+---
+
+## Corrections applied for Integration Tests
+
+### `gluecode/concrete_modifier.py` — `ConcreteModifier(0.5)` falls to no-arg default
+
+With `key_to_change=0.5, operator=None, delta=None`, all existing branches fell
+through to the no-argument default path (setting `key_to_change="val1"` but
+leaving `probability=1.0` and `delta=1.0`). Added a guard as the very first
+branch with an early return:
+
+```python
+if isinstance(key_to_change, (int, float)) and operator is None and delta is None:
+    d = float(key_to_change)
+    super().__init__(d, '*' + str(d))
+    self.key_to_change = "val1"
+    self.operator = '*'
+    self.delta = d
+    return
+```
+
+### `interfaces/start_program.py` — threads not joined
+
+Added `planning.join()` and `simulator.join()` so `start_program` blocks until
+all simulation work is complete before returning.
+
+### Result
+
+Integration tests: **44 / 44 passed**.

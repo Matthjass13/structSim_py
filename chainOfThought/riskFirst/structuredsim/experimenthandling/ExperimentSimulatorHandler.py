@@ -2,9 +2,9 @@ import logging
 import queue
 import threading
 
-from structuredsim.experimenthandling.Environment import Environment
-from structuredsim.experimenthandling.ExperimentResultHandler import ExperimentResultHandler
-from structuredsim.experimenthandling.Options import Options
+from experimenthandling.Environment import Environment
+from experimenthandling.ExperimentResultHandler import ExperimentResultHandler
+from experimenthandling.Options import Options
 
 logger = logging.getLogger(__name__)
 

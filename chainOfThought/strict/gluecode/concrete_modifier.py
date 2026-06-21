@@ -10,6 +10,14 @@ class ConcreteModifier(AModifier):
           ConcreteModifier(delta)                          -> key='val1', op='*', prob=delta
           ConcreteModifier()                               -> defaults
         """
+        if isinstance(key_to_change, (int, float)) and operator is None and delta is None:
+            # Java: ConcreteModifier(double delta) -> this("val1", '*', delta, delta)
+            d = float(key_to_change)
+            super().__init__(d, '*' + str(d))
+            self.key_to_change = "val1"
+            self.operator = '*'
+            self.delta = d
+            return
         if key_to_change is not None and operator is not None and delta is not None:
             prob = probability if probability is not None else 1.0
             super().__init__(prob, str(operator) + str(delta))

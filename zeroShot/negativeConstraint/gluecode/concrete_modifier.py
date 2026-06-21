@@ -7,6 +7,15 @@ logger = logging.getLogger(__name__)
 class ConcreteModifier(AModifier):
 
     def __init__(self, key_to_change=None, operator=None, delta=None, probability=1):
+        # Handle single-float constructor: ConcreteModifier(0.5) maps Java's
+        # ConcreteModifier(double delta) -> this("val1", '*', delta, delta)
+        if isinstance(key_to_change, (int, float)) and operator is None and delta is None:
+            d = float(key_to_change)
+            key_to_change = "val1"
+            operator = '*'
+            delta = d
+            probability = d
+
         if key_to_change is None and operator is None and delta is None:
             super().__init__(0.0, "AModifier")
             self.key_to_change = None

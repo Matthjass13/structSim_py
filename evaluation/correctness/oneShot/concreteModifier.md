@@ -47,3 +47,47 @@ The migration only handles string paths, raising `TypeError` when passed a `Byte
 
 **8 — `write_parameters_file()` formats integers without decimal (1 test)**
 Whole-number floats are written as `10` instead of `10.0`.
+
+---
+
+## Corrections applied for Integration Tests
+
+### `gluecode/concrete_modifier.py` — `ConcreteModifier(0.5)` gives wrong values
+
+The default `probability` was `0.0` and `key_to_change` received the float `0.5`
+positionally. Added float detection at the top of `__init__`:
+
+```python
+if isinstance(key_to_change, (int, float)) and operator == "" and delta == 0.0:
+    d = float(key_to_change)
+    key_to_change = "val1"
+    operator = "*"
+    delta = d
+    probability = d
+```
+
+### `interfaces/start_program.py` — threads not joined
+
+Added `planning_thread.join()` and `simulation_thread.join()`.
+
+### `experimenthandling/experiment_simulator_handler.py` — infinite loop
+
+`environment_queue.get()` (blocking, no timeout) caused the simulator thread to
+hang indefinitely once the planning thread finished and the queue was empty,
+because the break condition `if self.plan.is_finish and queue.empty()` was only
+reachable after `get()` returned. Fixed by switching to a timeout-based get:
+
+```python
+try:
+    env = self.environment_queue.get(timeout=0.5)
+except queue.Empty:
+    if self.plan.is_finish:
+        break
+    continue
+```
+
+Also added `result_thread.join()` after `result_thread.start()`.
+
+### Result
+
+Integration tests: **44 / 44 passed**.

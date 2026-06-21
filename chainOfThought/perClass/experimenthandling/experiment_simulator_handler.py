@@ -19,6 +19,7 @@ Chain-of-thought for ExperimentSimulatorHandler:
    - environnmentQueue.isEmpty() -> queue.Queue.empty() (approximate under concurrency).
 """
 
+import queue as _queue_module
 import queue
 import threading
 import os
@@ -61,7 +62,12 @@ class ExperimentSimulatorHandler:
         result_thread = threading.Thread(target=result_handler.run, name="Result Thread")
 
         while True:
-            env: "Environment" = self.environment_queue.get()  # blocks
+            try:
+                env: "Environment" = self.environment_queue.get(timeout=0.1)
+            except _queue_module.Empty:
+                if self.plan.is_finish and self.environment_queue.empty():
+                    break
+                continue
             self.glue_code.start_simulation(self.options.path_parameters)
 
             result_path = os.path.join(
@@ -84,3 +90,4 @@ class ExperimentSimulatorHandler:
 
         result_thread.start()
         result_thread.join()
+

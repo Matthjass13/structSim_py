@@ -1,10 +1,10 @@
-from structuredsim.experimenthandling.Parameter import Parameter
-from structuredsim.experimenthandling.Measure import Measure
-from structuredsim.experimenthandling.Options import Options
-from structuredsim.experimenthandling.Environment import Environment
-from structuredsim.experimenthandling.ExperimentPlanGenerator import ExperimentPlanGenerator
-from structuredsim.experimenthandling.ExperimentResultHandler import ExperimentResultHandler
-from structuredsim.experimenthandling.ExperimentSimulatorHandler import ExperimentSimulatorHandler
+from experimenthandling.Parameter import Parameter
+from experimenthandling.Measure import Measure
+from experimenthandling.Options import Options
+from experimenthandling.Environment import Environment
+from experimenthandling.ExperimentPlanGenerator import ExperimentPlanGenerator
+from experimenthandling.ExperimentResultHandler import ExperimentResultHandler
+from experimenthandling.ExperimentSimulatorHandler import ExperimentSimulatorHandler
 
 __all__ = [
     "Parameter",

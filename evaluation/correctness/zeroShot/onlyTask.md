@@ -50,3 +50,26 @@ This is the most severe failure mode observed: a structural packaging error that
 makes the migration completely untestable as delivered. The fix would require
 either adding a `noStrategy/` parent package and adjusting PYTHONPATH, or
 replacing all `from noStrategy.X import Y` imports with `from X import Y`.
+
+---
+
+## Corrections applied for Integration Tests
+
+### `interfaces/start_program.py` — `parameters.txt` path and thread joins
+
+The migration opened the parameters file via `open(o.get_path_parameters(), "rb")`
+which failed because `get_path_parameters()` returned a relative path and the
+working directory during tests is the repo root. This was fixed by passing the
+path string directly to `read_parameters_file(o.get_path_parameters())` so the
+handler resolves it using the absolute path stored in the config.
+
+Additionally, `planning_thread.join()` and `simulation_thread.join()` were added
+so that `start_program` waits for the full pipeline before returning.
+
+The internal `noStrategy.*` import prefix issue documented above was resolved
+separately by fixing all imports to use relative (`from X import Y`) form
+throughout the migration.
+
+### Result
+
+Integration tests: **44 / 44 passed**.

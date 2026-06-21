@@ -95,10 +95,8 @@ class Environment:
 
     def to_string_modifier(self) -> str:
         """Returns a human-readable summary including trace."""
-        return (
-            f"Environment id={self.id} probability={self.probability} "
-            f"trace={self.trace} path={self.path_save_result}"
-        )
+        trace_str = "".join("   " + s for s in self.trace)
+        return f"Simulation ID : {self.id}\t Probability : {self.probability}\t Modifier implemented : {trace_str}"
 
     def __str__(self) -> str:
         params_str = ", ".join(str(p) for p in self.set_of_parameters)

@@ -3,19 +3,18 @@ import subprocess
 import sys
 
 folders = [
-    # "transpiler",
+    "transpiler",
     "zeroShot/onlyTask",
-    # "zeroShot/persona",
-    # "zeroShot/withContext",
-    # "zeroShot/negativeConstraint",
-    # "chainOfThought/perClass",
-    # "oneShot/aSimulationSystemHandler", #44
-    # "oneShot/concreteModifier",
-    # "oneShot/experimentPlanGenerator",
-    # "chainOfThought/lenient",
-    # "chainOfThought/strict",
-    # "chainOfThought/riskFirst/structuredsim"
-    # "chainOfThought/perClass",
+    "zeroShot/persona",
+    "zeroShot/withContext",
+    "zeroShot/negativeConstraint",
+    "chainOfThought/perClass",
+    "oneShot/aSimulationSystemHandler",
+    "oneShot/concreteModifier",
+    "oneShot/experimentPlanGenerator",
+    "chainOfThought/lenient",
+    "chainOfThought/strict",
+    "chainOfThought/riskFirst/structuredsim",
 ]
 
 tests_dir = os.path.dirname(os.path.abspath(__file__))

@@ -63,12 +63,13 @@ class ExperimentPlanGenerator:
         self.planning_queue.put(e)
 
     def _create_modifier_file(self, e: Environment) -> None:
-        result = e.to_string_modifier() + "\n"
+        result = e.to_string_modifier()
         self.fm.create_modifier_file(self.options.folder_path_out, result)
 
     def _create_next_environments(self, base_env: Environment) -> None:
         """BFS/DFS tree expansion."""
         to_explore: List[Environment] = [base_env]
+        self.fm.create_new_folder_simulation(base_env, self.glue_code)
         self._add_env_to_queue(base_env)
         id_cpt = base_env.get_id()
         cpt = 0
@@ -119,9 +120,13 @@ class ExperimentPlanGenerator:
 
         self.is_finish = True
 
-        # Copy summary file to simulator directory
+        # Append a blank line as terminator so consumers can detect end-of-plan
         import os
         summary_src = os.path.join(self.options.folder_path_out, "SummaryFile.txt")
+        if os.path.isfile(summary_src):
+            with open(summary_src, "a", encoding="utf-8") as fh:
+                fh.write("\n")
+
         summary_dst = os.path.join(self.options.path_simulator, "SummaryFile.txt")
         if os.path.isfile(summary_src):
             self.fm.copy_file(summary_src, summary_dst)

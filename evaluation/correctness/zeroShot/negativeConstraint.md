@@ -64,3 +64,45 @@ The method is not present on the `FileManagement` class
 The migration accepts streams but uses `line.index(separator)` with a `str`
 separator on bytes lines, causing
 `TypeError: argument should be integer or bytes-like object, not 'str'`.
+
+---
+
+## Corrections applied for Integration Tests
+
+### `gluecode/simulation.py` — missing `Simulation` class
+
+Added a `Simulation` class inheriting from `StartProgram`:
+
+```python
+class Simulation(StartProgram):
+    pass
+```
+
+### `gluecode/concrete_modifier.py` — `ConcreteModifier(0.5)` does not set key
+
+When called with a single float, `key_to_change` received `0.5` (a float) and
+the existing logic did not remap it, so `key_to_change` remained `0.5` instead
+of `"val1"`. Added float detection:
+
+```python
+if isinstance(key_to_change, (int, float)) and operator is None and delta is None:
+    d = float(key_to_change)
+    key_to_change = "val1"
+    operator = "*"
+    delta = d
+    probability = d
+```
+
+### `interfaces/start_program.py` — threads not joined
+
+Added `planning_thread.join()` and `simulation_thread.join()` so that
+`start_program` blocks until all simulation work is complete before returning.
+
+### `experimenthandling/environment.py` — `to_string_modifier()` wrong format
+
+Changed `"Modifier implemented : {result}"` to `"Modifier implemented :    {result}"`
+(four spaces before the modifier trace) to match the expected output format.
+
+### Result
+
+Integration tests: **44 / 44 passed**.

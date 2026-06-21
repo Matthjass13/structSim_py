@@ -39,7 +39,7 @@ class Environment:
 
     def to_string_modifier(self):
         result = "   ".join(self.trace)
-        return f"Simulation ID : {self.id}\t Probability : {self.probability}\t Modifier implemented : {result}"
+        return f"Simulation ID : {self.id}\t Probability : {self.probability}\t Modifier implemented :    {result}"
 
     def get_trace(self):
         return self.trace
