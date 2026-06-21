@@ -57,7 +57,10 @@ class FileManagement:
 
     def create_folder(self, folder_path: str) -> None:
         """Create an empty folder."""
-        os.makedirs(folder_path, exist_ok=True)
+        try:
+            os.mkdir(folder_path)
+        except (FileNotFoundError, FileExistsError):
+            pass
 
     def save_simulation_result(self, result: str, env) -> str:
         """
@@ -76,6 +79,9 @@ class FileManagement:
             logger.error("File not Found")
 
         return file_path
+
+    def save_simultation_result(self, result: str, env) -> str:
+        return self.save_simulation_result(result, env)
 
     def _parse_properties(self, stream: IO) -> dict:
         """Parse a Java .properties format stream into a dict."""
@@ -139,6 +145,9 @@ class FileManagement:
         Write key/value data to a properties file.
         If keep_previous_results is True, append; otherwise overwrite.
         """
+        parent = os.path.dirname(file_path)
+        if parent and not os.path.isdir(parent):
+            return
         mode = "a" if keep_previous_results else "w"
         try:
             with open(file_path, mode, encoding="utf-8") as f:
