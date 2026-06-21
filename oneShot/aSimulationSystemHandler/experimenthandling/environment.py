@@ -11,6 +11,14 @@ class Environment:
         set_of_parameters: List[Parameter] = None,
         probability: float = 1.0,
     ) -> None:
+        if isinstance(set_of_parameters, Environment):
+            source = set_of_parameters
+            self.id = id
+            self.set_of_parameters = [Parameter.from_parameter(p) for p in source.set_of_parameters]
+            self.probability = source.probability
+            self.path_save_result = ""
+            self.trace = list(source.trace)
+            return
         self.id = id
         self.set_of_parameters: List[Parameter] = (
             set_of_parameters if set_of_parameters is not None else []
@@ -62,6 +70,13 @@ class Environment:
             f"Simulation ID : {self.id}\t Probability : {self.probability}"
             f"\t Modifier implemented : {result}"
         )
+
+    def compare_to(self, other: "Environment") -> int:
+        if self.probability < other.probability:
+            return -1
+        elif self.probability > other.probability:
+            return 1
+        return 0
 
     def __lt__(self, other: "Environment") -> bool:
         return self.probability < other.probability
