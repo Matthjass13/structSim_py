@@ -9,12 +9,27 @@ class Environment:
     Comparable by probability for priority-queue ordering.
     """
 
-    def __init__(self, env_id: int, set_of_parameters: List[Parameter], probability: float):
+    def __init__(self, env_id: int = 1, set_of_parameters=None, probability: float = 1.0):
+        if isinstance(set_of_parameters, Environment):
+            source = set_of_parameters
+            self.id = env_id
+            self.set_of_parameters = [Parameter.copy_from(p) for p in source.set_of_parameters]
+            self.probability = source.probability
+            self.path_save_result = ""
+            self.trace = list(source.trace)
+            return
         self.id = env_id
-        self.set_of_parameters: List[Parameter] = set_of_parameters
+        self.set_of_parameters: List[Parameter] = set_of_parameters if set_of_parameters is not None else []
         self.probability = probability
         self.path_save_result: str = ""
         self.trace: List[str] = []
+
+    def compare_to(self, other: "Environment") -> int:
+        if self.probability < other.probability:
+            return -1
+        elif self.probability > other.probability:
+            return 1
+        return 0
 
     @classmethod
     def copy_from(cls, new_id: int, source: "Environment") -> "Environment":
