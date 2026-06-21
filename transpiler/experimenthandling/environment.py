@@ -4,6 +4,9 @@ from experimenthandling.parameter import Parameter
 class Environment:
 
     def __init__(self, id=1, set_of_parameters=None, probability=1, source_env=None):
+        if isinstance(set_of_parameters, Environment):
+            source_env = set_of_parameters
+            set_of_parameters = None
         if source_env is not None:
             # Copy constructor: copy from source_env, assign new id
             self.id = id
@@ -48,6 +51,13 @@ class Environment:
     def to_string_modifier(self):
         result = "   ".join(self.trace)
         return f"Simulation ID : {self.id}\t Probability : {self.probability}\t Modifier implemented :    {result}"
+
+    def compare_to(self, other):
+        if self.probability < other.probability:
+            return -1
+        elif self.probability > other.probability:
+            return 1
+        return 0
 
     def __lt__(self, other):
         return self.probability < other.probability

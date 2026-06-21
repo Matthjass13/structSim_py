@@ -79,7 +79,7 @@ class SimpleSimulationHandler(ASimulationSystemHandler):
         try:
             with open(os.path.join(location_to_store, "myParamFile.txt"), 'w', encoding='utf-8') as bw:
                 for p in set_of_parameters:
-                    bw.write(p.get_key() + "=" + str(p.get_value()) + "\n")
+                    bw.write(p.get_key() + "=" + str(float(p.get_value())) + "\n")
         except Exception as e:
             print(e)
 

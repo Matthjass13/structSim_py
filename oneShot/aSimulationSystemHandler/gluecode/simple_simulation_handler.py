@@ -35,6 +35,8 @@ class SimpleSimulationHandler(ASimulationSystemHandler):
         return self._list_modifier_class
 
     def read_parameters_file(self, parameters_file_path: str) -> List[Parameter]:
+        if hasattr(parameters_file_path, "read"):
+            return self.read_parameters_file_from_stream(parameters_file_path)
         separator = "="
         parameters_list: List[Parameter] = []
         try:
@@ -74,7 +76,7 @@ class SimpleSimulationHandler(ASimulationSystemHandler):
         try:
             with open(os.path.join(location_to_store, "myParamFile.txt"), "w", encoding="utf-8") as f:
                 for p in set_of_parameters:
-                    f.write(f"{p.get_key()}={p.get_value()}\n")
+                    f.write(f"{p.get_key()}={float(p.get_value())}\n")
         except Exception:
             import traceback
             traceback.print_exc()

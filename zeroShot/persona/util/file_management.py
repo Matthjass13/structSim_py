@@ -50,6 +50,10 @@ class FileManagement:
         cut_off_value = props.get("cuttOfPlanning", "0")
         type_cut_off = props.get("typeCuttOfPlanning", "")
         self.options.set_type_of_cut_off_planning(type_cut_off)
+        try:
+            self.options.set_cuttof_raw_value(int(float(cut_off_value)))
+        except (ValueError, TypeError):
+            pass
 
         if type_cut_off == "INT":
             self.options.set_cut_off_planning(int(cut_off_value))
@@ -82,7 +86,10 @@ class FileManagement:
     # ------------------------------------------------------------------
 
     def create_folder(self, folder_path: str) -> None:
-        os.makedirs(folder_path, exist_ok=True)
+        try:
+            os.mkdir(folder_path)
+        except (FileNotFoundError, FileExistsError):
+            pass
 
     def create_new_folder(self, env) -> str:
         path_result = os.path.join(self.options.folder_path_out, f"_sim{env.id}")
@@ -133,7 +140,7 @@ class FileManagement:
         if not os.path.isfile(self.filename):
             return "this is not a file"
         with open(self.filename, "r", encoding="utf-8") as fh:
-            return fh.read()
+            return "".join(line.rstrip("\n") for line in fh)
 
     # ------------------------------------------------------------------
     # Result / measures / modifier files
@@ -146,6 +153,9 @@ class FileManagement:
         with open(file_path, "a", encoding="utf-8") as fh:
             fh.write(f"Result={result}\n")
         return file_path
+
+    def save_simultation_result(self, result: str, env) -> str:
+        return self.save_simulation_result(result, env)
 
     def create_measures_file(self, measures: List[Measure], measures_file_path: str) -> None:
         try:
@@ -165,6 +175,9 @@ class FileManagement:
     def write_data_in_properties_file(
         self, data: dict, file_path: str, keep_previous: bool = False
     ) -> None:
+        parent = os.path.dirname(file_path)
+        if parent and not os.path.isdir(parent):
+            return
         mode = "a" if keep_previous else "w"
         try:
             with open(file_path, mode, encoding="utf-8") as fh:

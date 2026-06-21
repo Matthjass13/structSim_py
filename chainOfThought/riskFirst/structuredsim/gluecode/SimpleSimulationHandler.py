@@ -93,7 +93,7 @@ class SimpleSimulationHandler(ASimulationSystemHandler):
         path = os.path.join(location_to_store, "myParamFile.txt")
         with open(path, "w", encoding="utf-8") as fh:
             for p in set_of_parameters:
-                fh.write(f"{p.get_key()}={p.get_value()}\n")
+                fh.write(f"{p.get_key()}={float(p.get_value())}\n")
 
     # ------------------------------------------------------------------
     # IStartSimulation

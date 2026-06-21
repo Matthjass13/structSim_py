@@ -40,6 +40,8 @@ class SimpleSimulationHandler(ASimulationSystemHandler):
                 close_after = False
 
             for line in f:
+                if isinstance(line, bytes):
+                    line = line.decode("utf-8")
                 pos = line.index(separator)
                 key = line[:pos]
                 value = float(line[pos + 1:].rstrip("\n"))

@@ -35,12 +35,19 @@ class SimpleSimulationHandler(ASimulationSystemHandler):
 
     def read_parameters_file(self, parameters_file_path: str) -> List[Parameter]:
         params: List[Parameter] = []
-        with open(parameters_file_path, "r", encoding="utf-8") as fh:
-            for line in fh:
-                line = line.strip()
-                if "=" in line:
-                    key, _, value = line.partition("=")
-                    params.append(Parameter(key.strip(), float(value.strip())))
+        if hasattr(parameters_file_path, "read"):
+            content = parameters_file_path.read()
+            if isinstance(content, bytes):
+                content = content.decode("utf-8")
+            lines = content.splitlines()
+        else:
+            with open(parameters_file_path, "r", encoding="utf-8") as fh:
+                lines = fh.readlines()
+        for line in lines:
+            line = line.strip()
+            if "=" in line:
+                key, _, value = line.partition("=")
+                params.append(Parameter(key.strip(), float(value.strip())))
         return params
 
     def read_parameters_file_from_stream(self, stream: IO) -> List[Parameter]:
@@ -56,7 +63,7 @@ class SimpleSimulationHandler(ASimulationSystemHandler):
         file_path = os.path.join(location_to_store, "myParamFile.txt")
         with open(file_path, "w", encoding="utf-8") as fh:
             for p in set_of_parameters:
-                fh.write(f"{p.get_key()}={p.get_value()}\n")
+                fh.write(f"{p.get_key()}={float(p.get_value())}\n")
 
     # ------------------------------------------------------------------
     # IExtractMeasures

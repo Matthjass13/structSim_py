@@ -1,6 +1,7 @@
 import logging
 import os
 import shutil
+import datetime
 from datetime import timedelta
 from typing import IO, List, Optional
 
@@ -51,7 +52,10 @@ class FileManagement:
 
     def create_folder(self, folder_path: str) -> None:
         """Create an empty folder at folder_path (no-op if it already exists)."""
-        os.makedirs(folder_path, exist_ok=True)
+        try:
+            os.mkdir(folder_path)
+        except (FileNotFoundError, FileExistsError):
+            pass
 
     def save_simulation_result(self, result: str, env: Environment) -> str:
         """Save a simulation result string to a file and return the file path."""
@@ -67,6 +71,9 @@ class FileManagement:
         except FileNotFoundError:
             logger.error("File not Found")
         return file_path
+
+    def save_simultation_result(self, result: str, env: Environment) -> str:
+        return self.save_simulation_result(result, env)
 
     def load_data_from_properties_file(self, file_path) -> Options:
         """Load options from a properties file (path string or IO stream)."""
@@ -111,11 +118,11 @@ class FileManagement:
         if type_cuttof == "INT":
             self.options.set_cuttof_planning(int(cuttof_value))
         elif type_cuttof == "DAY":
-            self.options.set_cuttof_planning_h(timedelta(days=int(cuttof_value)))
+            self.options.set_cuttof_planning_h(datetime.datetime(1, 1, int(cuttof_value)))
         elif type_cuttof == "HOURS":
-            self.options.set_cuttof_planning_h(timedelta(hours=int(cuttof_value)))
+            self.options.set_cuttof_planning_h(datetime.datetime(1, 1, 1, int(cuttof_value)))
         elif type_cuttof == "MINUTES":
-            self.options.set_cuttof_planning_h(timedelta(minutes=int(cuttof_value)))
+            self.options.set_cuttof_planning_h(datetime.datetime(1, 1, 1, 0, int(cuttof_value)))
         elif type_cuttof == "CRITERIA":
             self.options.set_stop_criteria(float(cuttof_value))
 
@@ -125,6 +132,9 @@ class FileManagement:
         self, data_to_write: dict, file_path: str, keep_previous_results: bool
     ) -> None:
         """Write key=value pairs to a properties file."""
+        parent = os.path.dirname(file_path)
+        if parent and not os.path.isdir(parent):
+            return
         mode = "a" if keep_previous_results else "w"
         try:
             with open(file_path, mode, encoding="utf-8") as f:

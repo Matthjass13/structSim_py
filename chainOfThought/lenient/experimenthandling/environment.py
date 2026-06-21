@@ -6,6 +6,10 @@ from experimenthandling.parameter import Parameter
 class Environment:
     def __init__(self, id: int = 1, set_of_parameters: list = None, probability: float = 1.0,
                  copy_from: "Environment" = None):
+        import copy
+        if isinstance(set_of_parameters, Environment):
+            copy_from = set_of_parameters
+            set_of_parameters = None
         if copy_from is not None:
             self.id = id
             self.set_of_parameters = [Parameter(p.key, p.value) for p in copy_from.set_of_parameters]
@@ -60,3 +64,10 @@ class Environment:
 
     def __repr__(self) -> str:
         return f"Environment(id={self.id}, probability={self.probability})"
+
+    def compare_to(self, other: "Environment") -> int:
+        if self.probability < other.probability:
+            return -1
+        elif self.probability > other.probability:
+            return 1
+        return 0

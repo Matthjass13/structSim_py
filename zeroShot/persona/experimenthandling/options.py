@@ -14,6 +14,28 @@ class Options:
         self.type_of_cut_off_planning: Optional[str] = None
         self.stop_criteria: float = 0.0
         self.path_to_simulator_result_file: Optional[str] = None
+        self._cuttof_raw_value = 0
+
+    def get_type_of_cuttof_planning(self):
+        return self.type_of_cut_off_planning
+
+    def get_cuttof_planning(self):
+        return self.cut_off_planning
+
+    def set_cuttof_raw_value(self, value):
+        self._cuttof_raw_value = value
+
+    def get_cuttof_planning_h(self):
+        import datetime
+        type_ = self.type_of_cut_off_planning
+        val = self._cuttof_raw_value
+        if type_ == "DAY":
+            return datetime.datetime(1, 1, val)
+        elif type_ == "HOURS":
+            return datetime.datetime(1, 1, 1, val)
+        elif type_ == "MINUTES":
+            return datetime.datetime(1, 1, 1, 0, val)
+        return None
 
     def get_path_parameters(self) -> Optional[str]:
         return self.path_parameters

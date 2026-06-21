@@ -26,9 +26,17 @@ from experimenthandling.parameter import Parameter
 class Environment:
     """Represents a simulation environment with parameters and probability."""
 
-    def __init__(self, id_: int, set_of_parameters: List[Parameter], probability: float):
+    def __init__(self, id_: int = 1, set_of_parameters: List[Parameter] = None, probability: float = 1.0):
+        if isinstance(set_of_parameters, Environment):
+            source = set_of_parameters
+            self.id = id_
+            self.set_of_parameters = copy.deepcopy(source.set_of_parameters)
+            self.probability = source.probability
+            self.path_save_result = source.path_save_result
+            self.trace = list(source.trace)
+            return
         self.id = id_
-        self.set_of_parameters: List[Parameter] = set_of_parameters
+        self.set_of_parameters: List[Parameter] = set_of_parameters if set_of_parameters is not None else []
         self.probability: float = probability
         self.path_save_result: Optional[str] = None
         self.trace: List[str] = []
@@ -92,6 +100,16 @@ class Environment:
 
     def get_trace(self) -> List[str]:
         return self.trace
+
+    def set_trace(self, trace: List[str]) -> None:
+        self.trace = trace
+
+    def compare_to(self, other: "Environment") -> int:
+        if self.probability < other.probability:
+            return -1
+        elif self.probability > other.probability:
+            return 1
+        return 0
 
     def to_string_modifier(self) -> str:
         """Returns a human-readable summary including trace."""

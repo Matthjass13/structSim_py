@@ -100,3 +100,40 @@ to `key_to_change="val1"`, `operator="*"`, `delta=probability=float_value`.
 ### Result
 
 Integration tests: **44 / 44 passed**.
+
+---
+
+## Corrections applied for Unit Tests
+
+All fixes apply to the PascalCase source files in `structuredsim/`; the snake_case
+wrapper modules automatically re-export the fixed classes.
+
+### `experimenthandling/Environment.py` — copy constructor & compare_to
+
+Added `isinstance(set_of_parameters, Environment)` detection so that the positional
+call `Environment(2, e1)` triggers a deep-copy path. Changed from per-class
+`Parameter(copy_from=p)` to `copy.deepcopy()`. Added `compare_to()` method.
+
+### `experimenthandling/Options.py` — getter name aliases
+
+Added `get_type_of_cuttof_planning()`, `get_cuttof_planning()`, and `get_cuttof_planning_h()`
+as aliases for the existing `type_of_cutt_of_planning`, `cutt_of_planning`, and
+`cut_off_planning_h` attributes.
+
+### `util/FileManagement.py` — four fixes
+
+1. `create_folder()`: switched from `os.makedirs()` to `os.mkdir()` (and catch
+   `FileNotFoundError`/`FileExistsError` silently).
+2. `save_simultation_result()` (intentional typo): added alias.
+3. `write_data_in_properties_file()`: added new method; writes key=value pairs without
+   creating parent directories.
+4. Calendar datetime: changed `datetime.now() + timedelta(days=int(v))` to
+   `datetime(1, 1, int(v))` etc. so `.day`, `.hour`, `.minute` attributes match.
+
+### `gluecode/SimpleSimulationHandler.py` — float format
+
+Wrapped `p.get_value()` in `float()` in `write_parameters_file()`.
+
+### Result
+
+Unit tests: **40 / 40 passed**.

@@ -47,6 +47,24 @@ class Options:
     def set_type_of_cutoff_planning(self, type_of_cutoff_planning):
         self.type_of_cutoff_planning = type_of_cutoff_planning
 
+    def get_type_of_cuttof_planning(self):
+        return self.type_of_cutoff_planning
+
+    def get_cuttof_planning(self):
+        return self.cutoff_planning
+
+    def get_cuttof_planning_h(self):
+        import datetime
+        type_ = self.type_of_cutoff_planning
+        val = self.cutoff_planning_time_value or self.cutoff_planning
+        if type_ == "DAY":
+            return datetime.datetime(1, 1, val)
+        elif type_ == "HOURS":
+            return datetime.datetime(1, 1, 1, val)
+        elif type_ == "MINUTES":
+            return datetime.datetime(1, 1, 1, 0, val)
+        return None
+
     def get_stop_criteria(self):
         return self.stop_criteria
 

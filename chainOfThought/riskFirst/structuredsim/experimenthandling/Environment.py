@@ -17,9 +17,13 @@ class Environment:
         probability: float = 1.0,
         copy_from: Optional["Environment"] = None,
     ):
+        import copy as _copy
+        if isinstance(set_of_parameters, Environment):
+            copy_from = set_of_parameters
+            set_of_parameters = None
         if copy_from is not None:
             self.id = id
-            self.set_of_parameters = [Parameter(copy_from=p) for p in copy_from.set_of_parameters]
+            self.set_of_parameters = _copy.deepcopy(copy_from.set_of_parameters)
             self.probability = copy_from.probability
             self.trace: List[str] = list(copy_from.trace)
         else:
@@ -69,6 +73,13 @@ class Environment:
         if not isinstance(other, Environment):
             return False
         return self.probability == other.probability
+
+    def compare_to(self, other: "Environment") -> int:
+        if self.probability < other.probability:
+            return -1
+        elif self.probability > other.probability:
+            return 1
+        return 0
 
     def __repr__(self) -> str:
         return f"Environment(id={self.id}, probability={self.probability})"

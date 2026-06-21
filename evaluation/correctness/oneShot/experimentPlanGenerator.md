@@ -73,3 +73,55 @@ simulation thread only exits once result processing is complete.
 ### Result
 
 Integration tests: **44 / 44 passed**.
+
+---
+
+## Corrections applied for Unit Tests
+
+### `experimenthandling/environment.py` — copy constructor & compare_to
+
+The `__init__` had a 4th `other` parameter for copy construction, but the test calls
+`Environment(2, e1)` with `e1` as the second positional arg. Added detection:
+
+```python
+if isinstance(set_of_parameters, Environment):
+    other = set_of_parameters
+```
+
+Also changed the deep-copy to use `copy.deepcopy()` instead of per-class `Parameter(other=p)`
+to ensure mutation of the copy does not affect the original. Added `compare_to()` method.
+
+### `experimenthandling/measure.py` — getter methods
+
+`Measure` stored data as plain attributes but lacked `get_key()` and `get_value()` getters.
+Added both so that `extract_measures` test results can be queried.
+
+### `experimenthandling/options.py` — full rewrite with correct getter names & datetime
+
+The original `Options` used internal fields (`cut_off_planning`, `type_of_cut_off_planning`)
+and exposed no getters. Rewrote to expose:
+- `get_type_of_cuttof_planning()` / `set_type_of_cuttof_planning()`
+- `get_cuttof_planning()` / `set_cuttof_planning()`
+- `get_cuttof_planning_h()` / `set_cuttof_planning_h()`
+- All other standard getters/setters
+
+`get_cuttof_planning_h()` returns `datetime.datetime(1, 1, day)`, `datetime.datetime(1, 1, 1, hour)`,
+or `datetime.datetime(1, 1, 1, 0, minute)` so `.day`, `.hour`, `.minute` match expectations.
+
+Also kept backward-compat direct attributes (`type_of_cut_off_planning`, `cut_off_planning`)
+used by `start_program.py`.
+
+### `util/file_management.py` — multiple fixes
+
+- `create_folder()`: switched from `os.makedirs()` to `os.mkdir()`.
+- `save_simultation_result()` (intentional typo): added alias.
+- `load_data_from_properties_file()`: updated to call new Options setters and use correct
+  `datetime.datetime` construction instead of `timedelta`.
+
+### `gluecode/simple_simulation_handler.py` — float format
+
+Wrapped value in `float()` in `write_parameters_file()` to produce `"val1=10.0"`.
+
+### Result
+
+Unit tests: **40 / 40 passed**.

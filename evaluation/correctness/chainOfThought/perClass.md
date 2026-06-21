@@ -121,3 +121,47 @@ Same blocking `queue.get()` issue as `oneShot/concreteModifier`. Fixed with
 ### Result
 
 Integration tests: **44 / 44 passed**.
+
+---
+
+## Corrections applied for Unit Tests
+
+### `experimenthandling/environment.py` — default constructor, copy constructor, compare_to, set_trace
+
+The original `__init__` required all three arguments with no defaults and had no copy-
+constructor path. Fixed:
+- Made all parameters optional (`id_=1`, `set_of_parameters=None`, `probability=1.0`).
+- Added `isinstance(set_of_parameters, Environment)` detection for positional copy call.
+- Added `set_trace()` setter (missing from original, called by unit tests).
+- Added `compare_to()` method.
+
+### `experimenthandling/options.py` — getter name aliases
+
+Added `get_type_of_cuttof_planning()`, `get_cuttof_planning()`, `get_cuttof_planning_h()`
+as aliases.
+
+### `util/file_management.py` — six fixes
+
+1. `content_of_a_file()`: rewrote to join lines with no separator (`"".join(...)` after
+   stripping `\n`) instead of returning the raw `read()` content which includes newlines.
+2. `move_file()`: added existence check so missing source silently does nothing.
+3. `copy_file()`: added existence check so missing source silently does nothing.
+4. `create_folder()`: switched from `os.makedirs()` to `os.mkdir()`.
+5. `save_simulation_result()`: changed to write `"Result={result}\n"` format (was writing
+   raw string); added `save_simultation_result()` typo alias; removed `os.makedirs` call
+   so it silently fails when the folder does not exist.
+6. `write_data_in_properties_file()`: removed `os.makedirs(...)` call so missing parent
+   directory causes a silent no-op instead of creating the directory tree.
+
+### `gluecode/simple_simulation_handler.py` — float format & getter API
+
+- Switched from `p.key` / `p.value` attribute access to `p.get_key()` / `float(p.get_value())`.
+
+### Calendar datetime fix in `_apply_properties_to_options`
+
+Changed from `datetime.now() + timedelta(days=amount)` to `datetime(1, 1, amount)` so
+`.day`, `.hour`, `.minute` attributes equal the configured value.
+
+### Result
+
+Unit tests: **40 / 40 passed**.

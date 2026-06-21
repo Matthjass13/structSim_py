@@ -73,3 +73,34 @@ throughout the migration.
 ### Result
 
 Integration tests: **44 / 44 passed**.
+
+---
+
+## Corrections applied for Unit Tests
+
+### `experimenthandling/environment.py` — copy constructor & compare_to
+
+Added detection of `isinstance(set_of_parameters, Environment)` in `__init__` to handle
+the positional copy constructor call `Environment(2, e1)` used in unit tests.
+Added `compare_to()` method returning `-1`, `0`, or `1`.
+
+### `experimenthandling/options.py` — getter name aliases & datetime calendar
+
+Added `get_type_of_cuttof_planning()`, `get_cuttof_planning()`, and `get_cuttof_planning_h()`
+aliases (Java-faithful "cuttof" typo). `get_cuttof_planning_h()` returns a `datetime.datetime`
+object constructed as `datetime(1, 1, day)`, `datetime(1, 1, 1, hour)`, or
+`datetime(1, 1, 1, 0, minute)` so the `.day`, `.hour`, `.minute` attributes match expectations.
+
+### `util/file_management.py` — create_folder, save_simultation_result, write_data_in_properties_file
+
+- `create_folder()`: switched from `os.makedirs()` to `os.mkdir()`.
+- `save_simultation_result()` (intentional typo): added alias.
+- `write_data_in_properties_file()`: added method without parent-directory creation.
+
+### `gluecode/simple_simulation_handler.py` — float format
+
+Wrapped `p.get_value()` in `float()` so `10.0` is written instead of `10`.
+
+### Result
+
+Unit tests: **40 / 40 passed**.

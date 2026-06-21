@@ -64,34 +64,56 @@ class FileManagement:
     # ------------------------------------------------------------------
 
     def content_of_a_file(self) -> str:
-        """Read self.filename and return its full text content."""
-        with open(self.filename, "r", encoding="utf-8") as fh:
-            return fh.read()
+        """Read self.filename and return its full text content with no separator between lines."""
+        if not os.path.isfile(self.filename):
+            return "this is not a file"
+        try:
+            with open(self.filename, "r", encoding="utf-8") as fh:
+                return "".join(line.rstrip("\n") for line in fh)
+        except OSError:
+            return ""
 
     def move_file(self, origin_file: str, destination_file: str) -> None:
-        """Move a file, replacing the destination if it exists."""
-        shutil.move(origin_file, destination_file)
+        """Move a file; silently do nothing if source does not exist."""
+        if not os.path.exists(origin_file):
+            return
+        try:
+            shutil.move(origin_file, destination_file)
+        except OSError:
+            pass
 
     def copy_file(self, file: str, destination: str) -> None:
-        """Copy a file to destination path (replaces if exists)."""
-        os.makedirs(os.path.dirname(destination), exist_ok=True)
-        shutil.copy2(file, destination)
+        """Copy a file; silently do nothing if source does not exist."""
+        if not os.path.exists(file):
+            return
+        try:
+            shutil.copy2(file, destination)
+        except OSError:
+            pass
 
     def create_folder(self, folder_path: str) -> None:
-        """Create a single directory (non-recursive)."""
-        os.makedirs(folder_path, exist_ok=True)
+        """Create a single directory (non-recursive, no parents)."""
+        try:
+            os.mkdir(folder_path)
+        except (FileNotFoundError, FileExistsError):
+            pass
 
     # ------------------------------------------------------------------
     # Result saving
     # ------------------------------------------------------------------
 
+    def save_simultation_result(self, result: str, env: "Environment") -> str:
+        return self.save_simulation_result(result, env)
+
     def save_simulation_result(self, result: str, env: "Environment") -> str:
         """Write result string as key=value to the environment's result folder."""
         folder = os.path.join(self.options.folder_path_out, f"_sim{env.get_id()}")
-        os.makedirs(folder, exist_ok=True)
         path = os.path.join(folder, "results.txt")
-        with open(path, "w", encoding="utf-8") as fh:
-            fh.write(result)
+        try:
+            with open(path, "a", encoding="utf-8") as fh:
+                fh.write(f"Result={result}\n")
+        except FileNotFoundError:
+            pass
         return path
 
     # ------------------------------------------------------------------
@@ -114,13 +136,12 @@ class FileManagement:
             o.set_stop_criteria(float(props.get("cuttOfPlanning", props.get("stopCriteria", "0.0"))))
         elif type_cutoff in ("DAY", "HOURS", "MINUTES"):
             amount = int(props.get("cuttOfPlanning", "1"))
-            now = datetime.now()
             if type_cutoff == "DAY":
-                deadline = now + timedelta(days=amount)
+                deadline = datetime(1, 1, amount)
             elif type_cutoff == "HOURS":
-                deadline = now + timedelta(hours=amount)
+                deadline = datetime(1, 1, 1, amount)
             else:
-                deadline = now + timedelta(minutes=amount)
+                deadline = datetime(1, 1, 1, 0, amount)
             o.set_cutt_of_planning_h(deadline)
         return o
 
@@ -150,10 +171,12 @@ class FileManagement:
     ) -> None:
         """Write key=value pairs to file. If keep_previous_results, append; otherwise overwrite."""
         mode = "a" if keep_previous_results else "w"
-        os.makedirs(os.path.dirname(file_path) or ".", exist_ok=True)
-        with open(file_path, mode, encoding="utf-8") as fh:
-            for k, v in data_to_write.items():
-                fh.write(f"{k}={v}\n")
+        try:
+            with open(file_path, mode, encoding="utf-8") as fh:
+                for k, v in data_to_write.items():
+                    fh.write(f"{k}={v}\n")
+        except OSError:
+            pass
 
     # ------------------------------------------------------------------
     # Folder creation helpers
