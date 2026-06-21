@@ -51,6 +51,15 @@ class Options:
     def set_stop_criteria(self, stop_criteria):
         self.stop_criteria = stop_criteria
 
+    def get_type_of_cuttof_planning(self):
+        return self.type_of_cutt_of_planning
+
+    def get_cuttof_planning(self):
+        return self.cutt_of_planning
+
+    def get_cuttof_planning_h(self):
+        return self.cutt_of_planning_h
+
     def get_path_to_simulator_result_file(self):
         return self.path_to_simulator_result_file
 

@@ -105,7 +105,7 @@ class SimpleSimulationHandler(ASimulationSystemHandler):
         try:
             with open(out_path, "w", encoding="utf-8") as f:
                 for p in set_of_parameters:
-                    f.write(f"{p.key}={p.value}\n")
+                    f.write(f"{p.get_key()}={float(p.get_value())}\n")
         except Exception:
             import traceback; traceback.print_exc()
 

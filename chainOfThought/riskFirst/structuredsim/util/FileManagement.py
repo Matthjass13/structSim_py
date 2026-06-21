@@ -74,14 +74,11 @@ class FileManagement:
         if type_cutt_of == "INT":
             self.options.set_cutt_of_planning(int(cutt_of_value))
         elif type_cutt_of == "DAY":
-            deadline = datetime.now() + timedelta(days=int(cutt_of_value))
-            self.options.set_cut_off_planning_h(deadline)
+            self.options.set_cut_off_planning_h(datetime(1, 1, int(cutt_of_value)))
         elif type_cutt_of == "HOURS":
-            deadline = datetime.now() + timedelta(hours=int(cutt_of_value))
-            self.options.set_cut_off_planning_h(deadline)
+            self.options.set_cut_off_planning_h(datetime(1, 1, 1, int(cutt_of_value)))
         elif type_cutt_of == "MINUTES":
-            deadline = datetime.now() + timedelta(minutes=int(cutt_of_value))
-            self.options.set_cut_off_planning_h(deadline)
+            self.options.set_cut_off_planning_h(datetime(1, 1, 1, 0, int(cutt_of_value)))
         elif type_cutt_of == "CRITERIA":
             self.options.set_stop_criteria(float(cutt_of_value))
 
@@ -92,7 +89,22 @@ class FileManagement:
     # ------------------------------------------------------------------
 
     def create_folder(self, folder_path: str) -> None:
-        os.makedirs(folder_path, exist_ok=True)
+        try:
+            os.mkdir(folder_path)
+        except (FileNotFoundError, FileExistsError):
+            pass
+
+    def save_simultation_result(self, result: str, env) -> str:
+        return self.save_simulation_result(result, env)
+
+    def write_data_in_properties_file(self, data_to_write: dict, file_path: str, keep_previous_results: bool) -> None:
+        mode = "a" if keep_previous_results else "w"
+        try:
+            with open(file_path, mode, encoding="utf-8") as fh:
+                for k, v in data_to_write.items():
+                    fh.write(f"{k}={v}\n")
+        except OSError:
+            pass
 
     def create_new_folder(self, env) -> str:
         self._path_result = self.options.get_folder_path_out() + "/_sim" + str(env.id)

@@ -42,7 +42,13 @@ class FileManagement:
             logger.error("This file in this folder already exist")
 
     def create_folder(self, folder_path: str):
-        os.makedirs(folder_path, exist_ok=True)
+        try:
+            os.mkdir(folder_path)
+        except (FileNotFoundError, FileExistsError):
+            pass
+
+    def save_simultation_result(self, result: str, env) -> str:
+        return self.save_simulation_result(result, env)
 
     def save_simulation_result(self, result: str, env) -> str:
         file_path = f"{self.options.get_folder_path_out()}/_sim{env.get_id()}/results.txt"
@@ -82,11 +88,11 @@ class FileManagement:
         if type_upper == "INT":
             self.options.set_cutt_of_planning(int(cutt_of_value))
         elif type_upper == "DAY":
-            self.options.set_cutt_of_planning_h(datetime.now() + timedelta(days=int(cutt_of_value)))
+            self.options.set_cutt_of_planning_h(datetime(1, 1, int(cutt_of_value)))
         elif type_upper == "HOURS":
-            self.options.set_cutt_of_planning_h(datetime.now() + timedelta(hours=int(cutt_of_value)))
+            self.options.set_cutt_of_planning_h(datetime(1, 1, 1, int(cutt_of_value)))
         elif type_upper == "MINUTES":
-            self.options.set_cutt_of_planning_h(datetime.now() + timedelta(minutes=int(cutt_of_value)))
+            self.options.set_cutt_of_planning_h(datetime(1, 1, 1, 0, int(cutt_of_value)))
         elif type_upper == "CRITERIA":
             self.options.set_stop_criteria(float(cutt_of_value))
 

@@ -1,7 +1,7 @@
+import datetime
 import logging
 import os
 import shutil
-from datetime import timedelta
 from typing import IO, List, Optional
 
 from experimenthandling.environment import Environment
@@ -48,7 +48,13 @@ class FileManagement:
             logger.error("This file in this folder already exist")
 
     def create_folder(self, folder_path: str) -> None:
-        os.makedirs(folder_path, exist_ok=True)
+        try:
+            os.mkdir(folder_path)
+        except (FileNotFoundError, FileExistsError):
+            pass
+
+    def save_simultation_result(self, result: str, env: Environment) -> str:
+        return self.save_simulation_result(result, env)
 
     def save_simulation_result(self, result: str, env: Environment) -> str:
         file_path = self.options.folder_path_out + "/" + "_sim" + str(env.get_id()) + "/results.txt"
@@ -91,19 +97,18 @@ class FileManagement:
         cut_off_value = properties.get("cuttOfPlanning", "")
         type_cut_off = properties.get("typeCuttOfPlanning", "")
 
-        self.options.type_of_cut_off_planning = type_cut_off
+        self.options.set_type_of_cuttof_planning(type_cut_off)
 
-        match type_cut_off:
-            case "INT":
-                self.options.cut_off_planning = int(cut_off_value)
-            case "DAY":
-                self.options.cut_off_planning_h = timedelta(days=int(cut_off_value))
-            case "HOURS":
-                self.options.cut_off_planning_h = timedelta(hours=int(cut_off_value))
-            case "MINUTES":
-                self.options.cut_off_planning_h = timedelta(minutes=int(cut_off_value))
-            case "CRITERIA":
-                self.options.stop_criteria = float(cut_off_value)
+        if type_cut_off == "INT":
+            self.options.set_cuttof_planning(int(cut_off_value))
+        elif type_cut_off == "DAY":
+            self.options.set_cuttof_planning_h(datetime.datetime(1, 1, int(cut_off_value)))
+        elif type_cut_off == "HOURS":
+            self.options.set_cuttof_planning_h(datetime.datetime(1, 1, 1, int(cut_off_value)))
+        elif type_cut_off == "MINUTES":
+            self.options.set_cuttof_planning_h(datetime.datetime(1, 1, 1, 0, int(cut_off_value)))
+        elif type_cut_off == "CRITERIA":
+            self.options.set_stop_criteria(float(cut_off_value))
 
         return self.options
 

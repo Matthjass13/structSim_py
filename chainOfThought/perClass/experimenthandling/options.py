@@ -51,6 +51,15 @@ class Options:
     def get_stop_criteria(self) -> float:
         return self.stop_criteria
 
+    def get_type_of_cuttof_planning(self) -> Optional[str]:
+        return self.type_of_cutt_of_planning
+
+    def get_cuttof_planning(self) -> int:
+        return self.cutt_of_planning
+
+    def get_cuttof_planning_h(self) -> Optional[datetime]:
+        return self.cutt_of_planning_h
+
     def get_path_to_simulator_result_file(self) -> Optional[str]:
         return self.path_to_simulator_result_file
 

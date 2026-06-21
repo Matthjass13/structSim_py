@@ -3,11 +3,15 @@ from experimenthandling.parameter import Parameter
 
 class Environment:
     def __init__(self, id=1, set_of_parameters=None, probability=1.0):
-        """
-        Normal constructor: Environment(id, set_of_parameters, probability)
-        Default constructor: Environment()  ->  id=1, empty list, probability=1
-        Copy constructor: use Environment.copy(id, source_env) classmethod
-        """
+        import copy
+        if isinstance(set_of_parameters, Environment):
+            source = set_of_parameters
+            self.id = id
+            self.set_of_parameters = copy.deepcopy(source.set_of_parameters)
+            self.probability = source.probability
+            self.path_save_result = source.path_save_result
+            self.trace = list(source.trace)
+            return
         self.id = id
         self.set_of_parameters = set_of_parameters if set_of_parameters is not None else []
         self.probability = probability
@@ -74,6 +78,13 @@ class Environment:
 
     def __ge__(self, other):
         return self.probability >= other.probability
+
+    def compare_to(self, other: "Environment") -> int:
+        if self.probability < other.probability:
+            return -1
+        elif self.probability > other.probability:
+            return 1
+        return 0
 
     def __repr__(self):
         return self.to_string_modifier()

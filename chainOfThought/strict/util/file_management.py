@@ -49,11 +49,17 @@ class FileManagement:
             pass
 
     def create_folder(self, folder_path: str) -> None:
-        os.makedirs(folder_path, exist_ok=True)
+        try:
+            os.mkdir(folder_path)
+        except (FileNotFoundError, FileExistsError):
+            pass
 
     # ------------------------------------------------------------------
     # Saving simulation results
     # ------------------------------------------------------------------
+
+    def save_simultation_result(self, result: str, env) -> str:
+        return self.save_simulation_result(result, env)
 
     def save_simulation_result(self, result: str, env) -> str:
         """
@@ -95,14 +101,11 @@ class FileManagement:
                 if val == "INT":
                     self.options.set_cutt_of_planning(int(cutt_of_value))
                 elif val == "DAY":
-                    cal = datetime.datetime.now().replace(day=int(cutt_of_value))
-                    self.options.set_cutt_of_planning_h(cal)
+                    self.options.set_cutt_of_planning_h(datetime.datetime(1, 1, int(cutt_of_value)))
                 elif val == "HOURS":
-                    cal = datetime.datetime.now().replace(hour=int(cutt_of_value))
-                    self.options.set_cutt_of_planning_h(cal)
+                    self.options.set_cutt_of_planning_h(datetime.datetime(1, 1, 1, int(cutt_of_value)))
                 elif val == "MINUTES":
-                    cal = datetime.datetime.now().replace(minute=int(cutt_of_value))
-                    self.options.set_cutt_of_planning_h(cal)
+                    self.options.set_cutt_of_planning_h(datetime.datetime(1, 1, 1, 0, int(cutt_of_value)))
                 elif val == "CRITERIA":
                     self.options.set_stop_criteria(float(cutt_of_value))
         return self.options
