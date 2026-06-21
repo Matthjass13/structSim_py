@@ -78,5 +78,6 @@ class ExperimentSimulatorHandler:
                 traceback.print_exc()
                 logger.error("Error in the run of the Thread Simulator")
 
+        self.results_queue.put(None)  # sentinel: signal result handler to stop
         result_thread.start()
         result_thread.join()

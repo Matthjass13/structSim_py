@@ -58,5 +58,6 @@ class ExperimentSimulatorHandler(threading.Thread):
             except Exception as e:
                 print(e)
 
+        self.results_queue.put(None)  # sentinel: signal result handler to stop
         result_handler.start()
         result_handler.join()

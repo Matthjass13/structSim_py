@@ -29,22 +29,20 @@ class ExperimentResultHandler:
         self.options: Options = options
 
     def run(self) -> None:
-        if not self.results_queue.empty():
-            items: List[str] = list(self.results_queue.queue)
-            for str_path in items:
-                logger.debug("Result queue string : %s", str_path)
-                measures: List[Measure] = self.glue_code.extract_measures(str_path)
-                position_of_last_slash = str_path.rfind("/")
-                folder_to_save = str_path[:position_of_last_slash]
-                logger.debug("Folder where it's saved : %s", folder_to_save)
-                position_last_slash = folder_to_save.rfind("/")
-                name_simulation = folder_to_save[position_last_slash + 1:]
-                logger.debug("Name Simulation : %s", name_simulation)
-                self.fm.create_measures_file(measures, folder_to_save + "/measures.txt")
-                self.fm.copy_file(
-                    folder_to_save + "/measures.txt",
-                    self.options.path_simulator + "/" + name_simulation + "/measures.txt",
-                )
-        else:
-            import threading
-            threading.current_thread()  # No-op equivalent of Thread.currentThread().interrupt()
+        while True:
+            str_path = self.results_queue.get()
+            if str_path is None:  # sentinel: no more results
+                break
+            logger.debug("Result queue string : %s", str_path)
+            measures: List[Measure] = self.glue_code.extract_measures(str_path)
+            position_of_last_slash = str_path.rfind("/")
+            folder_to_save = str_path[:position_of_last_slash]
+            logger.debug("Folder where it's saved : %s", folder_to_save)
+            position_last_slash = folder_to_save.rfind("/")
+            name_simulation = folder_to_save[position_last_slash + 1:]
+            logger.debug("Name Simulation : %s", name_simulation)
+            self.fm.create_measures_file(measures, folder_to_save + "/measures.txt")
+            self.fm.copy_file(
+                folder_to_save + "/measures.txt",
+                self.options.path_simulator + "/" + name_simulation + "/measures.txt",
+            )
