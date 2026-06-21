@@ -80,6 +80,25 @@ instead of N. Fixed by changing `result_thread.join(timeout=30)` to an unbounded
 `result_thread.join()` so `start_program` only returns once result processing is
 fully complete.
 
+### `experimenthandling/experiment_result_handler.py` — unreliable `queue.empty()` check (Windows race condition)
+
+`ExperimentResultHandler.run()` used `results_queue.empty()` to decide whether to
+process results. `Queue.empty()` is inherently unreliable in threaded contexts: on
+Linux, the simulator thread finishes all `put()` calls before the result thread
+starts, so `empty()` reliably returns `False`. On Windows, thread scheduling is
+less predictable and memory visibility differs, so `empty()` could return `True`
+even when items were present, or return `True` after reading only the first item,
+causing the SummaryFile to contain only 1 line instead of N.
+
+Fixed by replacing the `empty()`-based drain with a sentinel-based blocking loop:
+
+- `ExperimentSimulatorHandler` puts `None` into `results_queue` after breaking out
+  of the simulation loop (just before starting the result thread).
+- `ExperimentResultHandler.run()` uses a blocking `results_queue.get()` loop,
+  processing each item until it receives the `None` sentinel, then exits.
+
+This guarantees all results are processed regardless of thread scheduling order.
+
 ### Result
 
 Integration tests: **44 / 44 passed**.
