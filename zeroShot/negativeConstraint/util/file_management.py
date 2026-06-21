@@ -1,4 +1,5 @@
 import configparser
+import datetime
 import logging
 import os
 import shutil
@@ -44,7 +45,10 @@ class FileManagement:
             logger.error("This file in this folder already exist")
 
     def create_folder(self, folder_path):
-        os.makedirs(folder_path, exist_ok=True)
+        try:
+            os.mkdir(folder_path)
+        except (FileNotFoundError, FileExistsError):
+            pass
 
     def save_simulation_result(self, result, env):
         file_path = (
@@ -53,6 +57,9 @@ class FileManagement:
         with open(file_path, "a", encoding="utf-8") as f:
             f.write(f"Result={result}\n")
         return file_path
+
+    def save_simultation_result(self, result, env):
+        return self.save_simulation_result(result, env)
 
     def load_data_from_properties_file(self, source):
         config = configparser.ConfigParser()
@@ -81,17 +88,20 @@ class FileManagement:
             case "INT":
                 self.options.set_cuttof_planning(int(cuttof_value))
             case "DAY":
-                self.options.set_cuttof_planning_h({"DAY": int(cuttof_value)})
+                self.options.set_cuttof_planning_h(datetime.datetime(1, 1, int(cuttof_value)))
             case "HOURS":
-                self.options.set_cuttof_planning_h({"HOURS": int(cuttof_value)})
+                self.options.set_cuttof_planning_h(datetime.datetime(1, 1, 1, int(cuttof_value)))
             case "MINUTES":
-                self.options.set_cuttof_planning_h({"MINUTES": int(cuttof_value)})
+                self.options.set_cuttof_planning_h(datetime.datetime(1, 1, 1, 0, int(cuttof_value)))
             case "CRITERIA":
                 self.options.set_stop_criteria(float(cuttof_value))
 
         return self.options
 
     def write_data_in_properties_file(self, data_to_write, file_path, keep_previous_results):
+        parent = os.path.dirname(file_path)
+        if parent and not os.path.isdir(parent):
+            return
         mode = "a" if keep_previous_results else "w"
         try:
             with open(file_path, mode, encoding="utf-8") as f:

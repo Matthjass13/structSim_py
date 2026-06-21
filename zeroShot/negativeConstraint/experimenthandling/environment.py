@@ -4,6 +4,9 @@ from experimenthandling.parameter import Parameter
 class Environment:
 
     def __init__(self, id=1, set_of_parameters=None, probability=1, copy_from=None):
+        if isinstance(set_of_parameters, Environment):
+            copy_from = set_of_parameters
+            set_of_parameters = None
         if copy_from is not None:
             self.id = id
             self.set_of_parameters = [Parameter(p) for p in copy_from.set_of_parameters]
@@ -46,6 +49,13 @@ class Environment:
 
     def set_trace(self, trace):
         self.trace = trace
+
+    def compare_to(self, other):
+        if self.probability < other.probability:
+            return -1
+        elif self.probability > other.probability:
+            return 1
+        return 0
 
     def __lt__(self, other):
         return self.probability < other.probability
