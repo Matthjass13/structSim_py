@@ -43,3 +43,34 @@ The method is missing from the `FileManagement` class.
 
 **5 — `write_parameters_file()` formats integers without decimal (1 test)**
 Whole-number floats are written as `10` instead of `10.0`.
+
+---
+
+## Corrections applied for Integration Tests
+
+### `gluecode/simulation.py` — missing `Simulation` class
+
+Added a `Simulation` class inheriting from `StartProgram`:
+
+```python
+class Simulation(StartProgram):
+    pass
+```
+
+### `gluecode/concrete_modifier.py` — `ConcreteModifier(0.5)` broken
+
+Added float detection at the top of `__init__` to remap a single float argument
+to `key_to_change="val1"`, `operator="*"`, `delta=probability=float_value`.
+
+### `interfaces/start_program.py` — threads not joined
+
+Added `planning_thread.join()` and `simulation_thread.join()`.
+
+### `experimenthandling/environment.py` — `to_string_modifier()` wrong format
+
+Changed `"Modifier implemented : {result}"` to `"Modifier implemented :    {result}"`
+(four spaces before the modifier trace).
+
+### Result
+
+Integration tests: **44 / 44 passed**.

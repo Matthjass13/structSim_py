@@ -73,3 +73,50 @@ The method is missing from the `FileManagement` class.
 **6 — `write_parameters_file()` formats integers without decimal (1 test)**
 Python outputs `10` for whole-number floats instead of the Java-style `10.0`,
 causing the assertion `lines[0] == "val1=10.0"` to fail.
+
+---
+
+## Corrections applied for Integration Tests
+
+### `gluecode/concrete_modifier.py` — `ConcreteModifier(0.5)` crashes
+
+When called with a single float, `key_to_change` received `0.5` and `operator`
+was `None`, causing `None + str(delta)` to raise `TypeError`. Added float
+detection before the existing branches:
+
+```python
+if isinstance(key_to_change, (int, float)) and operator is None:
+    delta = float(key_to_change)
+    key_to_change = "val1"
+    operator = "*"
+    probability = delta
+```
+
+### `experimenthandling/environment.py` — wrong BFS ordering for equal-probability environments
+
+`Environment.__lt__` used `self.id < other.id` as a tiebreaker for equal
+probabilities. With `to_explore.sort(reverse=True)`, this placed higher-ID
+(more recently created) environments before lower-ID ones when probabilities
+were equal. The correct behaviour (matching the Java reference) is FIFO: the
+environment discovered earlier should be explored first.
+
+The tiebreaker was removed so that Python's stable sort preserves insertion
+order for equal probabilities:
+
+```python
+def __lt__(self, other: "Environment") -> bool:
+    return self.probability < other.probability
+
+def __eq__(self, other: object) -> bool:
+    if not isinstance(other, Environment):
+        return False
+    return self.probability == other.probability
+```
+
+This fix only manifests at depth ≥ 6 in scenario 2 (two modifiers with
+different probabilities), which is why `test_int_cutoff_type[2-6]` and
+`test_int_cutoff_type[2-7]` were the only failing tests.
+
+### Result
+
+Integration tests: **44 / 44 passed**.

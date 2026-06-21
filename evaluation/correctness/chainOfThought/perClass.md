@@ -70,3 +70,54 @@ Java typo-faithful `get_type_of_cuttof_planning()`.
 
 **10 — `FileManagement.save_simultation_result()` absent (1 test)**
 The method is missing from the `FileManagement` class.
+
+---
+
+## Corrections applied for Integration Tests
+
+### `gluecode/simple_simulation_handler.py` — abstract method not implemented
+
+`IManageParametersFile` declared `read_parameters_file_stream` as abstract but
+`SimpleSimulationHandler` did not override it, making the class non-instantiable.
+Added the implementation:
+
+```python
+def read_parameters_file_stream(self, input_stream) -> list:
+    raw = input_stream.read()
+    if isinstance(raw, bytes):
+        raw = raw.decode("utf-8")
+    params = []
+    for line in raw.splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        if "=" in line:
+            key, _, val = line.partition("=")
+            try:
+                params.append(Parameter(key.strip(), float(val.strip())))
+            except ValueError:
+                pass
+    return params
+```
+
+### `interfaces/start_program.py` — wrong attribute name
+
+`start_program` read `o.type_of_cutoff_planning` (corrected English) but the
+`Options` class stores the value as `type_of_cutt_of_planning` (faithful
+snake_case of the Java typo). Changed to `o.type_of_cutt_of_planning`.
+
+Also added `planning_thread.join()` and `simulation_thread.join()`.
+
+### `gluecode/concrete_modifier.py` — `ConcreteModifier(0.5)` broken
+
+Added float detection at the top of `__init__` to remap a single float argument
+to `key_to_change="val1"`, `operator="*"`, `delta=probability=float_value`.
+
+### `experimenthandling/experiment_simulator_handler.py` — infinite loop
+
+Same blocking `queue.get()` issue as `oneShot/concreteModifier`. Fixed with
+`get(timeout=0.5)` and an `Empty` exception handler, plus `result_thread.join()`.
+
+### Result
+
+Integration tests: **44 / 44 passed**.

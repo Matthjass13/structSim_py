@@ -42,3 +42,34 @@ Uses `makedirs`-equivalent instead of `mkdir()` semantics.
 
 **7 — Simulation-related unit tests fail (2 tests)**
 Tests that exercise `ASimulationSystemHandler` or `SimpleSimulationHandler` interactions fail due to missing or incorrectly typed methods on the handler classes.
+
+---
+
+## Corrections applied for Integration Tests
+
+### `gluecode/concrete_modifier.py` — `ConcreteModifier(0.5)` broken
+
+Added float detection at the top of `__init__` to remap a single float argument
+to `key_to_change="val1"`, `operator="*"`, `delta=probability=float_value`.
+
+### `experimenthandling/parameter.py` — missing getter methods
+
+`Parameter.get_key()` and `Parameter.get_value()` were absent. Added both
+getters (and `set_value()`) so that `ConcreteModifier.apply_modifier()` and
+`SimpleSimulationHandler` can access parameter data without `AttributeError`.
+
+### `interfaces/start_program.py` — threads not joined
+
+Added `planning_thread.join()` and `simulation_thread.join()` so `start_program`
+waits for the full simulation pipeline before returning.
+
+### `experimenthandling/experiment_simulator_handler.py` — potential deadlock
+
+The `get(block=True)` call (no timeout in the original) was already wrapped with
+`timeout=0.1` in this migration. However `result_thread.join(timeout=30)` capped
+the result thread wait at 30 seconds. Changed to an unbounded join so the
+simulation thread only exits once result processing is complete.
+
+### Result
+
+Integration tests: **44 / 44 passed**.
