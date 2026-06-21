@@ -119,3 +119,35 @@ Fixed by changing the literal to `"Modifier implemented :    {modifiers}"`.
 ### Result
 
 Integration tests: **44 / 44 passed**.
+
+---
+
+## Corrections applied for Unit Tests
+
+### `experimenthandling/environment.py` — default constructor & copy constructor
+
+The original `Environment` required all three arguments (`env_id`, `set_of_parameters`,
+`probability`). Made all parameters optional with defaults and added copy-constructor
+detection: when the second positional arg is an `Environment`, deep-copy its parameters.
+Added `compare_to()` method.
+
+### `experimenthandling/options.py` — getter name aliases & datetime calendar
+
+Added `get_type_of_cuttof_planning()`, `get_cuttof_planning()`, `get_cuttof_planning_h()`
+aliases. Fixed calendar storage to use `datetime.datetime(1, 1, day/hour/minute)`.
+
+### `util/file_management.py` — multiple fixes
+
+- `content_of_a_file()`: joined lines with no separator (was joining with `\n`).
+- `create_folder()`: switched to `os.mkdir()`.
+- `save_simultation_result()`: added typo alias.
+- `write_data_in_properties_file()`: added method.
+
+### `gluecode/simple_simulation_handler.py` — float format & BytesIO stream
+
+- `write_parameters_file()`: wrapped value in `float()`.
+- `read_parameters_file()`: ensured BytesIO streams are accepted.
+
+### Result
+
+Unit tests: **40 / 40 passed**.

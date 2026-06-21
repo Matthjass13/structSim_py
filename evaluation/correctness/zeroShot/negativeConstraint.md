@@ -106,3 +106,32 @@ Changed `"Modifier implemented : {result}"` to `"Modifier implemented :    {resu
 ### Result
 
 Integration tests: **44 / 44 passed**.
+
+---
+
+## Corrections applied for Unit Tests
+
+### `experimenthandling/environment.py` — copy constructor & compare_to
+
+Added `isinstance(set_of_parameters, Environment)` detection for the positional copy
+constructor `Environment(2, e1)` used in unit tests. Added `compare_to()` method.
+
+### `experimenthandling/options.py` — getter name aliases & datetime calendar
+
+Added `get_type_of_cuttof_planning()`, `get_cuttof_planning()`, `get_cuttof_planning_h()`
+aliases. Fixed `get_cuttof_planning_h()` to return `datetime.datetime` built with fixed
+base values (`datetime(1, 1, day)` etc.) instead of storing a raw dict or timedelta.
+
+### `util/file_management.py` — create_folder, save_simultation_result
+
+- `create_folder()`: switched from `os.makedirs()` to `os.mkdir()`.
+- `save_simultation_result()` (intentional typo): added alias.
+
+### `gluecode/simple_simulation_handler.py` — float format & BytesIO
+
+- `write_parameters_file()`: wrapped value in `float()`.
+- `read_parameters_file()`: ensured BytesIO streams are handled.
+
+### Result
+
+Unit tests: **40 / 40 passed**.

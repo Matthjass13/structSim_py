@@ -74,3 +74,35 @@ Changed `"Modifier implemented : {result}"` to `"Modifier implemented :    {resu
 ### Result
 
 Integration tests: **44 / 44 passed**.
+
+---
+
+## Corrections applied for Unit Tests
+
+### `experimenthandling/environment.py` — copy constructor & compare_to
+
+Added `isinstance(set_of_parameters, Environment)` detection to handle positional copy
+constructor call `Environment(2, e1)`. Added `compare_to()` method returning `-1`/`0`/`1`.
+
+### `experimenthandling/options.py` — getter name aliases
+
+Added `get_type_of_cuttof_planning()`, `get_cuttof_planning()`, `get_cuttof_planning_h()`
+as aliases for the existing `type_of_cutt_of_planning`/`cutt_of_planning`/`cutt_of_planning_h`
+fields (the tests use "cuttof" while the class uses "cutt_of").
+
+### `util/file_management.py` — create_folder, save_simultation_result, datetime
+
+- `create_folder()`: switched from `os.makedirs()` to `os.mkdir()`.
+- `save_simultation_result()` (intentional typo): added alias for `save_simulation_result()`.
+- Calendar datetime: fixed `load_data_from_properties_file` to use
+  `datetime(1, 1, value)` / `datetime(1, 1, 1, value)` / `datetime(1, 1, 1, 0, value)`
+  instead of `datetime.now() + timedelta(...)`. This ensures `.day`, `.hour`, `.minute`
+  attributes match the expected values rather than today's date plus an offset.
+
+### `gluecode/simple_simulation_handler.py` — float format
+
+Wrapped value in `float()` in `write_parameters_file()`.
+
+### Result
+
+Unit tests: **40 / 40 passed**.

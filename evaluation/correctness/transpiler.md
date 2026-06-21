@@ -58,3 +58,49 @@ All files were added alongside (not replacing) the original transpiler output:
 ### Result
 
 Integration tests: **44 / 44 passed**.
+
+---
+
+## Corrections applied for Unit Tests
+
+### `experimenthandling/environment.py` — copy constructor & compare_to
+
+The test calls `Environment(2, e1)` where `e1` is an `Environment` instance passed as the
+second positional argument (`set_of_parameters`). Added detection at the top of `__init__`:
+
+```python
+if isinstance(set_of_parameters, Environment):
+    # treat as copy constructor
+    ...
+```
+
+Also added a `compare_to()` method returning `-1`, `0`, or `1` based on probability comparison.
+
+### `experimenthandling/options.py` — getter name aliases
+
+Tests call `get_type_of_cuttof_planning()`, `get_cuttof_planning()`, and
+`get_cuttof_planning_h()` (Java-faithful typo: "cuttof" not "cutoff"). Added these
+aliases. Also fixed `get_cuttof_planning_h()` to return a `datetime.datetime` object
+so that `.day`, `.hour`, and `.minute` attributes are available:
+
+```python
+if type_ == "DAY":   return datetime.datetime(1, 1, int(value))
+if type_ == "HOURS": return datetime.datetime(1, 1, 1, int(value))
+if type_ == "MINUTES": return datetime.datetime(1, 1, 1, 0, int(value))
+```
+
+### `util/file_management.py` — create_folder, save_simultation_result, write_data_in_properties_file, datetime
+
+- `create_folder()`: changed from `os.makedirs()` to `os.mkdir()` so that creating
+  a folder when the parent does not exist silently does nothing instead of raising.
+- `save_simultation_result()` (intentional typo): added alias for `save_simulation_result()`.
+- `write_data_in_properties_file()`: added method; does not create parent directories.
+
+### `gluecode/simple_simulation_handler.py` — float format
+
+Changed `f"{p.get_key()}={p.get_value()}\n"` to use `float()` so that whole-number
+values like `10` are written as `10.0`.
+
+### Result
+
+Unit tests: **40 / 40 passed**.

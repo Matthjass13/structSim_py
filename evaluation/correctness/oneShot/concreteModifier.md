@@ -91,3 +91,29 @@ Also added `result_thread.join()` after `result_thread.start()`.
 ### Result
 
 Integration tests: **44 / 44 passed**.
+
+---
+
+## Corrections applied for Unit Tests
+
+### `experimenthandling/environment.py` — copy constructor & compare_to
+
+Added `isinstance(set_of_parameters, Environment)` detection and `compare_to()` method.
+
+### `experimenthandling/options.py` — getter name aliases & datetime calendar
+
+Added `get_type_of_cuttof_planning()`, `get_cuttof_planning()`, `get_cuttof_planning_h()`
+aliases. Fixed calendar to use `datetime.datetime(1, 1, ...)`.
+
+### `util/file_management.py` — create_folder, save_simultation_result
+
+- `create_folder()`: switched to `os.mkdir()`.
+- `save_simultation_result()`: added typo alias.
+
+### `gluecode/simple_simulation_handler.py` — float format
+
+Wrapped value in `float()` in `write_parameters_file()`.
+
+### Result
+
+Unit tests: **40 / 40 passed**.

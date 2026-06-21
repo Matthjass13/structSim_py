@@ -83,3 +83,33 @@ all simulation work is complete before returning.
 ### Result
 
 Integration tests: **44 / 44 passed**.
+
+---
+
+## Corrections applied for Unit Tests
+
+### `experimenthandling/environment.py` — copy constructor & compare_to
+
+The `Environment` class used a `copy()` classmethod for deep copy, but tests call
+`Environment(2, e1)` positionally. Added `isinstance(set_of_parameters, Environment)`
+detection in `__init__` with early-return copy logic. Added `compare_to()` method.
+
+### `experimenthandling/options.py` — getter name aliases
+
+Added `get_type_of_cuttof_planning()`, `get_cuttof_planning()`, `get_cuttof_planning_h()`
+aliases for the `type_of_cutt_of_planning` / `cutt_of_planning` / `cutt_of_planning_h` fields.
+
+### `util/file_management.py` — create_folder, save_simultation_result, datetime
+
+- `create_folder()`: switched to `os.mkdir()`.
+- `save_simultation_result()`: added typo alias.
+- Calendar datetime: changed `datetime.datetime.now().replace(day=...)` to
+  `datetime.datetime(1, 1, day)` etc. so attributes match exactly.
+
+### `gluecode/simple_simulation_handler.py` — float format
+
+Wrapped value in `float()`.
+
+### Result
+
+Unit tests: **40 / 40 passed**.
