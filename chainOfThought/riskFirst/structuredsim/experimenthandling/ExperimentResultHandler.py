@@ -2,7 +2,7 @@ import logging
 import queue
 from typing import List
 
-from experimenthandling.Options import Options
+from experimenthandling.options import Options
 
 logger = logging.getLogger(__name__)
 

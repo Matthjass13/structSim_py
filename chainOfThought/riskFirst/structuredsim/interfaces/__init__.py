@@ -1,11 +1,11 @@
-from interfaces.AModifier import AModifier
-from interfaces.IExtractMeasures import IExtractMeasures
-from interfaces.IManageModifier import IManageModifier
-from interfaces.IManageParametersFile import IManageParametersFile
-from interfaces.IStartSimulation import IStartSimulation
-from interfaces.IStopProgram import IStopProgram
-from interfaces.ASimulationSystemHandler import ASimulationSystemHandler
-from interfaces.StartProgram import StartProgram
+from interfaces.a_modifier import AModifier
+from interfaces.i_extract_measures import IExtractMeasures
+from interfaces.i_manage_modifier import IManageModifier
+from interfaces.i_manage_parameters_file import IManageParametersFile
+from interfaces.i_start_simulation import IStartSimulation
+from interfaces.i_stop_program import IStopProgram
+from interfaces.a_simulation_system_handler import ASimulationSystemHandler
+from interfaces.start_program import StartProgram
 
 __all__ = [
     "AModifier",

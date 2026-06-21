@@ -1,11 +1,11 @@
 from typing import List, Optional
 
-from interfaces.IExtractMeasures import IExtractMeasures
-from interfaces.IManageModifier import IManageModifier
-from interfaces.IManageParametersFile import IManageParametersFile
-from interfaces.IStartSimulation import IStartSimulation
-from interfaces.IStopProgram import IStopProgram
-from experimenthandling.Options import Options
+from interfaces.i_extract_measures import IExtractMeasures
+from interfaces.i_manage_modifier import IManageModifier
+from interfaces.i_manage_parameters_file import IManageParametersFile
+from interfaces.i_start_simulation import IStartSimulation
+from interfaces.i_stop_program import IStopProgram
+from experimenthandling.options import Options
 
 
 class ASimulationSystemHandler(

@@ -6,8 +6,8 @@ from datetime import datetime, timedelta
 from io import IOBase
 from typing import IO, List, Union
 
-from experimenthandling.Measure import Measure
-from experimenthandling.Options import Options
+from experimenthandling.measure import Measure
+from experimenthandling.options import Options
 
 logger = logging.getLogger(__name__)
 
