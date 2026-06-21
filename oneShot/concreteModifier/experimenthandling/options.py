@@ -47,6 +47,24 @@ class Options:
     def set_type_of_cutt_of_planning(self, type_of_cutt_of_planning: str) -> None:
         self.type_of_cutt_of_planning = type_of_cutt_of_planning
 
+    def get_type_of_cuttof_planning(self):
+        return self.type_of_cutt_of_planning
+
+    def get_cuttof_planning(self):
+        return self.cutt_of_planning
+
+    def get_cuttof_planning_h(self):
+        import datetime
+        type_ = self.type_of_cutt_of_planning
+        h = self.cutt_of_planning_h or {}
+        if type_ == "DAY":
+            return datetime.datetime(1, 1, h.get("DATE"))
+        elif type_ == "HOURS":
+            return datetime.datetime(1, 1, 1, h.get("HOUR_OF_DAY"))
+        elif type_ == "MINUTES":
+            return datetime.datetime(1, 1, 1, 0, h.get("MINUTE"))
+        return None
+
     def get_stop_criteria(self) -> float:
         return self.stop_criteria
 

@@ -46,7 +46,10 @@ class FileManagement:
             logger.error("This file in this folder already exist")
 
     def create_folder(self, folder_path: str) -> None:
-        Path(folder_path).mkdir(parents=False, exist_ok=True)
+        try:
+            Path(folder_path).mkdir(parents=False, exist_ok=True)
+        except FileNotFoundError:
+            pass
 
     def save_simulation_result(self, result: str, env) -> str:
         file_path = (
@@ -61,7 +64,15 @@ class FileManagement:
             logger.error("File not Found")
         return file_path
 
-    def load_data_from_properties_file(self, file_path: str) -> Options:
+    def save_simultation_result(self, result: str, env) -> str:
+        return self.save_simulation_result(result, env)
+
+    def create_new_folder(self, env) -> str:
+        return self._create_new_folder(env)
+
+    def load_data_from_properties_file(self, file_path) -> Options:
+        if hasattr(file_path, "read"):
+            return self.load_data_from_properties_file_stream(file_path)
         props: dict = {}
         try:
             with open(file_path, "r", encoding="utf-8") as f:
@@ -120,6 +131,9 @@ class FileManagement:
 
     def write_data_in_properties_file(self, data_to_write: dict, file_path: str,
                                       keep_previous_results: bool) -> None:
+        parent = os.path.dirname(file_path)
+        if parent and not os.path.isdir(parent):
+            return
         mode = "a" if keep_previous_results else "w"
         try:
             with open(file_path, mode, encoding="utf-8") as f:
