@@ -4,12 +4,13 @@
 > - The transpiler systematically scores **0.00** in Pylint because it outputs Java-style Python (PascalCase, no docstrings, etc.).
 
 **Package legend:** 🔵 experimenthandling · 🟣 interfaces · 🟢 gluecode · 🔴 util
-**Column groups:** Java = original Java source · Transpiler = auto-transpiler · ZS = Zero-Shot · OS = One-Shot · CoT = Chain-of-Thought
+**Column groups:** Java = original Java source · Trans = auto-transpiler · ZS = Zero-Shot · OS = One-Shot · CoT = Chain-of-Thought
+**Abbreviations:** ZS/NC = negativeConstraint · ZS/OT = onlyTask · ZS/Pe = persona · ZS/Ctx = withContext · OS/AS = aSimulationSystemHandler · OS/CM = concreteModifier · OS/EP = experimentPlanGenerator · CoT/PC = perClass · CoT/Le = lenient · CoT/St = strict · CoT/RF = riskFirst
 
 ## Lines of Code (total, including blanks and comments)
 
-| Class                          |  ║  | Java Orig  |  ║  | Transpiler |  ║  | ZS/negConst  | ZS/onlyTask  | ZS/persona | ZS/withCtx |  ║  | OS/aSimHdlr  | OS/concMod | OS/expPlanGen |  ║  | CoT/perClass | CoT/lenient  | CoT/strict | CoT/riskFirst |
-| ------------------------------ | :-: | ---------- | :-: | ---------- | :-: | ------------ | ------------ | ---------- | ---------- | :-: | ------------ | ---------- | ------------- | :-: | ------------ | ------------ | ---------- | ------------- |
+| Class                          |  ║  | Java Orig  |  ║  | Trans |  ║  | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║  | OS/AS | OS/CM | OS/EP |  ║  | CoT/PC | CoT/Le | CoT/St | CoT/RF |
+| ------------------------------ | :-: | ---------- | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
 | ══════════════════════════════ | ══  | ══════════ | ══  | ══════════ | ══  | ════════════ | ════════════ | ══════════ | ══════════ | ══  | ════════════ | ══════════ | ════════════  | ══  | ════════════ | ════════════ | ══════════ | ════════════  |
 | 🔵 Environment                 |  ║  | 171        |  ║  | 174        |  ║  | 63           | 59           | 79         | 73         |  ║  | 81           | 71         | 64            |  ║  | 108          | 62           | 79         | 74            |
 | 🔵 Parameter                   |  ║  | 93         |  ║  | 93         |  ║  | 24           | 25           | 25         | 32         |  ║  | 33           | 24         | 11            |  ║  | 51           | 23           | 31         | 25            |
@@ -40,8 +41,8 @@
 
 ## Source Lines of Code (excluding blank lines and comments)
 
-| Class                          |  ║  | Java Orig  |  ║  | Transpiler |  ║  | ZS/negConst  | ZS/onlyTask  | ZS/persona | ZS/withCtx |  ║  | OS/aSimHdlr  | OS/concMod | OS/expPlanGen |  ║  | CoT/perClass | CoT/lenient  | CoT/strict | CoT/riskFirst |
-| ------------------------------ | :-: | ---------- | :-: | ---------- | :-: | ------------ | ------------ | ---------- | ---------- | :-: | ------------ | ---------- | ------------- | :-: | ------------ | ------------ | ---------- | ------------- |
+| Class                          |  ║  | Java Orig  |  ║  | Trans |  ║  | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║  | OS/AS | OS/CM | OS/EP |  ║  | CoT/PC | CoT/Le | CoT/St | CoT/RF |
+| ------------------------------ | :-: | ---------- | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
 | ══════════════════════════════ | ══  | ══════════ | ══  | ══════════ | ══  | ════════════ | ════════════ | ══════════ | ══════════ | ══  | ════════════ | ══════════ | ════════════  | ══  | ════════════ | ════════════ | ══════════ | ════════════  |
 | 🔵 Environment                 |  ║  | 69         |  ║  | 71         |  ║  | 45           | 41           | 52         | 52         |  ║  | 62           | 52         | 48            |  ║  | 65           | 47           | 54         | 50            |
 | 🔵 Parameter                   |  ║  | 29         |  ║  | 30         |  ║  | 18           | 18           | 18         | 24         |  ║  | 24           | 17         | 10            |  ║  | 25           | 18           | 20         | 19            |
@@ -85,8 +86,8 @@
 
 Score from `pylint` (errors, warnings, conventions, refactoring). No Java original. Transpiler = 0.00 by design.
 
-| Class                          |  ║  | Transpiler |  ║  | ZS/negConst  | ZS/onlyTask  | ZS/persona | ZS/withCtx |  ║  | OS/aSimHdlr  | OS/concMod | OS/expPlanGen |  ║  | CoT/perClass | CoT/lenient  | CoT/strict | CoT/riskFirst |
-| ------------------------------ | :-: | ---------- | :-: | ------------ | ------------ | ---------- | ---------- | :-: | ------------ | ---------- | ------------- | :-: | ------------ | ------------ | ---------- | ------------- |
+| Class                          |  ║  | Trans |  ║  | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║  | OS/AS | OS/CM | OS/EP |  ║  | CoT/PC | CoT/Le | CoT/St | CoT/RF |
+| ------------------------------ | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
 | ══════════════════════════════ | ══  | ══════════ | ══  | ════════════ | ════════════ | ══════════ | ══════════ | ══  | ════════════ | ══════════ | ════════════  | ══  | ════════════ | ════════════ | ══════════ | ════════════  |
 | 🔵 Environment                 |  ║  | 0.00       |  ║  | 6.82         | 5.00         | 6.22       | 6.80       |  ║  | 7.35         | 6.60       | 6.38          |  ║  | 6.98         | 5.56         | 7.25       | 6.51          |
 | 🔵 Parameter                   |  ║  | 0.00       |  ║  | 6.47         | 6.47         | 6.25       | 7.27       |  ║  | 6.00         | 5.62       | 6.67          |  ║  | 6.50         | 6.47         | 6.84       | 6.47          |
@@ -136,8 +137,8 @@ Score from `pylint` (errors, warnings, conventions, refactoring). No Java origin
 
 Type errors from `pyright` per file in isolation. Warnings and info were 0 across all files.
 
-| Class                          |  ║  | Transpiler |  ║  | ZS/negConst  | ZS/onlyTask  | ZS/persona | ZS/withCtx |  ║  | OS/aSimHdlr  | OS/concMod | OS/expPlanGen |  ║  | CoT/perClass | CoT/lenient  | CoT/strict | CoT/riskFirst |
-| ------------------------------ | :-: | ---------- | :-: | ------------ | ------------ | ---------- | ---------- | :-: | ------------ | ---------- | ------------- | :-: | ------------ | ------------ | ---------- | ------------- |
+| Class                          |  ║  | Trans |  ║  | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║  | OS/AS | OS/CM | OS/EP |  ║  | CoT/PC | CoT/Le | CoT/St | CoT/RF |
+| ------------------------------ | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
 | ══════════════════════════════ | ══  | ══════════ | ══  | ════════════ | ════════════ | ══════════ | ══════════ | ══  | ════════════ | ══════════ | ════════════  | ══  | ════════════ | ════════════ | ══════════ | ════════════  |
 | 🔵 Environment                 |  ║  | 19         |  ║  | 0            | 1            | 0          | 3          |  ║  | 1            | 1          | 1             |  ║  | 0            | 3            | 0          | 0             |
 | 🔵 Parameter                   |  ║  | 4          |  ║  | 2            | 0            | 0          | 0          |  ║  | 0            | 0          | 1             |  ║  | 0            | 0            | 0          | 1             |
@@ -185,8 +186,8 @@ Type errors from `pyright` per file in isolation. Warnings and info were 0 acros
 
 Total CC of all functions per file: CC = Σ (1 + decision points). Computed via AST (Python) / decision-point regex (Java).
 
-| Class                          |  ║  | Java Orig  |  ║  | Transpiler |  ║  | ZS/negConst  | ZS/onlyTask  | ZS/persona | ZS/withCtx |  ║  | OS/aSimHdlr  | OS/concMod | OS/expPlanGen |  ║  | CoT/perClass | CoT/lenient  | CoT/strict | CoT/riskFirst |
-| ------------------------------ | :-: | ---------- | :-: | ---------- | :-: | ------------ | ------------ | ---------- | ---------- | :-: | ------------ | ---------- | ------------- | :-: | ------------ | ------------ | ---------- | ------------- |
+| Class                          |  ║  | Java Orig  |  ║  | Trans |  ║  | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║  | OS/AS | OS/CM | OS/EP |  ║  | CoT/PC | CoT/Le | CoT/St | CoT/RF |
+| ------------------------------ | :-: | ---------- | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
 | ══════════════════════════════ | ══  | ══════════ | ══  | ══════════ | ══  | ════════════ | ════════════ | ══════════ | ══════════ | ══  | ════════════ | ══════════ | ════════════  | ══  | ════════════ | ════════════ | ══════════ | ════════════  |
 | 🔵 Environment                 |  ║  | 14         |  ║  | 17         |  ║  | 19           | 17           | 18         | 21         |  ║  | 21           | 21         | 19            |  ║  | 22           | 18           | 22         | 19            |
 | 🔵 Parameter                   |  ║  | 5          |  ║  | 7          |  ║  | 7            | 7            | 7          | 8          |  ║  | 9            | 7          | 3             |  ║  | 9            | 7            | 8          | 7             |

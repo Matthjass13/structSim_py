@@ -1,14 +1,15 @@
 # Completeness metrics — Java to Python Migration
 
 **Package legend:** 🔵 experimenthandling · 🟣 interfaces · 🟢 gluecode · 🔴 util
-**Column groups:** Java = original Java source · Transpiler = auto-transpiler · ZS = Zero-Shot · OS = One-Shot · CoT = Chain-of-Thought
+**Column groups:** Java = original Java source · Trans = auto-transpiler · ZS = Zero-Shot · OS = One-Shot · CoT = Chain-of-Thought
+**Abbreviations:** ZS/NC = negativeConstraint · ZS/OT = onlyTask · ZS/Pe = persona · ZS/Ctx = withContext · OS/AS = aSimulationSystemHandler · OS/CM = concreteModifier · OS/EP = experimentPlanGenerator · CoT/PC = perClass · CoT/Le = lenient · CoT/St = strict · CoT/RF = riskFirst
 
 ## Class Presence (1 = present, 0 = absent)
 
 Whether each class was found in the migrated Python code.
 
-| Class                          |  ║  | Transpiler |  ║  | ZS/negConst  | ZS/onlyTask  | ZS/persona | ZS/withCtx |  ║  | OS/aSimHdlr  | OS/concMod | OS/expPlanGen |  ║  | CoT/perClass | CoT/lenient  | CoT/strict | CoT/riskFirst |
-| ------------------------------ | :-: | ---------- | :-: | ------------ | ------------ | ---------- | ---------- | :-: | ------------ | ---------- | ------------- | :-: | ------------ | ------------ | ---------- | ------------- |
+| Class                          |  ║  | Trans |  ║  | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║  | OS/AS | OS/CM | OS/EP |  ║  | CoT/PC | CoT/Le | CoT/St | CoT/RF |
+| ------------------------------ | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
 | ══════════════════════════════ | ══  | ══════════ | ══  | ════════════ | ════════════ | ══════════ | ══════════ | ══  | ════════════ | ══════════ | ════════════  | ══  | ════════════ | ════════════ | ══════════ | ════════════  |
 | 🔵 Environment                 |  ║  | 1          |  ║  | 1            | 1            | 1          | 1          |  ║  | 1            | 1          | 1             |  ║  | 1            | 1            | 1          | 1             |
 | 🔵 Parameter                   |  ║  | 1          |  ║  | 1            | 1            | 1          | 1          |  ║  | 1            | 1          | 1             |  ║  | 1            | 1            | 1          | 1             |
@@ -42,8 +43,8 @@ Whether each class was found in the migrated Python code.
 
 Count of method definitions (`def` in Python, method declarations in Java).
 
-| Class                          |  ║  | Java Orig  |  ║  | Transpiler |  ║  | ZS/negConst  | ZS/onlyTask  | ZS/persona | ZS/withCtx |  ║  | OS/aSimHdlr  | OS/concMod | OS/expPlanGen |  ║  | CoT/perClass | CoT/lenient  | CoT/strict | CoT/riskFirst |
-| ------------------------------ | :-: | ---------- | :-: | ---------- | :-: | ------------ | ------------ | ---------- | ---------- | :-: | ------------ | ---------- | ------------- | :-: | ------------ | ------------ | ---------- | ------------- |
+| Class                          |  ║  | Java Orig  |  ║  | Trans |  ║  | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║  | OS/AS | OS/CM | OS/EP |  ║  | CoT/PC | CoT/Le | CoT/St | CoT/RF |
+| ------------------------------ | :-: | ---------- | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
 | ══════════════════════════════ | ══  | ══════════ | ══  | ══════════ | ══  | ════════════ | ════════════ | ══════════ | ══════════ | ══  | ════════════ | ══════════ | ════════════  | ══  | ════════════ | ════════════ | ══════════ | ════════════  |
 | 🔵 Environment                 |  ║  | 14         |  ║  | 14         |  ║  | 16           | 14           | 16         | 15         |  ║  | 17           | 17         | 14            |  ║  | 19           | 14           | 18         | 14            |
 | 🔵 Parameter                   |  ║  | 7          |  ║  | 7          |  ║  | 6            | 6            | 7          | 8          |  ║  | 9            | 7          | 2             |  ║  | 9            | 6            | 7          | 6             |
@@ -91,8 +92,8 @@ Count of method definitions (`def` in Python, method declarations in Java).
 
 Instance attributes in `__init__` (Python) or class-level fields (Java). N/A = class absent.
 
-| Class                          |  ║  | Java Orig  |  ║  | Transpiler |  ║  | ZS/negConst  | ZS/onlyTask  | ZS/persona | ZS/withCtx |  ║  | OS/aSimHdlr  | OS/concMod | OS/expPlanGen |  ║  | CoT/perClass | CoT/lenient  | CoT/strict | CoT/riskFirst |
-| ------------------------------ | :-: | ---------- | :-: | ---------- | :-: | ------------ | ------------ | ---------- | ---------- | :-: | ------------ | ---------- | ------------- | :-: | ------------ | ------------ | ---------- | ------------- |
+| Class                          |  ║  | Java Orig  |  ║  | Trans |  ║  | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║  | OS/AS | OS/CM | OS/EP |  ║  | CoT/PC | CoT/Le | CoT/St | CoT/RF |
+| ------------------------------ | :-: | ---------- | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
 | ══════════════════════════════ | ══  | ══════════ | ══  | ══════════ | ══  | ════════════ | ════════════ | ══════════ | ══════════ | ══  | ════════════ | ══════════ | ════════════  | ══  | ════════════ | ════════════ | ══════════ | ════════════  |
 | 🔵 Environment                 |  ║  | 5          |  ║  | 3          |  ║  | 5            | 5            | 5          | 5          |  ║  | 5            | 5          | 5             |  ║  | 5            | 5            | 5          | 5             |
 | 🔵 Parameter                   |  ║  | 2          |  ║  | 2          |  ║  | 2            | 2            | 2          | 2          |  ║  | 2            | 2          | 2             |  ║  | 2            | 2            | 2          | 2             |
