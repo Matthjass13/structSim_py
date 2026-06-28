@@ -1,4 +1,5 @@
 import logging
+import queue as _queue
 import threading
 from experimenthandling.experiment_result_handler import ExperimentResultHandler
 
@@ -22,7 +23,12 @@ class ExperimentSimulatorHandler:
         while True:
             try:
                 logger.debug(f"Size of the Simulation Queue : {self.environment_queue.qsize()}")
-                env = self.environment_queue.get()
+                try:
+                    env = self.environment_queue.get(block=True, timeout=0.1)
+                except _queue.Empty:
+                    if self.plan.is_finish and self.environment_queue.empty():
+                        break
+                    continue
 
                 self.glue_code.start_simulation(self.options.get_path_parameters())
                 result_path_for_this_simulation = (
@@ -39,12 +45,13 @@ class ExperimentSimulatorHandler:
 
                 self.results_queue.put(result_path_for_this_simulation)
 
-                if self.plan.is_finish:
-                    if self.environment_queue.empty():
-                        logger.debug("It's empty ! and it's not the first time that we try to read the queue !")
-                        break
+                if self.plan.is_finish and self.environment_queue.empty():
+                    logger.debug("It's empty ! and it's not the first time that we try to read the queue !")
+                    break
 
             except Exception as e:
                 logger.error(f"Error in the run of the Thread Simulator: {e}")
 
+        self.results_queue.put(None)  # sentinel: signal result handler to stop
         result_thread.start()
+        result_thread.join()

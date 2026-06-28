@@ -12,22 +12,20 @@ class ExperimentResultHandler:
         self.options = options
 
     def run(self):
-        if not self.results_queue.empty():
-            items = []
-            while not self.results_queue.empty():
-                items.append(self.results_queue.get())
-
-            for str_path in items:
-                logger.debug(f"Result queue string : {str_path}")
-                measures = self.glue_code.extract_measures(str_path)
-                position_of_last_slash = str_path.rfind("/")
-                folder_to_save = str_path[:position_of_last_slash]
-                logger.debug(f"Folder where it's saved : {folder_to_save}")
-                position_last_slash = folder_to_save.rfind("/")
-                name_simulation = folder_to_save[position_last_slash + 1:]
-                logger.debug(f"Name Simulation : {name_simulation}")
-                self.fm.create_measures_file(measures, folder_to_save + "/measures.txt")
-                self.fm.copy_file(
-                    folder_to_save + "/measures.txt",
-                    self.options.path_simulator + "/" + name_simulation + "/measures.txt"
-                )
+        while True:
+            str_path = self.results_queue.get()
+            if str_path is None:  # sentinel: no more results
+                break
+            logger.debug(f"Result queue string : {str_path}")
+            measures = self.glue_code.extract_measures(str_path)
+            position_of_last_slash = str_path.rfind("/")
+            folder_to_save = str_path[:position_of_last_slash]
+            logger.debug(f"Folder where it's saved : {folder_to_save}")
+            position_last_slash = folder_to_save.rfind("/")
+            name_simulation = folder_to_save[position_last_slash + 1:]
+            logger.debug(f"Name Simulation : {name_simulation}")
+            self.fm.create_measures_file(measures, folder_to_save + "/measures.txt")
+            self.fm.copy_file(
+                folder_to_save + "/measures.txt",
+                self.options.path_simulator + "/" + name_simulation + "/measures.txt"
+            )
