@@ -1,3 +1,4 @@
+import queue as _queue
 import threading
 
 from experimenthandling.experiment_result_handler import ExperimentResultHandler
@@ -21,7 +22,13 @@ class ExperimentSimulatorHandler(threading.Thread):
 
         while True:
             try:
-                env = self.environment_queue.get()   # blocking take()
+                try:
+                    env = self.environment_queue.get(block=True, timeout=0.1)
+                except _queue.Empty:
+                    if self.plan.is_finish and self.environment_queue.empty():
+                        break
+                    continue
+
                 self.glue_code.start_simulation(self.options.get_path_parameters())
 
                 result_path_for_this_simulation = (
@@ -51,9 +58,8 @@ class ExperimentSimulatorHandler(threading.Thread):
 
                 self.results_queue.put(result_path_for_this_simulation)
 
-                if self.plan.is_finish:
-                    if self.environment_queue.empty():
-                        break
+                if self.plan.is_finish and self.environment_queue.empty():
+                    break
 
             except Exception as e:
                 print(e)
