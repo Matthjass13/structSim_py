@@ -1,6 +1,7 @@
 # Correctness — Java to Python Migration
 
 **Legend:**
+
 - **Trans** = Transpiler · **ZS** = zeroShot · **OS** = oneShot · **CoT** = chainOfThought
 - **ZS/NC** = negativeConstraint · **ZS/OT** = onlyTask · **ZS/Pe** = persona · **ZS/Ctx** = withContext
 - **OS/AS** = aSimulationSystemHandler · **OS/CM** = concreteModifier · **OS/EP** = experimentPlanGenerator
@@ -10,24 +11,24 @@
 
 ## Test Results
 
-| Migration           |  ║  | Unit passed | Unit total | Unit %  |  ║  | Int passed | Int total | Int %   |  ║  | **Overall** | **Total** | **%**     |
-| ------------------- | :-: | ----------- | ---------- | ------- | :-: | ---------- | --------- | ------- | :-: | ----------- | --------- | --------- |
-| ═══════════════════ | ══  | ═══════════ | ══════════ | ═══════ | ══  | ══════════ | ═════════ | ═══════ | ══  | ═══════════ | ═════════ | ═════════ |
-| Trans               |  ║  | 0           | 40         | 0 %     |  ║  | 0          | 44        | 0 %     |  ║  | **0**       | **84**    | **0 %**   |
-| ═══════════════════ | ══  | ═══════════ | ══════════ | ═══════ | ══  | ══════════ | ═════════ | ═══════ | ══  | ═══════════ | ═════════ | ═════════ |
-| ZS/Pe               |  ║  | 21          | 40         | 52.5 %  |  ║  | 0          | 44        | 0 %     |  ║  | **21**      | **84**    | **25.0 %**|
-| ZS/NC               |  ║  | 31          | 40         | 77.5 %  |  ║  | 0          | 44        | 0 %     |  ║  | **31**      | **84**    | **36.9 %**|
-| ZS/OT               |  ║  | 0           | 40         | 0 %     |  ║  | 0          | 44        | 0 %     |  ║  | **0**       | **84**    | **0 %**   |
-| ZS/Ctx              |  ║  | 30          | 40         | 75 %    |  ║  | 0          | 44        | 0 %     |  ║  | **30**      | **84**    | **35.7 %**|
-| ═══════════════════ | ══  | ═══════════ | ══════════ | ═══════ | ══  | ══════════ | ═════════ | ═══════ | ══  | ═══════════ | ═════════ | ═════════ |
-| OS/AS               |  ║  | 31          | 40         | 77.5 %  |  ║  | 0          | 44        | 0 %     |  ║  | **31**      | **84**    | **36.9 %**|
-| OS/CM               |  ║  | 28          | 40         | 70 %    |  ║  | 1          | 44        | 2.3 %   |  ║  | **29**      | **84**    | **34.5 %**|
-| OS/EP               |  ║  | 19          | 40         | 47.5 %  |  ║  | 0          | 44        | 0 %     |  ║  | **19**      | **84**    | **22.6 %**|
-| ═══════════════════ | ══  | ═══════════ | ══════════ | ═══════ | ══  | ══════════ | ═════════ | ═══════ | ══  | ═══════════ | ═════════ | ═════════ |
-| CoT/Le              |  ║  | 29          | 40         | 72.5 %  |  ║  | 0          | 44        | 0 %     |  ║  | **29**      | **84**    | **34.5 %**|
-| CoT/PC              |  ║  | 15          | 40         | 37.5 %  |  ║  | 0          | 44        | 0 %     |  ║  | **15**      | **84**    | **17.9 %**|
-| CoT/St              |  ║  | 30          | 40         | 75 %    |  ║  | 0          | 44        | 0 %     |  ║  | **30**      | **84**    | **35.7 %**|
-| CoT/RF              |  ║  | 0           | 40         | 0 %     |  ║  | 0          | 44        | 0 %     |  ║  | **0**       | **84**    | **0 %**   |
+| Migration           |  ║  | Unit passed | Unit total | Unit %  |  ║  | Int passed | Int total | Int %   |  ║  | **Overall** | **Total** | **%**      |
+| ------------------- | :-: | ----------- | ---------- | ------- | :-: | ---------- | --------- | ------- | :-: | ----------- | --------- | ---------- |
+| ═══════════════════ | ══  | ═══════════ | ══════════ | ═══════ | ══  | ══════════ | ═════════ | ═══════ | ══  | ═══════════ | ═════════ | ═════════  |
+| Trans               |  ║  | 0           | 40         | 0 %     |  ║  | 0          | 44        | 0 %     |  ║  | **0**       | **84**    | **0 %**    |
+| ═══════════════════ | ══  | ═══════════ | ══════════ | ═══════ | ══  | ══════════ | ═════════ | ═══════ | ══  | ═══════════ | ═════════ | ═════════  |
+| ZS/Pe               |  ║  | 21          | 40         | 52.5 %  |  ║  | 0          | 44        | 0 %     |  ║  | **21**      | **84**    | **25.0 %** |
+| ZS/NC               |  ║  | 31          | 40         | 77.5 %  |  ║  | 0          | 44        | 0 %     |  ║  | **31**      | **84**    | **36.9 %** |
+| ZS/OT               |  ║  | 0           | 40         | 0 %     |  ║  | 0          | 44        | 0 %     |  ║  | **0**       | **84**    | **0 %**    |
+| ZS/Ctx              |  ║  | 30          | 40         | 75 %    |  ║  | 0          | 44        | 0 %     |  ║  | **30**      | **84**    | **35.7 %** |
+| ═══════════════════ | ══  | ═══════════ | ══════════ | ═══════ | ══  | ══════════ | ═════════ | ═══════ | ══  | ═══════════ | ═════════ | ═════════  |
+| OS/AS               |  ║  | 31          | 40         | 77.5 %  |  ║  | 0          | 44        | 0 %     |  ║  | **31**      | **84**    | **36.9 %** |
+| OS/CM               |  ║  | 28          | 40         | 70 %    |  ║  | 1          | 44        | 2.3 %   |  ║  | **29**      | **84**    | **34.5 %** |
+| OS/EP               |  ║  | 19          | 40         | 47.5 %  |  ║  | 0          | 44        | 0 %     |  ║  | **19**      | **84**    | **22.6 %** |
+| ═══════════════════ | ══  | ═══════════ | ══════════ | ═══════ | ══  | ══════════ | ═════════ | ═══════ | ══  | ═══════════ | ═════════ | ═════════  |
+| CoT/Le              |  ║  | 29          | 40         | 72.5 %  |  ║  | 0          | 44        | 0 %     |  ║  | **29**      | **84**    | **34.5 %** |
+| CoT/PC              |  ║  | 15          | 40         | 37.5 %  |  ║  | 0          | 44        | 0 %     |  ║  | **15**      | **84**    | **17.9 %** |
+| CoT/St              |  ║  | 30          | 40         | 75 %    |  ║  | 0          | 44        | 0 %     |  ║  | **30**      | **84**    | **35.7 %** |
+| CoT/RF              |  ║  | 0           | 40         | 0 %     |  ║  | 0          | 44        | 0 %     |  ║  | **0**       | **84**    | **0 %**    |
 
 ---
 
@@ -62,6 +63,7 @@ The following issues appeared across multiple migrations. Each is annotated with
 migrations it affects.
 
 ### 1 — `parameters.txt` loaded as filesystem path instead of classpath resource
+
 **Affects:** OS/aSimHdlr, OS/concMod, OS/expPlanGen, CoT/lenient, CoT/perClass, CoT/strict (all integration tests)
 
 All migrations that have a working `Simulation` class still fail every integration
@@ -73,6 +75,7 @@ file exists at a filesystem path relative to the current working directory, whic
 is not the case in the test environment.
 
 ### 2 — No `Simulation` class defined
+
 **Affects:** ZS/persona, ZS/negConst, CoT/lenient
 
 `simulation.py` contains only a `main()` function or equivalent, but no `Simulation`
@@ -80,6 +83,7 @@ class. The import `from gluecode.simulation import Simulation` fails at collecti
 time, preventing all 44 integration tests from running.
 
 ### 3 — `Environment` has no default (no-argument) constructor
+
 **Affects:** ZS/persona, ZS/negConst, ZS/withCtx, OS/aSimHdlr, OS/concMod, OS/expPlanGen, CoT/lenient, CoT/perClass, CoT/strict
 
 `Environment()` called without arguments raises `TypeError` because `__init__`
@@ -87,6 +91,7 @@ requires positional arguments (`id_`, `set_of_parameters`, `probability`). The
 Java class has a no-argument constructor used in several unit tests.
 
 ### 4 — `Environment` is not subscriptable
+
 **Affects:** ZS/negConst, ZS/withCtx, OS/aSimHdlr, OS/concMod, CoT/perClass, CoT/strict
 
 `e.get_set_of_parameters()[0]` raises `TypeError: 'Environment' object is not
@@ -95,6 +100,7 @@ support index access, but the migration returns an `Environment` instance or ano
 non-subscriptable object instead of a `list`.
 
 ### 5 — `Environment.compare_to()` absent
+
 **Affects:** ZS/persona, ZS/negConst, ZS/withCtx, OS/aSimHdlr, OS/concMod, OS/expPlanGen, CoT/lenient, CoT/perClass, CoT/strict
 
 Python native comparison operators (`==`, `<`) are used instead of an explicit
@@ -102,6 +108,7 @@ Python native comparison operators (`==`, `<`) are used instead of an explicit
 `e1.compare_to(e2)`.
 
 ### 6 — `Options` getter names corrected away from the Java typo
+
 **Affects:** ZS/persona, ZS/withCtx, OS/concMod, CoT/lenient, CoT/perClass, CoT/strict
 
 The Java API has a typo: `typeOfCuttOfPlanning` (one `f` in `CuttOf`). Faithful
@@ -110,6 +117,7 @@ snake_case would be `get_type_of_cuttof_planning()`. Several migrations silently
 all five properties-loading tests that call the getter with the original spelling.
 
 ### 7 — `FileManagement.save_simultation_result()` absent
+
 **Affects:** ZS/persona, ZS/negConst, ZS/withCtx, OS/aSimHdlr, OS/concMod, OS/expPlanGen, CoT/lenient, CoT/perClass, CoT/strict
 
 The method is missing from `FileManagement`. The Java original has a
@@ -117,6 +125,7 @@ The method is missing from `FileManagement`. The Java original has a
 omit it entirely or rename it, causing `AttributeError`.
 
 ### 8 — `create_folder()` creates parent directories
+
 **Affects:** ZS/persona, ZS/negConst, ZS/withCtx, OS/aSimHdlr, OS/concMod, OS/expPlanGen, CoT/lenient, CoT/perClass, CoT/strict
 
 `os.makedirs()` (or equivalent) is used instead of `os.mkdir()`. Java's `mkdir()`
@@ -125,6 +134,7 @@ creates the full path. The test asserts the folder is not created when its paren
 is missing.
 
 ### 9 — `write_parameters_file()` formats whole-number floats without decimal
+
 **Affects:** ZS/persona, OS/aSimHdlr, OS/concMod, CoT/lenient, CoT/strict
 
 Python's default float-to-string conversion renders `10.0` as `"10"` when assigned
@@ -132,6 +142,7 @@ from an integer literal. The test asserts `lines[0] == "val1=10.0"`. The fix is 
 explicitly format with `f"{value:.1f}"` or equivalent.
 
 ### 10 — `read_parameters_file()` does not accept a stream (`BytesIO`)
+
 **Affects:** ZS/negConst, OS/aSimHdlr
 
 The migration only handles string paths. When called with a `BytesIO` object
@@ -139,6 +150,7 @@ The migration only handles string paths. When called with a `BytesIO` object
 os.PathLike object, not BytesIO`.
 
 ### 11 — Structural packaging errors (complete failures)
+
 **Affects:** Transpiler, ZS/onlyTask, CoT/riskFirst
 
 Three migrations fail to collect a single test due to structural errors:
@@ -149,7 +161,7 @@ Three migrations fail to collect a single test due to structural errors:
 - **ZS/onlyTask** — All imports prefixed with `noStrategy.*`
   (`from noStrategy.experimenthandling.parameter import Parameter`). The
   `noStrategy` package does not exist at the PYTHONPATH root.
-- **CoT/riskFirst** — Both errors combined: PascalCase filenames *and* all imports
+- **CoT/riskFirst** — Both errors combined: PascalCase filenames _and_ all imports
   prefixed with `structuredsim.*`.
 
 ---
@@ -165,25 +177,27 @@ Trans · ZS/OT · ZS/Pe · ZS/Ctx · ZS/NC · OS/AS · OS/CM · OS/EP · CoT/Le 
 
 ### Unit Tests — Correction Matrix
 
-| Correction                   |  ║  | Trans | ZS/OT | ZS/Pe | ZS/Ctx | ZS/NC | OS/AS | OS/CM | OS/EP | CoT/Le | CoT/PC | CoT/St | CoT/RF |  ║  | Count |
-| ---------------------------- | :-: | :---: | :---: | :---: | :----: | :---: | :---: | :---: | :---: | :----: | :----: | :----: | :----: | :-: | :---: |
-| ════════════════════════════ | ══  | ═════ | ═════ | ═════ | ══════ | ═════ | ═════ | ═════ | ═════ | ══════ | ══════ | ══════ | ══════ | ══  | ═════ |
-| env-copy-ctor                |  ║  |   ✓   |   ✓   |   ✓   |   ✓    |   ✓   |   ✓   |   ✓   |   ✓   |   ✓    |   ✓    |   ✓    |   ✓    |  ║  |  12   |
-| env-compare-to               |  ║  |   ✓   |   ✓   |   ✓   |   ✓    |   ✓   |   ✓   |   ✓   |   ✓   |   ✓    |   ✓    |   ✓    |   ✓    |  ║  |  12   |
-| options-cuttof-aliases       |  ║  |   ✓   |   ✓   |   ✓   |   ✓    |   ✓   |   ✓   |   ✓   |   ✓   |   ✓    |   ✓    |   ✓    |   ✓    |  ║  |  12   |
-| float-format                 |  ║  |   ✓   |   ✓   |   ✓   |   ✓    |   ✓   |   ✓   |   ✓   |   ✓   |   ✓    |   ✓    |   ✓    |   ✓    |  ║  |  12   |
-| create-folder-mkdir          |  ║  |   ✓   |   ✓   |   ✓   |   ✓    |   ✓   |   ✓   |   ✓   |   ✓   |   ✓    |   ✓    |   ✓    |   ✓    |  ║  |  12   |
-| save-simultation-result      |  ║  |   ✓   |   ✓   |   ✓   |   ✓    |   ✓   |   ✓   |   ✓   |   ✓   |   ✓    |   ✓    |   ✓    |   ✓    |  ║  |  12   |
-| datetime-calendar            |  ║  |   ✓   |   ✓   |   ✓   |   ✓    |   ✓   |   ✓   |   ✓   |   ✓   |   ✓    |   ✓    |   ✓    |   ✓    |  ║  |  12   |
-| ════════════════════════════ | ══  | ═════ | ═════ | ═════ | ══════ | ═════ | ═════ | ═════ | ═════ | ══════ | ══════ | ══════ | ══════ | ══  | ═════ |
-| write-data-properties        |  ║  |   ✓   |   ✓   |   ✓   |        |       |       |       |       |        |   ✓    |        |   ✓    |  ║  |   5   |
-| structural-fix               |  ║  |   ✓   |   ✓   |       |        |       |       |       |       |        |        |        |   ✓    |  ║  |   3   |
-| bytesio-stream               |  ║  |       |       |   ✓   |        |   ✓   |       |       |       |        |        |        |        |  ║  |   2   |
-| content-no-newlines          |  ║  |       |       |   ✓   |        |       |       |       |       |        |   ✓    |        |        |  ║  |   2   |
-| env-set-trace                |  ║  |       |       |       |        |       |       |       |       |        |   ✓    |        |        |  ║  |   1   |
-| measure-getters              |  ║  |       |       |       |        |       |       |       |   ✓   |        |        |        |        |  ║  |   1   |
-| move-copy-silent             |  ║  |       |       |       |        |       |       |       |       |        |   ✓    |        |        |  ║  |   1   |
-| simple-sim-getter-api        |  ║  |       |       |       |        |       |       |       |       |        |   ✓    |        |        |  ║  |   1   |
+| Correction                   | **Effort** |  ║  | Trans  | ZS/OT  | ZS/Pe  | ZS/Ctx | ZS/NC  | OS/AS  | OS/CM  | OS/EP  | CoT/Le | CoT/PC | CoT/St | CoT/RF |  ║  | Count |
+| ---------------------------- | :--------: | :-: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :-: | :---: |
+| ════════════════════════════ | ══════════ | ══  | ═════  | ═════  | ═════  | ══════ | ═════  | ═════  | ═════  | ═════  | ══════ | ══════ | ══════ | ══════ | ══  | ═════ |
+| env-copy-ctor                |     7      |  ║  |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |  ║  |  12   |
+| env-compare-to               |     4      |  ║  |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |  ║  |  12   |
+| options-cuttof-aliases       |     9      |  ║  |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |  ║  |  12   |
+| float-format                 |     1      |  ║  |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |  ║  |  12   |
+| create-folder-mkdir          |     3      |  ║  |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |  ║  |  12   |
+| save-simultation-result      |     2      |  ║  |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |  ║  |  12   |
+| datetime-calendar            |     5      |  ║  |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |  ║  |  12   |
+| ════════════════════════════ | ══════════ | ══  | ═════  | ═════  | ═════  | ══════ | ═════  | ═════  | ═════  | ═════  | ══════ | ══════ | ══════ | ══════ | ══  | ═════ |
+| write-data-properties        |     8      |  ║  |   ✓    |   ✓    |   ✓    |        |        |        |        |        |        |   ✓    |        |   ✓    |  ║  |   5   |
+| structural-fix               |     25     |  ║  |   ✓    |   ✓    |        |        |        |        |        |        |        |        |        |   ✓    |  ║  |   3   |
+| bytesio-stream               |     6      |  ║  |        |        |   ✓    |        |   ✓    |        |        |        |        |        |        |        |  ║  |   2   |
+| content-no-newlines          |     2      |  ║  |        |        |   ✓    |        |        |        |        |        |        |   ✓    |        |        |  ║  |   2   |
+| env-set-trace                |     2      |  ║  |        |        |        |        |        |        |        |        |        |   ✓    |        |        |  ║  |   1   |
+| measure-getters              |     6      |  ║  |        |        |        |        |        |        |        |   ✓    |        |        |        |        |  ║  |   1   |
+| move-copy-silent             |     3      |  ║  |        |        |        |        |        |        |        |        |        |   ✓    |        |        |  ║  |   1   |
+| simple-sim-getter-api        |     3      |  ║  |        |        |        |        |        |        |        |        |        |   ✓    |        |        |  ║  |   1   |
+| ════════════════════════════ | ══════════ | ══  | ═════  | ═════  | ═════  | ══════ | ═════  | ═════  | ═════  | ═════  | ══════ | ══════ | ══════ | ══════ | ══  | ═════ |
+| **Total effort**             |            |  ║  | **64** | **64** | **47** | **31** | **37** | **31** | **31** | **37** | **31** | **49** | **31** | **64** |  ║  |
 
 ---
 
@@ -205,7 +219,7 @@ Python converts `10.0` to `"10"` when the value originates from an integer liter
 Java's `File.mkdir()` silently returns `false` and does nothing when the parent directory does not exist. Migrations used `os.makedirs()` (or `Path.mkdir(parents=True)`), which creates the full path hierarchy. Fix: switch to `os.mkdir()` and catch `FileNotFoundError`/`FileExistsError` silently.
 
 **save-simultation-result** — `FileManagement.save_simultation_result()` typo alias.  
-The Java source spells the method `saveSimultationResult` (typo: *Simultation*). Migrations either renamed it to the correctly-spelled `save_simulation_result` or omitted it entirely. Fix: add `save_simultation_result()` as an alias (or primary method name) to match the Java API.
+The Java source spells the method `saveSimultationResult` (typo: _Simultation_). Migrations either renamed it to the correctly-spelled `save_simulation_result` or omitted it entirely. Fix: add `save_simultation_result()` as an alias (or primary method name) to match the Java API.
 
 **datetime-calendar** — `get_cuttof_planning_h()` returns a `datetime` object, not a `timedelta` or `dict`.  
 When the planning type is `DAY`/`HOURS`/`MINUTES`, tests access `.day`, `.hour`, or `.minute` on the returned value. Migrations returned a `timedelta`, a `dict`, or called `datetime.now() + timedelta(...)`, none of which expose the expected attributes with the expected values. Fix: return `datetime.datetime(1, 1, day)`, `datetime.datetime(1, 1, 1, hour)`, or `datetime.datetime(1, 1, 1, 0, minute)` so the attribute equals exactly the configured integer value.
@@ -238,25 +252,27 @@ CoT/perClass accessed `p.key` / `p.value` directly instead of `p.get_key()` / `p
 
 ### Integration Tests — Correction Matrix
 
-| Correction                   |  ║  | Trans | ZS/OT | ZS/Pe | ZS/Ctx | ZS/NC | OS/AS | OS/CM | OS/EP | CoT/Le | CoT/PC | CoT/St | CoT/RF |  ║  | Count |
-| ---------------------------- | :-: | :---: | :---: | :---: | :----: | :---: | :---: | :---: | :---: | :----: | :----: | :----: | :----: | :-: | :---: |
-| ════════════════════════════ | ══  | ═════ | ═════ | ═════ | ══════ | ═════ | ═════ | ═════ | ═════ | ══════ | ══════ | ══════ | ══════ | ══  | ═════ |
-| threads-join                 |  ║  |       |   ✓   |   ✓   |        |   ✓   |   ✓   |   ✓   |   ✓   |   ✓    |   ✓    |   ✓    |        |  ║  |   9   |
-| concrete-modifier-float      |  ║  |       |       |   ✓   |   ✓    |   ✓   |       |   ✓   |   ✓   |   ✓    |   ✓    |   ✓    |   ✓    |  ║  |   9   |
-| ════════════════════════════ | ══  | ═════ | ═════ | ═════ | ══════ | ═════ | ═════ | ═════ | ═════ | ══════ | ══════ | ══════ | ══════ | ══  | ═════ |
-| simulation-class             |  ║  |       |       |   ✓   |        |   ✓   |       |       |       |   ✓    |        |        |        |  ║  |   3   |
-| structural-fix               |  ║  |   ✓   |   ✓   |       |        |       |       |       |       |        |        |        |   ✓    |  ║  |   3   |
-| parameters-txt-path          |  ║  |       |   ✓   |   ✓   |        |       |   ✓   |       |       |        |        |        |        |  ║  |   3   |
-| to-string-modifier           |  ║  |       |       |   ✓   |        |   ✓   |       |       |       |   ✓    |        |        |        |  ║  |   3   |
-| result-thread-join           |  ║  |       |       |       |        |       |       |   ✓   |   ✓   |        |        |   ✓    |        |  ║  |   3   |
-| ════════════════════════════ | ══  | ═════ | ═════ | ═════ | ══════ | ═════ | ═════ | ═════ | ═════ | ══════ | ══════ | ══════ | ══════ | ══  | ═════ |
-| result-queue-sentinel        |  ║  |       |       |       |        |       |       |       |   ✓   |        |        |   ✓    |        |  ║  |   2   |
-| simulator-queue-timeout      |  ║  |       |       |       |        |       |       |   ✓   |       |        |   ✓    |        |        |  ║  |   2   |
-| ════════════════════════════ | ══  | ═════ | ═════ | ═════ | ══════ | ═════ | ═════ | ═════ | ═════ | ══════ | ══════ | ══════ | ══════ | ══  | ═════ |
-| abstract-method-impl         |  ║  |       |       |       |        |       |       |       |       |        |   ✓    |        |        |  ║  |   1   |
-| bfs-ordering                 |  ║  |       |       |       |   ✓    |       |       |       |       |        |        |        |        |  ║  |   1   |
-| options-attribute-name-int   |  ║  |       |       |       |        |       |       |       |       |        |   ✓    |        |        |  ║  |   1   |
-| parameter-getters-int        |  ║  |       |       |       |        |       |       |       |   ✓   |        |        |        |        |  ║  |   1   |
+| Correction                   | **Effort** |  ║  | Trans  | ZS/OT  | ZS/Pe  | ZS/Ctx | ZS/NC  | OS/AS | OS/CM  | OS/EP  | CoT/Le | CoT/PC | CoT/St | CoT/RF |  ║  | Count |
+| ---------------------------- | :--------: | :-: | :----: | :----: | :----: | :----: | :----: | :---: | :----: | :----: | :----: | :----: | :----: | :----: | :-: | :---: |
+| ════════════════════════════ | ══════════ | ══  | ═════  | ═════  | ═════  | ══════ | ═════  | ═════ | ═════  | ═════  | ══════ | ══════ | ══════ | ══════ | ══  | ═════ |
+| threads-join                 |     2      |  ║  |        |   ✓    |   ✓    |        |   ✓    |   ✓   |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |        |  ║  |   9   |
+| concrete-modifier-float      |     9      |  ║  |        |        |   ✓    |   ✓    |   ✓    |       |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |   ✓    |  ║  |   9   |
+| ════════════════════════════ | ══════════ | ══  | ═════  | ═════  | ═════  | ══════ | ═════  | ═════ | ═════  | ═════  | ══════ | ══════ | ══════ | ══════ | ══  | ═════ |
+| simulation-class             |     4      |  ║  |        |        |   ✓    |        |   ✓    |       |        |        |   ✓    |        |        |        |  ║  |   3   |
+| structural-fix               |     25     |  ║  |   ✓    |   ✓    |        |        |        |       |        |        |        |        |        |   ✓    |  ║  |   3   |
+| parameters-txt-path          |     3      |  ║  |        |   ✓    |   ✓    |        |        |   ✓   |        |        |        |        |        |        |  ║  |   3   |
+| to-string-modifier           |     2      |  ║  |        |        |   ✓    |        |   ✓    |       |        |        |   ✓    |        |        |        |  ║  |   3   |
+| result-thread-join           |     1      |  ║  |        |        |        |        |        |       |   ✓    |   ✓    |        |        |   ✓    |        |  ║  |   3   |
+| ════════════════════════════ | ══════════ | ══  | ═════  | ═════  | ═════  | ══════ | ═════  | ═════ | ═════  | ═════  | ══════ | ══════ | ══════ | ══════ | ══  | ═════ |
+| result-queue-sentinel        |     16     |  ║  |        |        |        |        |   ✓    |       |        |   ✓    |        |        |   ✓    |        |  ║  |   3   |
+| simulator-queue-timeout      |     7      |  ║  |        |        |        |        |   ✓    |       |   ✓    |        |        |   ✓    |   ✓    |        |  ║  |   4   |
+| ════════════════════════════ | ══════════ | ══  | ═════  | ═════  | ═════  | ══════ | ═════  | ═════ | ═════  | ═════  | ══════ | ══════ | ══════ | ══════ | ══  | ═════ |
+| abstract-method-impl         |     12     |  ║  |        |        |        |        |        |       |        |        |        |   ✓    |        |        |  ║  |   1   |
+| bfs-ordering                 |     2      |  ║  |        |        |        |   ✓    |        |       |        |        |        |        |        |        |  ║  |   1   |
+| options-attribute-name-int   |     1      |  ║  |        |        |        |        |        |       |        |        |        |   ✓    |        |        |  ║  |   1   |
+| parameter-getters-int        |     6      |  ║  |        |        |        |        |        |       |        |   ✓    |        |        |        |        |  ║  |   1   |
+| ════════════════════════════ | ══════════ | ══  | ═════  | ═════  | ═════  | ══════ | ═════  | ═════ | ═════  | ═════  | ══════ | ══════ | ══════ | ══════ | ══  | ═════ |
+| **Total effort**             |            |  ║  | **25** | **30** | **20** | **11** | **40** | **5** | **19** | **34** | **17** | **31** | **35** | **34** |  ║  |
 
 ---
 
