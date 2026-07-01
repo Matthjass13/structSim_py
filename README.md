@@ -7,18 +7,18 @@ This repository was used in the context of the bachelor thesis "MAIgration : How
 ## Project Structure
 
 The repository consists of 7 folders :
-- **originalJavaCode**: the original source code of the framework, including unit and integration tests made specifically for this thesis
-- **tests**: migrated Python tests from the Java tests
-- **zeroShot**: migrated code of 4 migrations using zero-shot prompts
-- **oneShot**: migrated code of 3 migrations using one-shot prompts
-- **chainOfThought**: migrated code of 4 migrations using chain-of-thought prompts
-- **transpiler**: migrated code of a migration using the JavaToPython transpiler (https://github.com/natural/java2python)
-- **evaluation**: information about the completeness, correctness and quality of all migrations. Metrics used :
+- **originalJavaCode** : the original source code of the framework, including unit and integration tests made specifically for this thesis
+- **tests** : migrated Python tests from the Java tests
+- **zeroShot** : migrated code of 4 migrations using zero-shot prompts
+- **oneShot** : migrated code of 3 migrations using one-shot prompts
+- **chainOfThought** : migrated code of 4 migrations using chain-of-thought prompts
+- **transpiler** : migrated code of a migration using the JavaToPython transpiler (https://github.com/natural/java2python)
+- **evaluation** : information about the completeness, correctness and quality of all migrations. Metrics used :
   - Completeness : Number of classes, methods and attributes,
   - Correctness : Proportion of passing unit and integration tests and effort needed to make failing tests pass
   - Quality : Number of lines of code, pyling score, pyright error count, cyclomatic complexity
 
-- ## Contributors
+## Contributors
 
 - Matthias Gaillard
 - Claude Code
