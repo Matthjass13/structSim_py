@@ -9,66 +9,66 @@
 
 ## Lines of Code (total, including blanks and comments)
 
-| Class |  ║ | Java Orig |  ║ | Trans |  ║ | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║ | OS/AS | OS/CM | OS/EP |  ║ | CoT/PC | CoT/Le | CoT/St | CoT/RF |
-| ------------------------------ | :-: | ---------- | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🔵 Environment |  ║ | 171 |  ║ | 174 |  ║ | 63 | 59 | 79 | 73 |  ║ | 81 | 71 | 64 |  ║ | 108 | 62 | 79 | 74 |
-| 🔵 Parameter |  ║ | 93 |  ║ | 93 |  ║ | 24 | 25 | 25 | 32 |  ║ | 33 | 24 | 11 |  ║ | 51 | 23 | 31 | 25 |
-| 🔵 ExperimentPlanGenerator |  ║ | 208 |  ║ | 174 |  ║ | 103 | 99 | 129 | 130 |  ║ | 122 | 117 | 130 |  ║ | 127 | 104 | 113 | 113 |
-| 🔵 ExperimentResultHandler |  ║ | 104 |  ║ | 100 |  ║ | 33 | 37 | 53 | 45 |  ║ | 40 | 42 | 50 |  ║ | 72 | 39 | 35 | 47 |
-| 🔵 Measure |  ║ | 88 |  ║ | 85 |  ║ | 20 | 20 | 21 | 21 |  ║ | 21 | 20 | 7 |  ║ | 34 | 19 | 22 | 21 |
-| 🔵 ExperimentSimulatorHandler |  ║ | 114 |  ║ | 102 |  ║ | 50 | 50 | 74 | 63 |  ║ | 66 | 67 | 75 |  ║ | 86 | 55 | 61 | 62 |
-| 🔵 Options |  ║ | 178 |  ║ | 176 |  ║ | 59 | 60 | 64 | 61 |  ║ | 64 | 60 | 14 |  ║ | 80 | 61 | 58 | 70 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🟣 AModifier |  ║ | 100 |  ║ | 106 |  ║ | 24 | 24 | 29 | 29 |  ║ | 43 | 25 | 26 |  ║ | 61 | 23 | 24 | 31 |
-| 🟣 ASimulationSystemHandler |  ║ | 76 |  ║ | 79 |  ║ | 44 | 44 | 36 | 30 |  ║ | 60 | 25 | 31 |  ║ | 50 | 24 | 61 | 39 |
-| 🟣 StartProgram |  ║ | 105 |  ║ | 87 |  ║ | 34 | 38 | 47 | 48 |  ║ | 48 | 50 | 40 |  ║ | 74 | 40 | 48 | 51 |
-| 🟣 IExtractMeasures |  ║ | 48 |  ║ | 49 |  ║ | N/A | N/A | 9 | 11 |  ║ | 12 | 8 | 11 |  ║ | 23 | 8 | 8 | 11 |
-| 🟣 IStopProgram |  ║ | 38 |  ║ | 42 |  ║ | N/A | N/A | 8 | 10 |  ║ | 9 | 8 | 8 |  ║ | 16 | 7 | 8 | 9 |
-| 🟣 IManageParametersFile |  ║ | 75 |  ║ | 82 |  ║ | N/A | N/A | 15 | 22 |  ║ | 20 | 17 | 15 |  ║ | 36 | 16 | 16 | 15 |
-| 🟣 IStartSimulation |  ║ | 39 |  ║ | 41 |  ║ | N/A | N/A | 8 | 10 |  ║ | 9 | 8 | 8 |  ║ | 16 | 7 | 8 | 9 |
-| 🟣 IManageModifier |  ║ | 41 |  ║ | 43 |  ║ | N/A | N/A | 9 | 11 |  ║ | 10 | 8 | 12 |  ║ | 24 | 8 | 8 | 10 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🟢 Simulation |  ║ | 31 |  ║ | 33 |  ║ | 20 | 23 | 25 | 29 |  ║ | 23 | 23 | 25 |  ║ | 45 | 26 | 26 | 33 |
-| 🟢 MySimulator |  ║ | 35 |  ║ | 26 |  ║ | 20 | 22 | 20 | 25 |  ║ | 25 | 24 | 22 |  ║ | 39 | 23 | 25 | 20 |
-| 🟢 ConcreteModifier |  ║ | 79 |  ║ | 79 |  ║ | 51 | 38 | 43 | 54 |  ║ | 52 | 43 | 46 |  ║ | 62 | 41 | 52 | 57 |
-| 🟢 SimpleSimulationHandler |  ║ | 139 |  ║ | 116 |  ║ | 68 | 68 | 86 | 92 |  ║ | 92 | 86 | 78 |  ║ | 101 | 79 | 106 | 113 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🔴 FileManagement |  ║ | 439 |  ║ | 383 |  ║ | 152 | 136 | 190 | 209 |  ║ | 191 | 180 | 172 |  ║ | 219 | 154 | 227 | 189 |
-| \***\*Σ\*\*** |  ║ | 2201 |  ║ | 2070 |  ║ | 765 | 743 | 970 | 1005 |  ║ | 1021 | 906 | 845 |  ║ | 1324 | 819 | 1016 | 999 |
+| Class                         |  ║  | Java Orig |  ║  | Trans |  ║  | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║  | OS/AS | OS/CM | OS/EP |  ║  | CoT/PC | CoT/Le | CoT/St | CoT/RF |
+| ----------------------------- | :-: | --------- | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
+| ══                            | ══  | ══        | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🔵 Environment                |  ║  | 171       |  ║  | 174   |  ║  | 63    | 59    | 79    | 73     |  ║  | 81    | 71    | 64    |  ║  | 108    | 62     | 79     | 74     |
+| 🔵 Parameter                  |  ║  | 93        |  ║  | 93    |  ║  | 24    | 25    | 25    | 32     |  ║  | 33    | 24    | 11    |  ║  | 51     | 23     | 31     | 25     |
+| 🔵 ExperimentPlanGenerator    |  ║  | 208       |  ║  | 174   |  ║  | 103   | 99    | 129   | 130    |  ║  | 122   | 117   | 130   |  ║  | 127    | 104    | 113    | 113    |
+| 🔵 ExperimentResultHandler    |  ║  | 104       |  ║  | 100   |  ║  | 33    | 37    | 53    | 45     |  ║  | 40    | 42    | 50    |  ║  | 72     | 39     | 35     | 47     |
+| 🔵 Measure                    |  ║  | 88        |  ║  | 85    |  ║  | 20    | 20    | 21    | 21     |  ║  | 21    | 20    | 7     |  ║  | 34     | 19     | 22     | 21     |
+| 🔵 ExperimentSimulatorHandler |  ║  | 114       |  ║  | 102   |  ║  | 50    | 50    | 74    | 63     |  ║  | 66    | 67    | 75    |  ║  | 86     | 55     | 61     | 62     |
+| 🔵 Options                    |  ║  | 178       |  ║  | 176   |  ║  | 59    | 60    | 64    | 61     |  ║  | 64    | 60    | 14    |  ║  | 80     | 61     | 58     | 70     |
+| ══                            | ══  | ══        | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🟣 AModifier                  |  ║  | 100       |  ║  | 106   |  ║  | 24    | 24    | 29    | 29     |  ║  | 43    | 25    | 26    |  ║  | 61     | 23     | 24     | 31     |
+| 🟣 ASimulationSystemHandler   |  ║  | 76        |  ║  | 79    |  ║  | 44    | 44    | 36    | 30     |  ║  | 60    | 25    | 31    |  ║  | 50     | 24     | 61     | 39     |
+| 🟣 StartProgram               |  ║  | 105       |  ║  | 87    |  ║  | 34    | 38    | 47    | 48     |  ║  | 48    | 50    | 40    |  ║  | 74     | 40     | 48     | 51     |
+| 🟣 IExtractMeasures           |  ║  | 48        |  ║  | 49    |  ║  | N/A   | N/A   | 9     | 11     |  ║  | 12    | 8     | 11    |  ║  | 23     | 8      | 8      | 11     |
+| 🟣 IStopProgram               |  ║  | 38        |  ║  | 42    |  ║  | N/A   | N/A   | 8     | 10     |  ║  | 9     | 8     | 8     |  ║  | 16     | 7      | 8      | 9      |
+| 🟣 IManageParametersFile      |  ║  | 75        |  ║  | 82    |  ║  | N/A   | N/A   | 15    | 22     |  ║  | 20    | 17    | 15    |  ║  | 36     | 16     | 16     | 15     |
+| 🟣 IStartSimulation           |  ║  | 39        |  ║  | 41    |  ║  | N/A   | N/A   | 8     | 10     |  ║  | 9     | 8     | 8     |  ║  | 16     | 7      | 8      | 9      |
+| 🟣 IManageModifier            |  ║  | 41        |  ║  | 43    |  ║  | N/A   | N/A   | 9     | 11     |  ║  | 10    | 8     | 12    |  ║  | 24     | 8      | 8      | 10     |
+| ══                            | ══  | ══        | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🟢 Simulation                 |  ║  | 31        |  ║  | 33    |  ║  | 20    | 23    | 25    | 29     |  ║  | 23    | 23    | 25    |  ║  | 45     | 26     | 26     | 33     |
+| 🟢 MySimulator                |  ║  | 35        |  ║  | 26    |  ║  | 20    | 22    | 20    | 25     |  ║  | 25    | 24    | 22    |  ║  | 39     | 23     | 25     | 20     |
+| 🟢 ConcreteModifier           |  ║  | 79        |  ║  | 79    |  ║  | 51    | 38    | 43    | 54     |  ║  | 52    | 43    | 46    |  ║  | 62     | 41     | 52     | 57     |
+| 🟢 SimpleSimulationHandler    |  ║  | 139       |  ║  | 116   |  ║  | 68    | 68    | 86    | 92     |  ║  | 92    | 86    | 78    |  ║  | 101    | 79     | 106    | 113    |
+| ══                            | ══  | ══        | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🔴 FileManagement             |  ║  | 439       |  ║  | 383   |  ║  | 152   | 136   | 190   | 209    |  ║  | 191   | 180   | 172   |  ║  | 219    | 154    | 227    | 189    |
+| \***\*Σ\*\***                 |  ║  | 2201      |  ║  | 2070  |  ║  | 765   | 743   | 970   | 1005   |  ║  | 1021  | 906   | 845   |  ║  | 1324   | 819    | 1016   | 999    |
 
 ---
 
 ## Source Lines of Code (excluding blank lines and comments)
 
-| Class |  ║ | Java Orig |  ║ | Trans |  ║ | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║ | OS/AS | OS/CM | OS/EP |  ║ | CoT/PC | CoT/Le | CoT/St | CoT/RF |
-| ------------------------------ | :-: | ---------- | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🔵 Environment |  ║ | 69 |  ║ | 71 |  ║ | 45 | 41 | 52 | 52 |  ║ | 62 | 52 | 48 |  ║ | 65 | 47 | 54 | 50 |
-| 🔵 Parameter |  ║ | 29 |  ║ | 30 |  ║ | 18 | 18 | 18 | 24 |  ║ | 24 | 17 | 10 |  ║ | 25 | 18 | 20 | 19 |
-| 🔵 ExperimentPlanGenerator |  ║ | 114 |  ║ | 93 |  ║ | 77 | 73 | 84 | 97 |  ║ | 95 | 89 | 95 |  ║ | 74 | 77 | 81 | 77 |
-| 🔵 ExperimentResultHandler |  ║ | 39 |  ║ | 28 |  ║ | 27 | 30 | 34 | 35 |  ║ | 33 | 35 | 40 |  ║ | 42 | 34 | 29 | 34 |
-| 🔵 Measure |  ║ | 25 |  ║ | 24 |  ║ | 14 | 14 | 15 | 15 |  ║ | 15 | 14 | 6 |  ║ | 15 | 14 | 16 | 15 |
-| 🔵 ExperimentSimulatorHandler |  ║ | 52 |  ║ | 42 |  ║ | 39 | 37 | 47 | 49 |  ║ | 54 | 51 | 59 |  ║ | 52 | 43 | 49 | 43 |
-| 🔵 Options |  ║ | 62 |  ║ | 62 |  ║ | 42 | 42 | 44 | 43 |  ║ | 45 | 42 | 12 |  ║ | 45 | 43 | 42 | 44 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🟣 AModifier |  ║ | 30 |  ║ | 33 |  ║ | 16 | 16 | 17 | 17 |  ║ | 30 | 17 | 17 |  ║ | 33 | 16 | 17 | 17 |
-| 🟣 ASimulationSystemHandler |  ║ | 22 |  ║ | 22 |  ║ | 31 | 31 | 24 | 18 |  ║ | 40 | 18 | 23 |  ║ | 29 | 18 | 42 | 25 |
-| 🟣 StartProgram |  ║ | 39 |  ║ | 33 |  ║ | 24 | 25 | 29 | 29 |  ║ | 31 | 36 | 28 |  ║ | 32 | 24 | 30 | 31 |
-| 🟣 IExtractMeasures |  ║ | 6 |  ║ | 9 |  ║ | N/A | N/A | 6 | 8 |  ║ | 8 | 5 | 7 |  ║ | 9 | 6 | 6 | 8 |
-| 🟣 IStopProgram |  ║ | 4 |  ║ | 7 |  ║ | N/A | N/A | 5 | 7 |  ║ | 6 | 5 | 5 |  ║ | 6 | 5 | 6 | 6 |
-| 🟣 IManageParametersFile |  ║ | 9 |  ║ | 18 |  ║ | N/A | N/A | 10 | 10 |  ║ | 14 | 12 | 10 |  ║ | 17 | 9 | 9 | 11 |
-| 🟣 IStartSimulation |  ║ | 4 |  ║ | 7 |  ║ | N/A | N/A | 5 | 7 |  ║ | 6 | 5 | 5 |  ║ | 6 | 5 | 6 | 6 |
-| 🟣 IManageModifier |  ║ | 5 |  ║ | 8 |  ║ | N/A | N/A | 6 | 8 |  ║ | 7 | 5 | 8 |  ║ | 10 | 6 | 6 | 7 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🟢 Simulation |  ║ | 19 |  ║ | 21 |  ║ | 13 | 15 | 13 | 20 |  ║ | 16 | 16 | 16 |  ║ | 18 | 16 | 15 | 19 |
-| 🟢 MySimulator |  ║ | 29 |  ║ | 20 |  ║ | 16 | 18 | 13 | 21 |  ║ | 21 | 20 | 17 |  ║ | 18 | 20 | 19 | 17 |
-| 🟢 ConcreteModifier |  ║ | 62 |  ║ | 57 |  ║ | 42 | 32 | 32 | 45 |  ║ | 44 | 36 | 39 |  ║ | 35 | 34 | 39 | 42 |
-| 🟢 SimpleSimulationHandler |  ║ | 116 |  ║ | 96 |  ║ | 57 | 58 | 50 | 78 |  ║ | 81 | 74 | 66 |  ║ | 68 | 66 | 71 | 74 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🔴 FileManagement |  ║ | 265 |  ║ | 207 |  ║ | 124 | 112 | 130 | 154 |  ║ | 162 | 151 | 140 |  ║ | 140 | 124 | 149 | 124 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| \***\*Σ\*\*** |  ║ | 1000 |  ║ | 888 |  ║ | 585 | 562 | 634 | 737 |  ║ | 794 | 700 | 651 |  ║ | 739 | 625 | 706 | 669 |
+| Class                         |  ║  | Java Orig |  ║  | Trans |  ║  | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║  | OS/AS | OS/CM | OS/EP |  ║  | CoT/PC | CoT/Le | CoT/St | CoT/RF |
+| ----------------------------- | :-: | --------- | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
+| ══                            | ══  | ══        | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🔵 Environment                |  ║  | 69        |  ║  | 71    |  ║  | 45    | 41    | 52    | 52     |  ║  | 62    | 52    | 48    |  ║  | 65     | 47     | 54     | 50     |
+| 🔵 Parameter                  |  ║  | 29        |  ║  | 30    |  ║  | 18    | 18    | 18    | 24     |  ║  | 24    | 17    | 10    |  ║  | 25     | 18     | 20     | 19     |
+| 🔵 ExperimentPlanGenerator    |  ║  | 114       |  ║  | 93    |  ║  | 77    | 73    | 84    | 97     |  ║  | 95    | 89    | 95    |  ║  | 74     | 77     | 81     | 77     |
+| 🔵 ExperimentResultHandler    |  ║  | 39        |  ║  | 28    |  ║  | 27    | 30    | 34    | 35     |  ║  | 33    | 35    | 40    |  ║  | 42     | 34     | 29     | 34     |
+| 🔵 Measure                    |  ║  | 25        |  ║  | 24    |  ║  | 14    | 14    | 15    | 15     |  ║  | 15    | 14    | 6     |  ║  | 15     | 14     | 16     | 15     |
+| 🔵 ExperimentSimulatorHandler |  ║  | 52        |  ║  | 42    |  ║  | 39    | 37    | 47    | 49     |  ║  | 54    | 51    | 59    |  ║  | 52     | 43     | 49     | 43     |
+| 🔵 Options                    |  ║  | 62        |  ║  | 62    |  ║  | 42    | 42    | 44    | 43     |  ║  | 45    | 42    | 12    |  ║  | 45     | 43     | 42     | 44     |
+| ══                            | ══  | ══        | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🟣 AModifier                  |  ║  | 30        |  ║  | 33    |  ║  | 16    | 16    | 17    | 17     |  ║  | 30    | 17    | 17    |  ║  | 33     | 16     | 17     | 17     |
+| 🟣 ASimulationSystemHandler   |  ║  | 22        |  ║  | 22    |  ║  | 31    | 31    | 24    | 18     |  ║  | 40    | 18    | 23    |  ║  | 29     | 18     | 42     | 25     |
+| 🟣 StartProgram               |  ║  | 39        |  ║  | 33    |  ║  | 24    | 25    | 29    | 29     |  ║  | 31    | 36    | 28    |  ║  | 32     | 24     | 30     | 31     |
+| 🟣 IExtractMeasures           |  ║  | 6         |  ║  | 9     |  ║  | N/A   | N/A   | 6     | 8      |  ║  | 8     | 5     | 7     |  ║  | 9      | 6      | 6      | 8      |
+| 🟣 IStopProgram               |  ║  | 4         |  ║  | 7     |  ║  | N/A   | N/A   | 5     | 7      |  ║  | 6     | 5     | 5     |  ║  | 6      | 5      | 6      | 6      |
+| 🟣 IManageParametersFile      |  ║  | 9         |  ║  | 18    |  ║  | N/A   | N/A   | 10    | 10     |  ║  | 14    | 12    | 10    |  ║  | 17     | 9      | 9      | 11     |
+| 🟣 IStartSimulation           |  ║  | 4         |  ║  | 7     |  ║  | N/A   | N/A   | 5     | 7      |  ║  | 6     | 5     | 5     |  ║  | 6      | 5      | 6      | 6      |
+| 🟣 IManageModifier            |  ║  | 5         |  ║  | 8     |  ║  | N/A   | N/A   | 6     | 8      |  ║  | 7     | 5     | 8     |  ║  | 10     | 6      | 6      | 7      |
+| ══                            | ══  | ══        | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🟢 Simulation                 |  ║  | 19        |  ║  | 21    |  ║  | 13    | 15    | 13    | 20     |  ║  | 16    | 16    | 16    |  ║  | 18     | 16     | 15     | 19     |
+| 🟢 MySimulator                |  ║  | 29        |  ║  | 20    |  ║  | 16    | 18    | 13    | 21     |  ║  | 21    | 20    | 17    |  ║  | 18     | 20     | 19     | 17     |
+| 🟢 ConcreteModifier           |  ║  | 62        |  ║  | 57    |  ║  | 42    | 32    | 32    | 45     |  ║  | 44    | 36    | 39    |  ║  | 35     | 34     | 39     | 42     |
+| 🟢 SimpleSimulationHandler    |  ║  | 116       |  ║  | 96    |  ║  | 57    | 58    | 50    | 78     |  ║  | 81    | 74    | 66    |  ║  | 68     | 66     | 71     | 74     |
+| ══                            | ══  | ══        | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🔴 FileManagement             |  ║  | 265       |  ║  | 207   |  ║  | 124   | 112   | 130   | 154    |  ║  | 162   | 151   | 140   |  ║  | 140    | 124    | 149    | 124    |
+| ══                            | ══  | ══        | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| \***\*Σ\*\***                 |  ║  | 1000      |  ║  | 888   |  ║  | 585   | 562   | 634   | 737    |  ║  | 794   | 700   | 651   |  ║  | 739    | 625    | 706    | 669    |
 
 ### Analysis
 
@@ -86,35 +86,35 @@
 
 Score from `pylint` (errors, warnings, conventions, refactoring). No Java original. Transpiler = 0.00 by design.
 
-| Class |  ║ | Trans |  ║ | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║ | OS/AS | OS/CM | OS/EP |  ║ | CoT/PC | CoT/Le | CoT/St | CoT/RF |
-| ------------------------------ | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🔵 Environment |  ║ | 0.00 |  ║ | 6.82 | 5.00 | 6.22 | 6.80 |  ║ | 7.35 | 6.60 | 6.38 |  ║ | 6.98 | 5.56 | 7.25 | 6.51 |
-| 🔵 Parameter |  ║ | 0.00 |  ║ | 6.47 | 6.47 | 6.25 | 7.27 |  ║ | 6.00 | 5.62 | 6.67 |  ║ | 6.50 | 6.47 | 6.84 | 6.47 |
-| 🔵 ExperimentPlanGenerator |  ║ | 0.00 |  ║ | 8.36 | 8.03 | 7.31 | 8.39 |  ║ | 7.97 | 8.85 | 9.47 |  ║ | 7.78 | 6.81 | 9.59 | 8.31 |
-| 🔵 ExperimentResultHandler |  ║ | 0.00 |  ║ | 7.08 | 7.04 | 5.48 | 7.74 |  ║ | 7.86 | 7.42 | 8.67 |  ║ | 7.67 | 7.67 | 8.40 | 7.74 |
-| 🔵 Measure |  ║ | 0.00 |  ║ | 5.71 | 5.71 | 6.43 | 6.43 |  ║ | 6.43 | 5.71 | 5.00 |  ║ | 7.14 | 5.71 | 6.25 | 5.71 |
-| 🔵 ExperimentSimulatorHandler |  ║ | 0.00 |  ║ | 6.56 | 5.59 | 3.71 | 6.67 |  ║ | 7.27 | 7.11 | 7.44 |  ║ | 6.39 | 5.41 | 8.28 | 7.18 |
-| 🔵 Options |  ║ | 0.00 |  ║ | 5.48 | 5.48 | 5.81 | 5.71 |  ║ | 5.91 | 5.48 | 6.67 |  ║ | 6.14 | 5.58 | 5.48 | 5.68 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🟣 AModifier |  ║ | 0.00 |  ║ | 5.33 | 5.33 | 6.00 | 6.00 |  ║ | 6.96 | 5.62 | 5.62 |  ║ | 7.31 | 5.33 | 5.33 | 6.00 |
-| 🟣 ASimulationSystemHandler |  ║ | 0.00 |  ║ | 5.20 | 5.20 | 0.00 | 6.67 |  ║ | 8.21 | 6.47 | 6.67 |  ║ | 0.00 | 0.00 | 8.33 | 6.84 |
-| 🟣 StartProgram |  ║ | 0.00 |  ║ | 7.83 | 0.00 | 0.00 | 8.52 |  ║ | 8.40 | 7.10 | 7.78 |  ║ | 0.33 | 0.00 | 8.33 | 7.86 |
-| 🟣 IExtractMeasures |  ║ | 0.00 |  ║ | N/A | N/A | 4.00 | 4.00 |  ║ | 6.00 | 0.00 | 3.33 |  ║ | 0.00 | 2.00 | 0.00 | 4.00 |
-| 🟣 IStopProgram |  ║ | 0.00 |  ║ | N/A | N/A | 2.50 | 2.50 |  ║ | 3.33 | 0.00 | 0.00 |  ║ | 5.00 | 0.00 | 0.00 | 0.00 |
-| 🟣 IManageParametersFile |  ║ | 0.00 |  ║ | N/A | N/A | 5.56 | 4.29 |  ║ | 7.14 | 3.33 | 2.50 |  ║ | 1.00 | 4.29 | 3.33 | 5.00 |
-| 🟣 IStartSimulation |  ║ | 0.00 |  ║ | N/A | N/A | 2.50 | 2.50 |  ║ | 3.33 | 0.00 | 0.00 |  ║ | 5.00 | 0.00 | 0.00 | 0.00 |
-| 🟣 IManageModifier |  ║ | 0.00 |  ║ | N/A | N/A | 4.00 | 4.00 |  ║ | 5.00 | 0.00 | 4.29 |  ║ | 5.71 | 2.00 | 0.00 | 2.50 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🟢 Simulation |  ║ | 0.00 |  ║ | 8.00 | 0.00 | 0.00 | 8.00 |  ║ | 8.18 | 7.50 | 5.83 |  ║ | 0.00 | 0.00 | 8.18 | 5.33 |
-| 🟢 MySimulator |  ║ | 0.00 |  ║ | 6.67 | 7.06 | 7.50 | 6.84 |  ║ | 6.84 | 6.32 | 5.62 |  ║ | 6.88 | 6.32 | 7.78 | 7.33 |
-| 🟢 ConcreteModifier |  ║ | 0.00 |  ║ | 8.72 | 6.77 | 3.87 | 8.46 |  ║ | 9.39 | 8.06 | 8.93 |  ║ | 5.33 | 4.84 | 9.44 | 8.29 |
-| 🟢 SimpleSimulationHandler |  ║ | 0.00 |  ║ | 8.93 | 4.74 | 3.60 | 8.00 |  ║ | 8.50 | 9.59 | 7.85 |  ║ | 4.85 | 5.69 | 8.57 | 8.77 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🔴 FileManagement |  ║ | 0.00 |  ║ | 8.05 | 7.00 | 7.11 | 8.91 |  ║ | 9.14 | 8.11 | 8.12 |  ║ | 8.70 | 7.67 | 7.99 | 7.72 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| \***\*avg (avant correctifs)\*\*** |  ║ | 0.00 |  ║ | 7.01 | 5.29 | 4.39 | 6.39 |  ║ | 6.96 | 5.44 | 5.84 |  ║ | 4.94 | 4.07 | 5.97 | 5.86 |
-| \***\*avg (après correctifs / code actuel)\*\*** |  ║ | 0.00 |  ║ | 7.10 | 5.44 | 4.50 | 6.42 |  ║ | 6.98 | 5.53 | 5.93 |  ║ | 5.01 | 4.13 | 6.02 | 3.53 |
+| Class                         |  ║  | Trans |  ║  | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║  | OS/AS | OS/CM | OS/EP |  ║  | CoT/PC | CoT/Le | CoT/St | CoT/RF |
+| ----------------------------- | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
+| ══                            | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🔵 Environment                |  ║  | 0.00  |  ║  | 6.82  | 5.00  | 6.22  | 6.80   |  ║  | 7.35  | 6.60  | 6.38  |  ║  | 6.98   | 5.56   | 7.25   | 6.51   |
+| 🔵 Parameter                  |  ║  | 0.00  |  ║  | 6.47  | 6.47  | 6.25  | 7.27   |  ║  | 6.00  | 5.62  | 6.67  |  ║  | 6.50   | 6.47   | 6.84   | 6.47   |
+| 🔵 ExperimentPlanGenerator    |  ║  | 0.00  |  ║  | 8.36  | 8.03  | 7.31  | 8.39   |  ║  | 7.97  | 8.85  | 9.47  |  ║  | 7.78   | 6.81   | 9.59   | 8.31   |
+| 🔵 ExperimentResultHandler    |  ║  | 0.00  |  ║  | 7.08  | 7.04  | 5.48  | 7.74   |  ║  | 7.86  | 7.42  | 8.67  |  ║  | 7.67   | 7.67   | 8.40   | 7.74   |
+| 🔵 Measure                    |  ║  | 0.00  |  ║  | 5.71  | 5.71  | 6.43  | 6.43   |  ║  | 6.43  | 5.71  | 5.00  |  ║  | 7.14   | 5.71   | 6.25   | 5.71   |
+| 🔵 ExperimentSimulatorHandler |  ║  | 0.00  |  ║  | 6.56  | 5.59  | 3.71  | 6.67   |  ║  | 7.27  | 7.11  | 7.44  |  ║  | 6.39   | 5.41   | 8.28   | 7.18   |
+| 🔵 Options                    |  ║  | 0.00  |  ║  | 5.48  | 5.48  | 5.81  | 5.71   |  ║  | 5.91  | 5.48  | 6.67  |  ║  | 6.14   | 5.58   | 5.48   | 5.68   |
+| ══                            | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🟣 AModifier                  |  ║  | 0.00  |  ║  | 5.33  | 5.33  | 6.00  | 6.00   |  ║  | 6.96  | 5.62  | 5.62  |  ║  | 7.31   | 5.33   | 5.33   | 6.00   |
+| 🟣 ASimulationSystemHandler   |  ║  | 0.00  |  ║  | 5.20  | 5.20  | 0.00  | 6.67   |  ║  | 8.21  | 6.47  | 6.67  |  ║  | 0.00   | 0.00   | 8.33   | 6.84   |
+| 🟣 StartProgram               |  ║  | 0.00  |  ║  | 7.83  | 0.00  | 0.00  | 8.52   |  ║  | 8.40  | 7.10  | 7.78  |  ║  | 0.33   | 0.00   | 8.33   | 7.86   |
+| 🟣 IExtractMeasures           |  ║  | 0.00  |  ║  | N/A   | N/A   | 4.00  | 4.00   |  ║  | 6.00  | 0.00  | 3.33  |  ║  | 0.00   | 2.00   | 0.00   | 4.00   |
+| 🟣 IStopProgram               |  ║  | 0.00  |  ║  | N/A   | N/A   | 2.50  | 2.50   |  ║  | 3.33  | 0.00  | 0.00  |  ║  | 5.00   | 0.00   | 0.00   | 0.00   |
+| 🟣 IManageParametersFile      |  ║  | 0.00  |  ║  | N/A   | N/A   | 5.56  | 4.29   |  ║  | 7.14  | 3.33  | 2.50  |  ║  | 1.00   | 4.29   | 3.33   | 5.00   |
+| 🟣 IStartSimulation           |  ║  | 0.00  |  ║  | N/A   | N/A   | 2.50  | 2.50   |  ║  | 3.33  | 0.00  | 0.00  |  ║  | 5.00   | 0.00   | 0.00   | 0.00   |
+| 🟣 IManageModifier            |  ║  | 0.00  |  ║  | N/A   | N/A   | 4.00  | 4.00   |  ║  | 5.00  | 0.00  | 4.29  |  ║  | 5.71   | 2.00   | 0.00   | 2.50   |
+| ══                            | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🟢 Simulation                 |  ║  | 0.00  |  ║  | 8.00  | 0.00  | 0.00  | 8.00   |  ║  | 8.18  | 7.50  | 5.83  |  ║  | 0.00   | 0.00   | 8.18   | 5.33   |
+| 🟢 MySimulator                |  ║  | 0.00  |  ║  | 6.67  | 7.06  | 7.50  | 6.84   |  ║  | 6.84  | 6.32  | 5.62  |  ║  | 6.88   | 6.32   | 7.78   | 7.33   |
+| 🟢 ConcreteModifier           |  ║  | 0.00  |  ║  | 8.72  | 6.77  | 3.87  | 8.46   |  ║  | 9.39  | 8.06  | 8.93  |  ║  | 5.33   | 4.84   | 9.44   | 8.29   |
+| 🟢 SimpleSimulationHandler    |  ║  | 0.00  |  ║  | 8.93  | 4.74  | 3.60  | 8.00   |  ║  | 8.50  | 9.59  | 7.85  |  ║  | 4.85   | 5.69   | 8.57   | 8.77   |
+| ══                            | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🔴 FileManagement             |  ║  | 0.00  |  ║  | 8.05  | 7.00  | 7.11  | 8.91   |  ║  | 9.14  | 8.11  | 8.12  |  ║  | 8.70   | 7.67   | 7.99   | 7.72   |
+| ══                            | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| avg (before fixes)            |  ║  | 0.00  |  ║  | 7.01  | 5.29  | 4.39  | 6.39   |  ║  | 6.96  | 5.44  | 5.84  |  ║  | 4.94   | 4.07   | 5.97   | 5.86   |
+| avg (after fixes)             |  ║  | 0.00  |  ║  | 7.10  | 5.44  | 4.50  | 6.42   |  ║  | 6.98  | 5.53  | 5.93  |  ║  | 5.01   | 4.13   | 6.02   | 3.53   |
 
 ### Analysis
 
@@ -122,9 +122,9 @@ Score from `pylint` (errors, warnings, conventions, refactoring). No Java origin
 
 **Pylint=0.00 in non-transpiler files: two distinct causes**
 
-1. *Unresolvable imports (dominant cause for most 0.00 scores)* — Pylint was run on each file in isolation without adjusting `PYTHONPATH`. Files that use package-relative imports such as `from gluecode.concrete_modifier import ConcreteModifier` or `from noStrategy.experimenthandling.environment import Environment` (e.g. `ZS/onlyTask/start_program.py` which sits at the repository root and imports via a `noStrategy.*` namespace) trigger `E0401` import-error. A single `E0401` is an error-category message and heavily penalises the formula `10 − (5·E + W + R + C) / statements`. For files with few statements, this drives the score to 0. This explains the 0.00 for `Simulation` (CoT/perClass), `StartProgram` (ZS/onlyTask, ZS/persona, CoT/lenient, CoT/perClass), and `ASimulationSystemHandler` (ZS/persona, CoT/perClass, CoT/lenient).
+1. _Unresolvable imports (dominant cause for most 0.00 scores)_ — Pylint was run on each file in isolation without adjusting `PYTHONPATH`. Files that use package-relative imports such as `from gluecode.concrete_modifier import ConcreteModifier` or `from noStrategy.experimenthandling.environment import Environment` (e.g. `ZS/onlyTask/start_program.py` which sits at the repository root and imports via a `noStrategy.*` namespace) trigger `E0401` import-error. A single `E0401` is an error-category message and heavily penalises the formula `10 − (5·E + W + R + C) / statements`. For files with few statements, this drives the score to 0. This explains the 0.00 for `Simulation` (CoT/perClass), `StartProgram` (ZS/onlyTask, ZS/persona, CoT/lenient, CoT/perClass), and `ASimulationSystemHandler` (ZS/persona, CoT/perClass, CoT/lenient).
 
-2. *Too few statements in small interface files* — `IStopProgram`, `IStartSimulation`, `IExtractMeasures`, and `IManageModifier` are 6–7 SLOC with a single `@abstractmethod`. Pylint flags missing module docstring (C0114), missing class docstring (C0115), and missing method docstring (C0116) — 3 convention messages for a file with ≈3 statements. The penalty formula yields 0 or below. This explains the scattered 0.00 and near-0 scores in the interfaces block.
+2. _Too few statements in small interface files_ — `IStopProgram`, `IStartSimulation`, `IExtractMeasures`, and `IManageModifier` are 6–7 SLOC with a single `@abstractmethod`. Pylint flags missing module docstring (C0114), missing class docstring (C0115), and missing method docstring (C0116) — 3 convention messages for a file with ≈3 statements. The penalty formula yields 0 or below. This explains the scattered 0.00 and near-0 scores in the interfaces block.
 
 **`ZS/persona` is the lowest-scoring LLM strategy (avg 4.39)** — The persona prompt produced files without docstrings in many classes (triggering C0114/C0115/C0116 across large files), used non-idiomatic names (still sometimes camelCase), and for `ExperimentSimulatorHandler` generated a 3.71 score due to several missing type annotations and a deeply nested `run` method flagged for refactoring.
 
@@ -138,35 +138,34 @@ Score from `pylint` (errors, warnings, conventions, refactoring). No Java origin
 
 Type errors from `pyright` per file in isolation. Warnings and info were 0 across all files.
 
-| Class |  ║ | Trans |  ║ | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║ | OS/AS | OS/CM | OS/EP |  ║ | CoT/PC | CoT/Le | CoT/St | CoT/RF |
-| ------------------------------ | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🔵 Environment |  ║ | 19 |  ║ | 0 | 1 | 0 | 3 |  ║ | 1 | 1 | 1 |  ║ | 0 | 3 | 0 | 0 |
-| 🔵 Parameter |  ║ | 4 |  ║ | 2 | 0 | 0 | 0 |  ║ | 0 | 0 | 1 |  ║ | 0 | 0 | 0 | 1 |
-| 🔵 ExperimentPlanGenerator |  ║ | 45 |  ║ | 0 | 1 | 3 | 0 |  ║ | 6 | 3 | 1 |  ║ | 6 | 1 | 0 | 4 |
-| 🔵 ExperimentResultHandler |  ║ | 18 |  ║ | 0 | 0 | 1 | 0 |  ║ | 1 | 0 | 0 |  ║ | 2 | 0 | 0 | 1 |
-| 🔵 Measure |  ║ | 0 |  ║ | 0 | 0 | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
-| 🔵 ExperimentSimulatorHandler |  ║ | 22 |  ║ | 0 | 1 | 3 | 0 |  ║ | 1 | 0 | 1 |  ║ | 9 | 0 | 0 | 4 |
-| 🔵 Options |  ║ | 2 |  ║ | 0 | 0 | 0 | 5 |  ║ | 0 | 1 | 0 |  ║ | 0 | 6 | 0 | 0 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🟣 AModifier |  ║ | 6 |  ║ | 0 | 0 | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
-| 🟣 ASimulationSystemHandler |  ║ | 12 |  ║ | 0 | 0 | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
-| 🟣 StartProgram |  ║ | 22 |  ║ | 1 | 4 | 2 | 0 |  ║ | 3 | 2 | 0 |  ║ | 3 | 0 | 0 | 1 |
-| 🟣 IExtractMeasures |  ║ | 4 |  ║ | N/A | N/A | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
-| 🟣 IStopProgram |  ║ | 2 |  ║ | N/A | N/A | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
-| 🟣 IManageParametersFile |  ║ | 10 |  ║ | N/A | N/A | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
-| 🟣 IStartSimulation |  ║ | 2 |  ║ | N/A | N/A | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
-| 🟣 IManageModifier |  ║ | 3 |  ║ | N/A | N/A | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🟢 Simulation |  ║ | 13 |  ║ | 2 | 3 | 1 | 0 |  ║ | 1 | 0 | 1 |  ║ | 2 | 0 | 0 | 0 |
-| 🟢 MySimulator |  ║ | 15 |  ║ | 0 | 0 | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
-| 🟢 ConcreteModifier |  ║ | 14 |  ║ | 0 | 1 | 0 | 2 |  ║ | 0 | 0 | 12 |  ║ | 0 | 1 | 0 | 0 |
-| 🟢 SimpleSimulationHandler |  ║ | 67 |  ║ | 4 | 3 | 2 | 3 |  ║ | 6 | 2 | 3 |  ║ | 3 | 2 | 1 | 7 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🔴 FileManagement |  ║ | 106 |  ║ | 9 | 9 | 10 | 7 |  ║ | 7 | 0 | 0 |  ║ | 13 | 7 | 11 | 8 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| \***\*Σ (avant correctifs)\*\*** |  ║ | 386 |  ║ | 18 | 23 | 22 | 20 |  ║ | 26 | 9 | 20 |  ║ | 38 | 20 | 12 | 26 |
-| \***\*Σ (après correctifs / code actuel)\*\*** |  ║ | 386 |  ║ | 20 | 15 | 23 | 21 |  ║ | 30 | 12 | 6 |  ║ | 38 | 21 | 12 | 27 |
+| Class                         |  ║  | Trans |  ║  | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║  | OS/AS | OS/CM | OS/EP |  ║  | CoT/PC | CoT/Le | CoT/St | CoT/RF |
+| ----------------------------- | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
+| 🔵 Environment                |  ║  | 19    |  ║  | 0     | 1     | 0     | 3      |  ║  | 1     | 1     | 1     |  ║  | 0      | 3      | 0      | 0      |
+| 🔵 Parameter                  |  ║  | 4     |  ║  | 2     | 0     | 0     | 0      |  ║  | 0     | 0     | 1     |  ║  | 0      | 0      | 0      | 1      |
+| 🔵 ExperimentPlanGenerator    |  ║  | 45    |  ║  | 0     | 1     | 3     | 0      |  ║  | 6     | 3     | 1     |  ║  | 6      | 1      | 0      | 4      |
+| 🔵 ExperimentResultHandler    |  ║  | 18    |  ║  | 0     | 0     | 1     | 0      |  ║  | 1     | 0     | 0     |  ║  | 2      | 0      | 0      | 1      |
+| 🔵 Measure                    |  ║  | 0     |  ║  | 0     | 0     | 0     | 0      |  ║  | 0     | 0     | 0     |  ║  | 0      | 0      | 0      | 0      |
+| 🔵 ExperimentSimulatorHandler |  ║  | 22    |  ║  | 0     | 1     | 3     | 0      |  ║  | 1     | 0     | 1     |  ║  | 9      | 0      | 0      | 4      |
+| 🔵 Options                    |  ║  | 2     |  ║  | 0     | 0     | 0     | 5      |  ║  | 0     | 1     | 0     |  ║  | 0      | 6      | 0      | 0      |
+| ══                            | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🟣 AModifier                  |  ║  | 6     |  ║  | 0     | 0     | 0     | 0      |  ║  | 0     | 0     | 0     |  ║  | 0      | 0      | 0      | 0      |
+| 🟣 ASimulationSystemHandler   |  ║  | 12    |  ║  | 0     | 0     | 0     | 0      |  ║  | 0     | 0     | 0     |  ║  | 0      | 0      | 0      | 0      |
+| 🟣 StartProgram               |  ║  | 22    |  ║  | 1     | 4     | 2     | 0      |  ║  | 3     | 2     | 0     |  ║  | 3      | 0      | 0      | 1      |
+| 🟣 IExtractMeasures           |  ║  | 4     |  ║  | N/A   | N/A   | 0     | 0      |  ║  | 0     | 0     | 0     |  ║  | 0      | 0      | 0      | 0      |
+| 🟣 IStopProgram               |  ║  | 2     |  ║  | N/A   | N/A   | 0     | 0      |  ║  | 0     | 0     | 0     |  ║  | 0      | 0      | 0      | 0      |
+| 🟣 IManageParametersFile      |  ║  | 10    |  ║  | N/A   | N/A   | 0     | 0      |  ║  | 0     | 0     | 0     |  ║  | 0      | 0      | 0      | 0      |
+| 🟣 IStartSimulation           |  ║  | 2     |  ║  | N/A   | N/A   | 0     | 0      |  ║  | 0     | 0     | 0     |  ║  | 0      | 0      | 0      | 0      |
+| 🟣 IManageModifier            |  ║  | 3     |  ║  | N/A   | N/A   | 0     | 0      |  ║  | 0     | 0     | 0     |  ║  | 0      | 0      | 0      | 0      |
+| ══                            | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🟢 Simulation                 |  ║  | 13    |  ║  | 2     | 3     | 1     | 0      |  ║  | 1     | 0     | 1     |  ║  | 2      | 0      | 0      | 0      |
+| 🟢 MySimulator                |  ║  | 15    |  ║  | 0     | 0     | 0     | 0      |  ║  | 0     | 0     | 0     |  ║  | 0      | 0      | 0      | 0      |
+| 🟢 ConcreteModifier           |  ║  | 14    |  ║  | 0     | 1     | 0     | 2      |  ║  | 0     | 0     | 12    |  ║  | 0      | 1      | 0      | 0      |
+| 🟢 SimpleSimulationHandler    |  ║  | 67    |  ║  | 4     | 3     | 2     | 3      |  ║  | 6     | 2     | 3     |  ║  | 3      | 2      | 1      | 7      |
+| ══                            | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🔴 FileManagement             |  ║  | 106   |  ║  | 9     | 9     | 10    | 7      |  ║  | 7     | 0     | 0     |  ║  | 13     | 7      | 11     | 8      |
+| ══                            | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| Σ (before fixes)              |  ║  | 386   |  ║  | 18    | 23    | 22    | 20     |  ║  | 26    | 9     | 20    |  ║  | 38     | 20     | 12     | 26     |
+| Σ (after fixes)               |  ║  | 386   |  ║  | 20    | 15    | 23    | 21     |  ║  | 30    | 12    | 6     |  ║  | 38     | 21     | 12     | 27     |
 
 ### Analysis
 
@@ -188,34 +187,34 @@ Type errors from `pyright` per file in isolation. Warnings and info were 0 acros
 
 The two tables above were computed on the migrations as they stood right after the initial transpilation/generation pass. Since then several migrations received bug fixes (unit/integration test corrections, import fixes, Windows case-collision fixes, etc. — see the `Corrections applied` sections in `evaluation/correctness/`). This table re-runs the exact same methodology (`pylint`, per file, in isolation, no `PYTHONPATH` adjustment, cwd = migration root) on the current code, using `pylint 4.0.6` (the original run's pylint version was not pinned in the repo, so it is unknown and may differ from this one). Same file-selection rule as before: for `Trans` and `CoT/RF`, the genuine migration output is used (PascalCase transpiler files for `Trans`; PascalCase files where they exist and snake_case files where they don't for `CoT/RF`'s mixed `structuredsim/` layout — the snake_case duplicates that exist purely to satisfy pytest's import system were excluded in both cases, exactly as for the original table).
 
-| Class |  ║ | Trans |  ║ | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║ | OS/AS | OS/CM | OS/EP |  ║ | CoT/PC | CoT/Le | CoT/St | CoT/RF |
-| ------------------------------ | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🔵 Environment |  ║ | 0.00 |  ║ | 6.98 | 5.51 | 6.61 | 7.10 |  ║ | 7.62 | 7.05 | 6.67 |  ║ | 7.00 | 5.64 | 7.42 | 5.85 |
-| 🔵 Parameter |  ║ | 0.00 |  ║ | 6.47 | 6.47 | 6.25 | 7.27 |  ║ | 6.00 | 5.62 | 6.67 |  ║ | 6.50 | 6.47 | 6.84 | 7.06 |
-| 🔵 ExperimentPlanGenerator |  ║ | 0.00 |  ║ | 8.36 | 8.03 | 7.31 | 8.39 |  ║ | 7.97 | 8.85 | 9.47 |  ║ | 7.91 | 6.81 | 9.59 | 6.90 |
-| 🔵 ExperimentResultHandler |  ║ | 0.00 |  ║ | 6.96 | 7.04 | 5.48 | 7.74 |  ║ | 7.86 | 7.42 | 8.97 |  ║ | 7.67 | 7.67 | 9.00 | 6.13 |
-| 🔵 Measure |  ║ | 0.00 |  ║ | 5.71 | 5.71 | 6.43 | 6.43 |  ║ | 6.43 | 5.71 | 6.00 |  ║ | 7.14 | 5.71 | 6.25 | 6.43 |
-| 🔵 ExperimentSimulatorHandler |  ║ | 0.00 |  ║ | 7.18 | 6.25 | 3.71 | 6.67 |  ║ | 7.27 | 7.50 | 7.87 |  ║ | 6.43 | 5.41 | 8.61 | 3.33 |
-| 🔵 Options |  ║ | 0.00 |  ║ | 5.48 | 5.79 | 6.07 | 5.96 |  ║ | 5.91 | 5.79 | 6.04 |  ║ | 6.00 | 5.51 | 5.42 | 5.80 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🟣 AModifier |  ║ | 0.00 |  ║ | 5.33 | 5.33 | 6.00 | 6.00 |  ║ | 6.96 | 5.62 | 5.62 |  ║ | 7.31 | 5.33 | 5.33 | 2.67 |
-| 🟣 ASimulationSystemHandler |  ║ | 0.00 |  ║ | 5.20 | 5.20 | 0.00 | 6.67 |  ║ | 8.21 | 6.47 | 6.67 |  ║ | 0.00 | 0.00 | 8.33 | 0.00 |
-| 🟣 StartProgram |  ║ | 0.00 |  ║ | 8.00 | 0.00 | 0.00 | 8.52 |  ║ | 8.40 | 7.27 | 7.93 |  ║ | 0.33 | 0.40 | 8.46 | 0.00 |
-| 🟣 IExtractMeasures |  ║ | 0.00 |  ║ | N/A | N/A | 4.00 | 4.00 |  ║ | 6.00 | 0.00 | 3.33 |  ║ | 0.00 | 2.00 | 0.00 | 0.00 |
-| 🟣 IStopProgram |  ║ | 0.00 |  ║ | N/A | N/A | 2.50 | 2.50 |  ║ | 3.33 | 0.00 | 0.00 |  ║ | 5.00 | 0.00 | 0.00 | 0.00 |
-| 🟣 IManageParametersFile |  ║ | 0.00 |  ║ | N/A | N/A | 5.56 | 4.29 |  ║ | 7.14 | 3.33 | 2.50 |  ║ | 1.00 | 4.29 | 3.33 | 0.00 |
-| 🟣 IStartSimulation |  ║ | 0.00 |  ║ | N/A | N/A | 2.50 | 2.50 |  ║ | 3.33 | 0.00 | 0.00 |  ║ | 5.00 | 0.00 | 0.00 | 0.00 |
-| 🟣 IManageModifier |  ║ | 0.00 |  ║ | N/A | N/A | 4.00 | 4.00 |  ║ | 5.00 | 0.00 | 4.29 |  ║ | 5.71 | 2.00 | 0.00 | 2.50 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🟢 Simulation |  ║ | 0.00 |  ║ | 8.12 | 0.00 | 0.00 | 8.00 |  ║ | 8.18 | 7.50 | 5.83 |  ║ | 0.00 | 0.00 | 8.18 | 0.00 |
-| 🟢 MySimulator |  ║ | 0.00 |  ║ | 6.67 | 7.06 | 7.50 | 6.84 |  ║ | 6.84 | 6.32 | 5.62 |  ║ | 6.88 | 6.32 | 7.78 | 8.00 |
-| 🟢 ConcreteModifier |  ║ | 0.00 |  ║ | 8.89 | 7.44 | 4.57 | 8.64 |  ║ | 9.47 | 8.38 | 9.06 |  ║ | 5.88 | 5.56 | 9.53 | 4.00 |
-| 🟢 SimpleSimulationHandler |  ║ | 0.00 |  ║ | 8.97 | 4.74 | 4.29 | 8.00 |  ║ | 8.54 | 9.61 | 7.85 |  ║ | 5.71 | 5.69 | 8.57 | 5.21 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🔴 FileManagement |  ║ | 0.00 |  ║ | 8.11 | 7.07 | 7.29 | 8.90 |  ║ | 9.05 | 8.19 | 8.18 |  ║ | 8.69 | 7.76 | 7.81 | 6.77 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| \***\*avg\*\*** |  ║ | 0.00 |  ║ | 7.10 | 5.44 | 4.50 | 6.42 |  ║ | 6.98 | 5.53 | 5.93 |  ║ | 5.01 | 4.13 | 6.02 | 3.53 |
+| Class                         |  ║  | Trans |  ║  | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║  | OS/AS | OS/CM | OS/EP |  ║  | CoT/PC | CoT/Le | CoT/St | CoT/RF |
+| ----------------------------- | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
+| ══                            | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🔵 Environment                |  ║  | 0.00  |  ║  | 6.98  | 5.51  | 6.61  | 7.10   |  ║  | 7.62  | 7.05  | 6.67  |  ║  | 7.00   | 5.64   | 7.42   | 5.85   |
+| 🔵 Parameter                  |  ║  | 0.00  |  ║  | 6.47  | 6.47  | 6.25  | 7.27   |  ║  | 6.00  | 5.62  | 6.67  |  ║  | 6.50   | 6.47   | 6.84   | 7.06   |
+| 🔵 ExperimentPlanGenerator    |  ║  | 0.00  |  ║  | 8.36  | 8.03  | 7.31  | 8.39   |  ║  | 7.97  | 8.85  | 9.47  |  ║  | 7.91   | 6.81   | 9.59   | 6.90   |
+| 🔵 ExperimentResultHandler    |  ║  | 0.00  |  ║  | 6.96  | 7.04  | 5.48  | 7.74   |  ║  | 7.86  | 7.42  | 8.97  |  ║  | 7.67   | 7.67   | 9.00   | 6.13   |
+| 🔵 Measure                    |  ║  | 0.00  |  ║  | 5.71  | 5.71  | 6.43  | 6.43   |  ║  | 6.43  | 5.71  | 6.00  |  ║  | 7.14   | 5.71   | 6.25   | 6.43   |
+| 🔵 ExperimentSimulatorHandler |  ║  | 0.00  |  ║  | 7.18  | 6.25  | 3.71  | 6.67   |  ║  | 7.27  | 7.50  | 7.87  |  ║  | 6.43   | 5.41   | 8.61   | 3.33   |
+| 🔵 Options                    |  ║  | 0.00  |  ║  | 5.48  | 5.79  | 6.07  | 5.96   |  ║  | 5.91  | 5.79  | 6.04  |  ║  | 6.00   | 5.51   | 5.42   | 5.80   |
+| ══                            | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🟣 AModifier                  |  ║  | 0.00  |  ║  | 5.33  | 5.33  | 6.00  | 6.00   |  ║  | 6.96  | 5.62  | 5.62  |  ║  | 7.31   | 5.33   | 5.33   | 2.67   |
+| 🟣 ASimulationSystemHandler   |  ║  | 0.00  |  ║  | 5.20  | 5.20  | 0.00  | 6.67   |  ║  | 8.21  | 6.47  | 6.67  |  ║  | 0.00   | 0.00   | 8.33   | 0.00   |
+| 🟣 StartProgram               |  ║  | 0.00  |  ║  | 8.00  | 0.00  | 0.00  | 8.52   |  ║  | 8.40  | 7.27  | 7.93  |  ║  | 0.33   | 0.40   | 8.46   | 0.00   |
+| 🟣 IExtractMeasures           |  ║  | 0.00  |  ║  | N/A   | N/A   | 4.00  | 4.00   |  ║  | 6.00  | 0.00  | 3.33  |  ║  | 0.00   | 2.00   | 0.00   | 0.00   |
+| 🟣 IStopProgram               |  ║  | 0.00  |  ║  | N/A   | N/A   | 2.50  | 2.50   |  ║  | 3.33  | 0.00  | 0.00  |  ║  | 5.00   | 0.00   | 0.00   | 0.00   |
+| 🟣 IManageParametersFile      |  ║  | 0.00  |  ║  | N/A   | N/A   | 5.56  | 4.29   |  ║  | 7.14  | 3.33  | 2.50  |  ║  | 1.00   | 4.29   | 3.33   | 0.00   |
+| 🟣 IStartSimulation           |  ║  | 0.00  |  ║  | N/A   | N/A   | 2.50  | 2.50   |  ║  | 3.33  | 0.00  | 0.00  |  ║  | 5.00   | 0.00   | 0.00   | 0.00   |
+| 🟣 IManageModifier            |  ║  | 0.00  |  ║  | N/A   | N/A   | 4.00  | 4.00   |  ║  | 5.00  | 0.00  | 4.29  |  ║  | 5.71   | 2.00   | 0.00   | 2.50   |
+| ══                            | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🟢 Simulation                 |  ║  | 0.00  |  ║  | 8.12  | 0.00  | 0.00  | 8.00   |  ║  | 8.18  | 7.50  | 5.83  |  ║  | 0.00   | 0.00   | 8.18   | 0.00   |
+| 🟢 MySimulator                |  ║  | 0.00  |  ║  | 6.67  | 7.06  | 7.50  | 6.84   |  ║  | 6.84  | 6.32  | 5.62  |  ║  | 6.88   | 6.32   | 7.78   | 8.00   |
+| 🟢 ConcreteModifier           |  ║  | 0.00  |  ║  | 8.89  | 7.44  | 4.57  | 8.64   |  ║  | 9.47  | 8.38  | 9.06  |  ║  | 5.88   | 5.56   | 9.53   | 4.00   |
+| 🟢 SimpleSimulationHandler    |  ║  | 0.00  |  ║  | 8.97  | 4.74  | 4.29  | 8.00   |  ║  | 8.54  | 9.61  | 7.85  |  ║  | 5.71   | 5.69   | 8.57   | 5.21   |
+| ══                            | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🔴 FileManagement             |  ║  | 0.00  |  ║  | 8.11  | 7.07  | 7.29  | 8.90   |  ║  | 9.05  | 8.19  | 8.18  |  ║  | 8.69   | 7.76   | 7.81   | 6.77   |
+| ══                            | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| \***\*avg\*\***               |  ║  | 0.00  |  ║  | 7.10  | 5.44  | 4.50  | 6.42   |  ║  | 6.98  | 5.53  | 5.93  |  ║  | 5.01   | 4.13   | 6.02   | 3.53   |
 
 ### Analysis — what changed vs. the initial evaluation
 
@@ -223,13 +222,13 @@ The two tables above were computed on the migrations as they stood right after t
 
 **Real, code-driven improvements** — `ExperimentResultHandler` CoT/strict (8.40→9.00) and several `ConcreteModifier`/`SimpleSimulationHandler` cells in ZS/OT, ZS/Pe, CoT/PC, CoT/Le (+0.5 to +0.9) moved up, in line with the unit-test-failure fixes applied to those files after the original evaluation (see `evaluation/correctness/*` "Corrections applied" sections).
 
-**`CoT/riskFirst`'s global average dropped from 5.86 to 3.53, driven by `ASimulationSystemHandler` (6.84→0.00), `StartProgram` (7.86→0.00), `IExtractMeasures` (4.00→0.00), `IManageParametersFile` (5.00→0.00), `Simulation` (5.33→0.00), and smaller drops in `AModifier`, `ExperimentPlanGenerator`, `ExperimentResultHandler`, `ExperimentSimulatorHandler`, `ConcreteModifier`, `SimpleSimulationHandler`, `FileManagement`, `Environment` — root-caused below.** This is confirmed, mechanically, to be a direct side-effect of commit `8c63888` ("Fix integration tests for all 12 Python migrations"), *not* a tooling-version artifact (an earlier draft of this section wrongly blamed the pylint version — that was disproved below):
+**`CoT/riskFirst`'s global average dropped from 5.86 to 3.53, driven by `ASimulationSystemHandler` (6.84→0.00), `StartProgram` (7.86→0.00), `IExtractMeasures` (4.00→0.00), `IManageParametersFile` (5.00→0.00), `Simulation` (5.33→0.00), and smaller drops in `AModifier`, `ExperimentPlanGenerator`, `ExperimentResultHandler`, `ExperimentSimulatorHandler`, `ConcreteModifier`, `SimpleSimulationHandler`, `FileManagement`, `Environment` — root-caused below.** This is confirmed, mechanically, to be a direct side-effect of commit `8c63888` ("Fix integration tests for all 12 Python migrations"), _not_ a tooling-version artifact (an earlier draft of this section wrongly blamed the pylint version — that was disproved below):
 
-- Before that commit, every riskFirst file imported its siblings with the full prefix, e.g. `from structuredsim.experimenthandling.Environment import Environment`. The commit's own message says: *"chainOfThought/riskFirst: remove structuredsim. prefix from all imports, add snake_case wrapper modules for PascalCase files"* — needed because `pytest`'s rootdir puts `structuredsim/` itself on `sys.path`, so the tests require bare `experimenthandling.X`, not `structuredsim.experimenthandling.X`.
+- Before that commit, every riskFirst file imported its siblings with the full prefix, e.g. `from structuredsim.experimenthandling.Environment import Environment`. The commit's own message says: _"chainOfThought/riskFirst: remove structuredsim. prefix from all imports, add snake_case wrapper modules for PascalCase files"_ — needed because `pytest`'s rootdir puts `structuredsim/` itself on `sys.path`, so the tests require bare `experimenthandling.X`, not `structuredsim.experimenthandling.X`.
 - Pylint auto-detects each file's import root by walking up through every ancestor directory that contains an `__init__.py`. For `structuredsim/interfaces/AModifier.py`, that walk crosses `interfaces/__init__.py` and `structuredsim/__init__.py` and stops at `chainOfThought/riskFirst/` (no `__init__.py` there) — so pylint inserts `riskFirst/` on `sys.path`, **one level higher than `structuredsim/`**.
 - Before the fix, that alignment was correct: `riskFirst/` on the path resolves `structuredsim.experimenthandling.Environment` perfectly (verified below). After the fix, the same auto-detected root (`riskFirst/`) can no longer resolve the new bare `experimenthandling.Environment` import — that needs `structuredsim/` itself on the path — so every cross-module import now trips `E0401`.
 - **Verified directly**: checking out the pre-fix tree (`git archive 8c63888^`) and running the exact same `pylint --score=y <file>` (same pylint 4.0.6, same cwd, same "no `PYTHONPATH`" invocation) reproduces the original table's numbers exactly and with **zero** `E0401` — `AModifier` 6.00, `ASimulationSystemHandler` 6.84, `StartProgram` 7.86, `ExperimentPlanGenerator` 8.31, `ExperimentResultHandler` 7.74, `ExperimentSimulatorHandler` 7.18, `ConcreteModifier` 8.29, `SimpleSimulationHandler` 8.77, `FileManagement` 7.72, `Simulation` 5.33. Same pylint version, same files' logic, only the import-prefix differs — which proves the drop is 100% attributable to that one code change, via its interaction with pylint's per-file root-detection, and 0% attributable to the pylint version.
-- Note this is the *same* structural pattern the original analysis (line 124 above) already documented for `ZS/onlyTask`, `ZS/persona`, `CoT/perClass`, and `CoT/lenient` — those four migrations already had an extra root-level `__init__.py` from the start, so they already paid this E0401 tax in the original table. `CoT/riskFirst` simply joined that group once its import style was flattened to match.
+- Note this is the _same_ structural pattern the original analysis (line 124 above) already documented for `ZS/onlyTask`, `ZS/persona`, `CoT/perClass`, and `CoT/lenient` — those four migrations already had an extra root-level `__init__.py` from the start, so they already paid this E0401 tax in the original table. `CoT/riskFirst` simply joined that group once its import style was flattened to match.
 
 **Practical takeaway**: the `structuredsim.` prefix removal was correct and necessary (it made 44/44 integration tests and 40/40 unit tests pass — see `evaluation/correctness/chainOfThought/riskFirst.md`). The pylint score drop it causes here is an artifact of running pylint per-file without setting `PYTHONPATH` to the package root, not evidence the fix made the code worse. Running the affected files with `PYTHONPATH=<path to structuredsim/>` restores every one of the cells listed above to (near-)exactly its original value.
 
@@ -239,34 +238,34 @@ The two tables above were computed on the migrations as they stood right after t
 
 Same re-run, same methodology (`pyright`, per file, cwd = migration root so intra-migration imports resolve), using `pyright 1.1.408` (again, the version behind the original table is unknown/unpinned).
 
-| Class |  ║ | Trans |  ║ | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║ | OS/AS | OS/CM | OS/EP |  ║ | CoT/PC | CoT/Le | CoT/St | CoT/RF |
-| ------------------------------ | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🔵 Environment |  ║ | 19 |  ║ | 0 | 0 | 0 | 4 |  ║ | 1 | 1 | 1 |  ║ | 1 | 4 | 0 | 0 |
-| 🔵 Parameter |  ║ | 4 |  ║ | 2 | 0 | 0 | 0 |  ║ | 0 | 0 | 1 |  ║ | 0 | 0 | 0 | 1 |
-| 🔵 ExperimentPlanGenerator |  ║ | 45 |  ║ | 0 | 0 | 3 | 0 |  ║ | 6 | 3 | 1 |  ║ | 6 | 1 | 0 | 4 |
-| 🔵 ExperimentResultHandler |  ║ | 18 |  ║ | 0 | 0 | 1 | 0 |  ║ | 1 | 0 | 0 |  ║ | 2 | 0 | 0 | 1 |
-| 🔵 Measure |  ║ | 0 |  ║ | 0 | 0 | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
-| 🔵 ExperimentSimulatorHandler |  ║ | 22 |  ║ | 0 | 0 | 3 | 0 |  ║ | 1 | 0 | 1 |  ║ | 9 | 0 | 0 | 4 |
-| 🔵 Options |  ║ | 2 |  ║ | 0 | 0 | 0 | 5 |  ║ | 0 | 4 | 0 |  ║ | 0 | 6 | 0 | 0 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🟣 AModifier |  ║ | 6 |  ║ | 0 | 0 | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
-| 🟣 ASimulationSystemHandler |  ║ | 12 |  ║ | 0 | 0 | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
-| 🟣 StartProgram |  ║ | 22 |  ║ | 1 | 0 | 1 | 0 |  ║ | 3 | 1 | 0 |  ║ | 2 | 0 | 0 | 1 |
-| 🟣 IExtractMeasures |  ║ | 4 |  ║ | N/A | N/A | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
-| 🟣 IStopProgram |  ║ | 2 |  ║ | N/A | N/A | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
-| 🟣 IManageParametersFile |  ║ | 10 |  ║ | N/A | N/A | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
-| 🟣 IStartSimulation |  ║ | 2 |  ║ | N/A | N/A | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
-| 🟣 IManageModifier |  ║ | 3 |  ║ | N/A | N/A | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🟢 Simulation |  ║ | 13 |  ║ | 4 | 0 | 2 | 0 |  ║ | 1 | 0 | 1 |  ║ | 1 | 0 | 0 | 1 |
-| 🟢 MySimulator |  ║ | 15 |  ║ | 0 | 0 | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
-| 🟢 ConcreteModifier |  ║ | 14 |  ║ | 0 | 0 | 0 | 2 |  ║ | 0 | 0 | 0 |  ║ | 0 | 1 | 0 | 0 |
-| 🟢 SimpleSimulationHandler |  ║ | 67 |  ║ | 4 | 4 | 3 | 3 |  ║ | 7 | 3 | 1 |  ║ | 3 | 2 | 1 | 7 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🔴 FileManagement |  ║ | 106 |  ║ | 9 | 11 | 10 | 7 |  ║ | 10 | 0 | 0 |  ║ | 14 | 7 | 11 | 8 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| \***\*Σ\*\*** |  ║ | 386 |  ║ | 20 | 15 | 23 | 21 |  ║ | 30 | 12 | 6 |  ║ | 38 | 21 | 12 | 27 |
+| Class                         |  ║  | Trans |  ║  | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║  | OS/AS | OS/CM | OS/EP |  ║  | CoT/PC | CoT/Le | CoT/St | CoT/RF |
+| ----------------------------- | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
+| ══                            | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🔵 Environment                |  ║  | 19    |  ║  | 0     | 0     | 0     | 4      |  ║  | 1     | 1     | 1     |  ║  | 1      | 4      | 0      | 0      |
+| 🔵 Parameter                  |  ║  | 4     |  ║  | 2     | 0     | 0     | 0      |  ║  | 0     | 0     | 1     |  ║  | 0      | 0      | 0      | 1      |
+| 🔵 ExperimentPlanGenerator    |  ║  | 45    |  ║  | 0     | 0     | 3     | 0      |  ║  | 6     | 3     | 1     |  ║  | 6      | 1      | 0      | 4      |
+| 🔵 ExperimentResultHandler    |  ║  | 18    |  ║  | 0     | 0     | 1     | 0      |  ║  | 1     | 0     | 0     |  ║  | 2      | 0      | 0      | 1      |
+| 🔵 Measure                    |  ║  | 0     |  ║  | 0     | 0     | 0     | 0      |  ║  | 0     | 0     | 0     |  ║  | 0      | 0      | 0      | 0      |
+| 🔵 ExperimentSimulatorHandler |  ║  | 22    |  ║  | 0     | 0     | 3     | 0      |  ║  | 1     | 0     | 1     |  ║  | 9      | 0      | 0      | 4      |
+| 🔵 Options                    |  ║  | 2     |  ║  | 0     | 0     | 0     | 5      |  ║  | 0     | 4     | 0     |  ║  | 0      | 6      | 0      | 0      |
+| ══                            | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🟣 AModifier                  |  ║  | 6     |  ║  | 0     | 0     | 0     | 0      |  ║  | 0     | 0     | 0     |  ║  | 0      | 0      | 0      | 0      |
+| 🟣 ASimulationSystemHandler   |  ║  | 12    |  ║  | 0     | 0     | 0     | 0      |  ║  | 0     | 0     | 0     |  ║  | 0      | 0      | 0      | 0      |
+| 🟣 StartProgram               |  ║  | 22    |  ║  | 1     | 0     | 1     | 0      |  ║  | 3     | 1     | 0     |  ║  | 2      | 0      | 0      | 1      |
+| 🟣 IExtractMeasures           |  ║  | 4     |  ║  | N/A   | N/A   | 0     | 0      |  ║  | 0     | 0     | 0     |  ║  | 0      | 0      | 0      | 0      |
+| 🟣 IStopProgram               |  ║  | 2     |  ║  | N/A   | N/A   | 0     | 0      |  ║  | 0     | 0     | 0     |  ║  | 0      | 0      | 0      | 0      |
+| 🟣 IManageParametersFile      |  ║  | 10    |  ║  | N/A   | N/A   | 0     | 0      |  ║  | 0     | 0     | 0     |  ║  | 0      | 0      | 0      | 0      |
+| 🟣 IStartSimulation           |  ║  | 2     |  ║  | N/A   | N/A   | 0     | 0      |  ║  | 0     | 0     | 0     |  ║  | 0      | 0      | 0      | 0      |
+| 🟣 IManageModifier            |  ║  | 3     |  ║  | N/A   | N/A   | 0     | 0      |  ║  | 0     | 0     | 0     |  ║  | 0      | 0      | 0      | 0      |
+| ══                            | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🟢 Simulation                 |  ║  | 13    |  ║  | 4     | 0     | 2     | 0      |  ║  | 1     | 0     | 1     |  ║  | 1      | 0      | 0      | 1      |
+| 🟢 MySimulator                |  ║  | 15    |  ║  | 0     | 0     | 0     | 0      |  ║  | 0     | 0     | 0     |  ║  | 0      | 0      | 0      | 0      |
+| 🟢 ConcreteModifier           |  ║  | 14    |  ║  | 0     | 0     | 0     | 2      |  ║  | 0     | 0     | 0     |  ║  | 0      | 1      | 0      | 0      |
+| 🟢 SimpleSimulationHandler    |  ║  | 67    |  ║  | 4     | 4     | 3     | 3      |  ║  | 7     | 3     | 1     |  ║  | 3      | 2      | 1      | 7      |
+| ══                            | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🔴 FileManagement             |  ║  | 106   |  ║  | 9     | 11    | 10    | 7      |  ║  | 10    | 0     | 0     |  ║  | 14     | 7      | 11     | 8      |
+| ══                            | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| \***\*Σ\*\***                 |  ║  | 386   |  ║  | 20    | 15    | 23    | 21     |  ║  | 30    | 12    | 6     |  ║  | 38     | 21     | 12     | 27     |
 
 ### Analysis — what changed vs. the initial evaluation
 
@@ -276,14 +275,14 @@ Same re-run, same methodology (`pyright`, per file, cwd = migration root so intr
 
 **`Measure`, `AModifier`, `ASimulationSystemHandler`, `MySimulator` remain 0 everywhere** — consistent with the original finding that these are trivial, low-type-complexity classes across every migration.
 
-**Root cause of the *increases* (`Options` OS/CM 1→4, `FileManagement` OS/AS 7→10, `FileManagement` ZS/OT 9→11, `Environment` ZS/Ctx 3→4, `Environment` CoT/PC 0→1, `Environment` CoT/Le 3→4, `Simulation` ZS/NC 2→4, several `SimpleSimulationHandler` cells +1, `FileManagement` CoT/PC 13→14)** — every one of these files was touched by a "Fix unit test failures in `<migration>`" commit after the original evaluation (confirmed via `git log` on each file). These commits added new code paths to satisfy previously-failing tests, and the new code is where the new Pyright errors live — this is a real, code-driven increase, not a tooling artifact. Two representative, fully traced examples:
+**Root cause of the _increases_ (`Options` OS/CM 1→4, `FileManagement` OS/AS 7→10, `FileManagement` ZS/OT 9→11, `Environment` ZS/Ctx 3→4, `Environment` CoT/PC 0→1, `Environment` CoT/Le 3→4, `Simulation` ZS/NC 2→4, several `SimpleSimulationHandler` cells +1, `FileManagement` CoT/PC 13→14)** — every one of these files was touched by a "Fix unit test failures in `<migration>`" commit after the original evaluation (confirmed via `git log` on each file). These commits added new code paths to satisfy previously-failing tests, and the new code is where the new Pyright errors live — this is a real, code-driven increase, not a tooling artifact. Two representative, fully traced examples:
 
-  - **`oneShot/concreteModifier/experimenthandling/options.py` (commit `3b03488`)** added `get_cuttof_planning_h()`, which does `h.get("DATE")` on a `dict` (returning `Unknown | None`) and passes that straight into `datetime.datetime(1, 1, h.get("DATE"))`. `datetime`'s `day`/`hour`/`minute` parameters require `SupportsIndex` (not `None`), so Pyright now reports 3 new `reportArgumentType` errors (one per branch: `DAY`/`HOURS`/`MINUTES`), on top of the 1 pre-existing error — exactly the 1→4 jump seen in the table. The fix makes the unit test pass (the properties file always provides that key in practice) but is not statically null-safe.
-  - **`oneShot/aSimulationSystemHandler/util/file_management.py` (commit `39dc09b`)** changed three call sites from `timedelta(days=...)`/`timedelta(hours=...)`/`timedelta(minutes=...)` to `datetime.datetime(1, 1, ...)`/`datetime.datetime(1, 1, 1, ...)`/`datetime.datetime(1, 1, 1, 0, ...)` (needed so the resulting object exposes `.day`/`.hour`/`.minute` the way the unit tests expect), but `Options.set_cuttof_planning_h()`'s parameter is still typed `timedelta`. Pyright now reports 3 new "Argument of type `datetime` cannot be assigned to parameter ... of type `timedelta`" errors — exactly the 3 new errors behind the 7→10 jump.
+- **`oneShot/concreteModifier/experimenthandling/options.py` (commit `3b03488`)** added `get_cuttof_planning_h()`, which does `h.get("DATE")` on a `dict` (returning `Unknown | None`) and passes that straight into `datetime.datetime(1, 1, h.get("DATE"))`. `datetime`'s `day`/`hour`/`minute` parameters require `SupportsIndex` (not `None`), so Pyright now reports 3 new `reportArgumentType` errors (one per branch: `DAY`/`HOURS`/`MINUTES`), on top of the 1 pre-existing error — exactly the 1→4 jump seen in the table. The fix makes the unit test pass (the properties file always provides that key in practice) but is not statically null-safe.
+- **`oneShot/aSimulationSystemHandler/util/file_management.py` (commit `39dc09b`)** changed three call sites from `timedelta(days=...)`/`timedelta(hours=...)`/`timedelta(minutes=...)` to `datetime.datetime(1, 1, ...)`/`datetime.datetime(1, 1, 1, ...)`/`datetime.datetime(1, 1, 1, 0, ...)` (needed so the resulting object exposes `.day`/`.hour`/`.minute` the way the unit tests expect), but `Options.set_cuttof_planning_h()`'s parameter is still typed `timedelta`. Pyright now reports 3 new "Argument of type `datetime` cannot be assigned to parameter ... of type `timedelta`" errors — exactly the 3 new errors behind the 7→10 jump.
 
-  The other increases (`Environment`'s new copy-constructor branches assigning `self.path_save_result = None` against a `str`-typed attribute, etc.) follow the same shape: a fix that makes runtime/test behavior correct while trading away some static type-precision (bare `None` defaults, un-narrowed `dict.get()`). None of them are pyright-version artifacts — they reproduce identically by just reading the diff.
+The other increases (`Environment`'s new copy-constructor branches assigning `self.path_save_result = None` against a `str`-typed attribute, etc.) follow the same shape: a fix that makes runtime/test behavior correct while trading away some static type-precision (bare `None` defaults, un-narrowed `dict.get()`). None of them are pyright-version artifacts — they reproduce identically by just reading the diff.
 
-**The one confirmed *tooling* artifact — `ConcreteModifier` OS/expPlanGen: 12→0 errors, despite the file being unchanged** — this class still uses the same `match/case` dispatch the original analysis flagged, verified via `git log` to be untouched since the original migration. The original table attributed the 12 errors to Pyright checking `match/case` (Python 3.10+ syntax) against a pre-3.10 minimum-version target. `pyright 1.1.408` in this environment resolves the project's Python version differently (or defaults higher) and no longer flags it — this one is a tooling/config artifact, not a code fix.
+**The one confirmed _tooling_ artifact — `ConcreteModifier` OS/expPlanGen: 12→0 errors, despite the file being unchanged** — this class still uses the same `match/case` dispatch the original analysis flagged, verified via `git log` to be untouched since the original migration. The original table attributed the 12 errors to Pyright checking `match/case` (Python 3.10+ syntax) against a pre-3.10 minimum-version target. `pyright 1.1.408` in this environment resolves the project's Python version differently (or defaults higher) and no longer flags it — this one is a tooling/config artifact, not a code fix.
 
 **Everything else moves by only 1-4 errors per cell**, following the same "real fix, new edge case" pattern as above.
 
@@ -293,38 +292,38 @@ Same re-run, same methodology (`pyright`, per file, cwd = migration root so intr
 
 Total CC of all functions per file: CC = Σ (1 + decision points). Computed via AST (Python) / decision-point regex (Java).
 
-| Class |  ║ | Java Orig |  ║ | Trans |  ║ | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║ | OS/AS | OS/CM | OS/EP |  ║ | CoT/PC | CoT/Le | CoT/St | CoT/RF |
-| ------------------------------ | :-: | ---------- | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🔵 Environment |  ║ | 14 |  ║ | 17 |  ║ | 19 | 17 | 18 | 21 |  ║ | 21 | 21 | 19 |  ║ | 22 | 18 | 22 | 19 |
-| 🔵 Parameter |  ║ | 5 |  ║ | 7 |  ║ | 7 | 7 | 7 | 8 |  ║ | 9 | 7 | 3 |  ║ | 9 | 7 | 8 | 7 |
-| 🔵 ExperimentPlanGenerator |  ║ | 19 |  ║ | 19 |  ║ | 19 | 19 | 19 | 21 |  ║ | 18 | 20 | 15 |  ║ | 16 | 18 | 19 | 17 |
-| 🔵 ExperimentResultHandler |  ║ | 3 |  ║ | 4 |  ║ | 5 | 6 | 6 | 6 |  ║ | 5 | 6 | 4 |  ║ | 5 | 6 | 6 | 6 |
-| 🔵 Measure |  ║ | 5 |  ║ | 6 |  ║ | 6 | 6 | 6 | 6 |  ║ | 6 | 6 | 2 |  ║ | 6 | 6 | 7 | 6 |
-| 🔵 ExperimentSimulatorHandler |  ║ | 5 |  ║ | 7 |  ║ | 6 | 6 | 6 | 6 |  ║ | 6 | 6 | 6 |  ║ | 5 | 8 | 6 | 8 |
-| 🔵 Options |  ║ | 16 |  ║ | 17 |  ║ | 17 | 17 | 17 | 17 |  ║ | 17 | 17 | 1 |  ║ | 17 | 17 | 17 | 17 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🟣 AModifier |  ║ | 4 |  ║ | 7 |  ║ | 6 | 6 | 6 | 6 |  ║ | 10 | 6 | 6 |  ║ | 10 | 6 | 6 | 6 |
-| 🟣 ASimulationSystemHandler |  ║ | 4 |  ║ | 4 |  ║ | 11 | 11 | 5 | 5 |  ║ | 9 | 5 | 5 |  ║ | 5 | 5 | 11 | 5 |
-| 🟣 StartProgram |  ║ | 3 |  ║ | 3 |  ║ | 4 | 3 | 4 | 3 |  ║ | 3 | 5 | 3 |  ║ | 5 | 3 | 3 | 3 |
-| 🟣 IExtractMeasures |  ║ | 1 |  ║ | 1 |  ║ | N/A | N/A | 1 | 1 |  ║ | 1 | 1 | 1 |  ║ | 1 | 1 | 1 | 1 |
-| 🟣 IStopProgram |  ║ | 1 |  ║ | 1 |  ║ | N/A | N/A | 1 | 1 |  ║ | 1 | 1 | 1 |  ║ | 1 | 1 | 1 | 1 |
-| 🟣 IManageParametersFile |  ║ | 1 |  ║ | 3 |  ║ | N/A | N/A | 3 | 2 |  ║ | 3 | 3 | 2 |  ║ | 3 | 2 | 2 | 2 |
-| 🟣 IStartSimulation |  ║ | 1 |  ║ | 1 |  ║ | N/A | N/A | 1 | 1 |  ║ | 1 | 1 | 1 |  ║ | 1 | 1 | 1 | 1 |
-| 🟣 IManageModifier |  ║ | 1 |  ║ | 1 |  ║ | N/A | N/A | 1 | 1 |  ║ | 1 | 1 | 1 |  ║ | 1 | 1 | 1 | 1 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🟢 Simulation |  ║ | 1 |  ║ | 1 |  ║ | 1 | 1 | 1 | 1 |  ║ | 2 | 1 | 1 |  ║ | 1 | 1 | 1 | 2 |
-| 🟢 MySimulator |  ║ | 3 |  ║ | N/A |  ║ | 5 | 6 | 5 | 6 |  ║ | 6 | 6 | 5 |  ║ | 6 | 6 | 6 | 5 |
-| 🟢 ConcreteModifier |  ║ | 10 |  ║ | 14 |  ║ | 17 | 14 | 11 | 15 |  ║ | 12 | 9 | 7 |  ║ | 12 | 12 | 18 | 14 |
-| 🟢 SimpleSimulationHandler |  ║ | 16 |  ║ | N/A |  ║ | 18 | 20 | 20 | 24 |  ║ | 23 | 23 | 19 |  ║ | 25 | 21 | 23 | 25 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| 🔴 FileManagement |  ║ | 46 |  ║ | N/A |  ║ | 38 | 40 | 47 | 53 |  ║ | 55 | 57 | 47 |  ║ | 44 | 44 | 62 | 44 |
-| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| \***\*Σ\*\*** |  ║ | 159 |  ║ | 113 |  ║ | 179 | 179 | 185 | 204 |  ║ | 209 | 202 | 149 |  ║ | 195 | 184 | 221 | 190 |
+| Class                         |  ║  | Java Orig |  ║  | Trans |  ║  | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║  | OS/AS | OS/CM | OS/EP |  ║  | CoT/PC | CoT/Le | CoT/St | CoT/RF |
+| ----------------------------- | :-: | --------- | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
+| ══                            | ══  | ══        | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🔵 Environment                |  ║  | 14        |  ║  | 17    |  ║  | 19    | 17    | 18    | 21     |  ║  | 21    | 21    | 19    |  ║  | 22     | 18     | 22     | 19     |
+| 🔵 Parameter                  |  ║  | 5         |  ║  | 7     |  ║  | 7     | 7     | 7     | 8      |  ║  | 9     | 7     | 3     |  ║  | 9      | 7      | 8      | 7      |
+| 🔵 ExperimentPlanGenerator    |  ║  | 19        |  ║  | 19    |  ║  | 19    | 19    | 19    | 21     |  ║  | 18    | 20    | 15    |  ║  | 16     | 18     | 19     | 17     |
+| 🔵 ExperimentResultHandler    |  ║  | 3         |  ║  | 4     |  ║  | 5     | 6     | 6     | 6      |  ║  | 5     | 6     | 4     |  ║  | 5      | 6      | 6      | 6      |
+| 🔵 Measure                    |  ║  | 5         |  ║  | 6     |  ║  | 6     | 6     | 6     | 6      |  ║  | 6     | 6     | 2     |  ║  | 6      | 6      | 7      | 6      |
+| 🔵 ExperimentSimulatorHandler |  ║  | 5         |  ║  | 7     |  ║  | 6     | 6     | 6     | 6      |  ║  | 6     | 6     | 6     |  ║  | 5      | 8      | 6      | 8      |
+| 🔵 Options                    |  ║  | 16        |  ║  | 17    |  ║  | 17    | 17    | 17    | 17     |  ║  | 17    | 17    | 1     |  ║  | 17     | 17     | 17     | 17     |
+| ══                            | ══  | ══        | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🟣 AModifier                  |  ║  | 4         |  ║  | 7     |  ║  | 6     | 6     | 6     | 6      |  ║  | 10    | 6     | 6     |  ║  | 10     | 6      | 6      | 6      |
+| 🟣 ASimulationSystemHandler   |  ║  | 4         |  ║  | 4     |  ║  | 11    | 11    | 5     | 5      |  ║  | 9     | 5     | 5     |  ║  | 5      | 5      | 11     | 5      |
+| 🟣 StartProgram               |  ║  | 3         |  ║  | 3     |  ║  | 4     | 3     | 4     | 3      |  ║  | 3     | 5     | 3     |  ║  | 5      | 3      | 3      | 3      |
+| 🟣 IExtractMeasures           |  ║  | 1         |  ║  | 1     |  ║  | N/A   | N/A   | 1     | 1      |  ║  | 1     | 1     | 1     |  ║  | 1      | 1      | 1      | 1      |
+| 🟣 IStopProgram               |  ║  | 1         |  ║  | 1     |  ║  | N/A   | N/A   | 1     | 1      |  ║  | 1     | 1     | 1     |  ║  | 1      | 1      | 1      | 1      |
+| 🟣 IManageParametersFile      |  ║  | 1         |  ║  | 3     |  ║  | N/A   | N/A   | 3     | 2      |  ║  | 3     | 3     | 2     |  ║  | 3      | 2      | 2      | 2      |
+| 🟣 IStartSimulation           |  ║  | 1         |  ║  | 1     |  ║  | N/A   | N/A   | 1     | 1      |  ║  | 1     | 1     | 1     |  ║  | 1      | 1      | 1      | 1      |
+| 🟣 IManageModifier            |  ║  | 1         |  ║  | 1     |  ║  | N/A   | N/A   | 1     | 1      |  ║  | 1     | 1     | 1     |  ║  | 1      | 1      | 1      | 1      |
+| ══                            | ══  | ══        | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🟢 Simulation                 |  ║  | 1         |  ║  | 1     |  ║  | 1     | 1     | 1     | 1      |  ║  | 2     | 1     | 1     |  ║  | 1      | 1      | 1      | 2      |
+| 🟢 MySimulator                |  ║  | 3         |  ║  | N/A   |  ║  | 5     | 6     | 5     | 6      |  ║  | 6     | 6     | 5     |  ║  | 6      | 6      | 6      | 5      |
+| 🟢 ConcreteModifier           |  ║  | 10        |  ║  | 14    |  ║  | 17    | 14    | 11    | 15     |  ║  | 12    | 9     | 7     |  ║  | 12     | 12     | 18     | 14     |
+| 🟢 SimpleSimulationHandler    |  ║  | 16        |  ║  | N/A   |  ║  | 18    | 20    | 20    | 24     |  ║  | 23    | 23    | 19    |  ║  | 25     | 21     | 23     | 25     |
+| ══                            | ══  | ══        | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| 🔴 FileManagement             |  ║  | 46        |  ║  | N/A   |  ║  | 38    | 40    | 47    | 53     |  ║  | 55    | 57    | 47    |  ║  | 44     | 44     | 62     | 44     |
+| ══                            | ══  | ══        | ══  | ══    | ══  | ══    | ══    | ══    | ══     | ══  | ══    | ══    | ══    | ══  | ══     | ══     | ══     | ══     |
+| \***\*Σ\*\***                 |  ║  | 159       |  ║  | 113   |  ║  | 179   | 179   | 185   | 204    |  ║  | 209   | 202   | 149   |  ║  | 195    | 184    | 221    | 190    |
 
 ### Analysis
 
-**LLM migrations are universally more complex than Java (total 179–221 vs. 159)** — The transpiler is the only migration *below* Java (113), because it contains syntax errors that prevent AST parsing for three files (`MySimulator`, `SimpleSimulationHandler`, `FileManagement` → all N/A), drastically reducing its countable total.
+**LLM migrations are universally more complex than Java (total 179–221 vs. 159)** — The transpiler is the only migration _below_ Java (113), because it contains syntax errors that prevent AST parsing for three files (`MySimulator`, `SimpleSimulationHandler`, `FileManagement` → all N/A), drastically reducing its countable total.
 
 **`Options` OS/expPlanGen = 1 (vs. Java=16, all others=17)** — Options has 17 getters and setters in Java; each trivial `return field` contributes CC=1, summing to 17. The OS/expPlanGen version collapses Options to a single `__init__` method → CC=1. This is the starkest CC outlier in the table and is a direct consequence of eliminating accessor methods.
 
