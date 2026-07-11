@@ -113,7 +113,8 @@ Score from `pylint` (errors, warnings, conventions, refactoring). No Java origin
 | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
 | 🔴 FileManagement |  ║ | 0.00 |  ║ | 8.05 | 7.00 | 7.11 | 8.91 |  ║ | 9.14 | 8.11 | 8.12 |  ║ | 8.70 | 7.67 | 7.99 | 7.72 |
 | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| \***\*avg\*\*** |  ║ | 0.00 |  ║ | 7.01 | 5.29 | 4.39 | 6.39 |  ║ | 6.96 | 5.44 | 5.84 |  ║ | 4.94 | 4.07 | 5.97 | 5.86 |
+| \***\*avg (avant correctifs)\*\*** |  ║ | 0.00 |  ║ | 7.01 | 5.29 | 4.39 | 6.39 |  ║ | 6.96 | 5.44 | 5.84 |  ║ | 4.94 | 4.07 | 5.97 | 5.86 |
+| \***\*avg (après correctifs / code actuel)\*\*** |  ║ | 0.00 |  ║ | 7.10 | 5.44 | 4.50 | 6.42 |  ║ | 6.98 | 5.53 | 5.93 |  ║ | 5.01 | 4.13 | 6.02 | 3.53 |
 
 ### Analysis
 
@@ -164,7 +165,8 @@ Type errors from `pyright` per file in isolation. Warnings and info were 0 acros
 | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
 | 🔴 FileManagement |  ║ | 106 |  ║ | 9 | 9 | 10 | 7 |  ║ | 7 | 0 | 0 |  ║ | 13 | 7 | 11 | 8 |
 | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
-| \***\*Σ\*\*** |  ║ | 386 |  ║ | 18 | 23 | 22 | 20 |  ║ | 26 | 9 | 20 |  ║ | 38 | 20 | 12 | 26 |
+| \***\*Σ (avant correctifs)\*\*** |  ║ | 386 |  ║ | 18 | 23 | 22 | 20 |  ║ | 26 | 9 | 20 |  ║ | 38 | 20 | 12 | 26 |
+| \***\*Σ (après correctifs / code actuel)\*\*** |  ║ | 386 |  ║ | 20 | 15 | 23 | 21 |  ║ | 30 | 12 | 6 |  ║ | 38 | 21 | 12 | 27 |
 
 ### Analysis
 
@@ -179,6 +181,111 @@ Type errors from `pyright` per file in isolation. Warnings and info were 0 acros
 **`CoT/perClass` total=38 — highest among LLM migrations** — The chain-of-thought per-class strategy produced more complex implementations with richer type interactions (generics, `Optional`, cross-class calls), which increases the surface area for Pyright to find mismatches. `ExperimentSimulatorHandler` (9) and `ExperimentPlanGenerator` (6) are the main contributors.
 
 **`OS/concMod` total=9 — lowest among LLM migrations** — The concrete-modifier one-shot example favoured simple, well-typed code. The only errors come from `SimpleSimulationHandler` (2) and a handful of minor annotation gaps. No class in this migration uses advanced typing constructs that could introduce errors.
+
+---
+
+## Pylint Score (out of 10) — Current Code (re-run)
+
+The two tables above were computed on the migrations as they stood right after the initial transpilation/generation pass. Since then several migrations received bug fixes (unit/integration test corrections, import fixes, Windows case-collision fixes, etc. — see the `Corrections applied` sections in `evaluation/correctness/`). This table re-runs the exact same methodology (`pylint`, per file, in isolation, no `PYTHONPATH` adjustment, cwd = migration root) on the current code, using `pylint 4.0.6` (the original run's pylint version was not pinned in the repo, so it is unknown and may differ from this one). Same file-selection rule as before: for `Trans` and `CoT/RF`, the genuine migration output is used (PascalCase transpiler files for `Trans`; PascalCase files where they exist and snake_case files where they don't for `CoT/RF`'s mixed `structuredsim/` layout — the snake_case duplicates that exist purely to satisfy pytest's import system were excluded in both cases, exactly as for the original table).
+
+| Class |  ║ | Trans |  ║ | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║ | OS/AS | OS/CM | OS/EP |  ║ | CoT/PC | CoT/Le | CoT/St | CoT/RF |
+| ------------------------------ | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
+| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
+| 🔵 Environment |  ║ | 0.00 |  ║ | 6.98 | 5.51 | 6.61 | 7.10 |  ║ | 7.62 | 7.05 | 6.67 |  ║ | 7.00 | 5.64 | 7.42 | 5.85 |
+| 🔵 Parameter |  ║ | 0.00 |  ║ | 6.47 | 6.47 | 6.25 | 7.27 |  ║ | 6.00 | 5.62 | 6.67 |  ║ | 6.50 | 6.47 | 6.84 | 7.06 |
+| 🔵 ExperimentPlanGenerator |  ║ | 0.00 |  ║ | 8.36 | 8.03 | 7.31 | 8.39 |  ║ | 7.97 | 8.85 | 9.47 |  ║ | 7.91 | 6.81 | 9.59 | 6.90 |
+| 🔵 ExperimentResultHandler |  ║ | 0.00 |  ║ | 6.96 | 7.04 | 5.48 | 7.74 |  ║ | 7.86 | 7.42 | 8.97 |  ║ | 7.67 | 7.67 | 9.00 | 6.13 |
+| 🔵 Measure |  ║ | 0.00 |  ║ | 5.71 | 5.71 | 6.43 | 6.43 |  ║ | 6.43 | 5.71 | 6.00 |  ║ | 7.14 | 5.71 | 6.25 | 6.43 |
+| 🔵 ExperimentSimulatorHandler |  ║ | 0.00 |  ║ | 7.18 | 6.25 | 3.71 | 6.67 |  ║ | 7.27 | 7.50 | 7.87 |  ║ | 6.43 | 5.41 | 8.61 | 3.33 |
+| 🔵 Options |  ║ | 0.00 |  ║ | 5.48 | 5.79 | 6.07 | 5.96 |  ║ | 5.91 | 5.79 | 6.04 |  ║ | 6.00 | 5.51 | 5.42 | 5.80 |
+| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
+| 🟣 AModifier |  ║ | 0.00 |  ║ | 5.33 | 5.33 | 6.00 | 6.00 |  ║ | 6.96 | 5.62 | 5.62 |  ║ | 7.31 | 5.33 | 5.33 | 2.67 |
+| 🟣 ASimulationSystemHandler |  ║ | 0.00 |  ║ | 5.20 | 5.20 | 0.00 | 6.67 |  ║ | 8.21 | 6.47 | 6.67 |  ║ | 0.00 | 0.00 | 8.33 | 0.00 |
+| 🟣 StartProgram |  ║ | 0.00 |  ║ | 8.00 | 0.00 | 0.00 | 8.52 |  ║ | 8.40 | 7.27 | 7.93 |  ║ | 0.33 | 0.40 | 8.46 | 0.00 |
+| 🟣 IExtractMeasures |  ║ | 0.00 |  ║ | N/A | N/A | 4.00 | 4.00 |  ║ | 6.00 | 0.00 | 3.33 |  ║ | 0.00 | 2.00 | 0.00 | 0.00 |
+| 🟣 IStopProgram |  ║ | 0.00 |  ║ | N/A | N/A | 2.50 | 2.50 |  ║ | 3.33 | 0.00 | 0.00 |  ║ | 5.00 | 0.00 | 0.00 | 0.00 |
+| 🟣 IManageParametersFile |  ║ | 0.00 |  ║ | N/A | N/A | 5.56 | 4.29 |  ║ | 7.14 | 3.33 | 2.50 |  ║ | 1.00 | 4.29 | 3.33 | 0.00 |
+| 🟣 IStartSimulation |  ║ | 0.00 |  ║ | N/A | N/A | 2.50 | 2.50 |  ║ | 3.33 | 0.00 | 0.00 |  ║ | 5.00 | 0.00 | 0.00 | 0.00 |
+| 🟣 IManageModifier |  ║ | 0.00 |  ║ | N/A | N/A | 4.00 | 4.00 |  ║ | 5.00 | 0.00 | 4.29 |  ║ | 5.71 | 2.00 | 0.00 | 2.50 |
+| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
+| 🟢 Simulation |  ║ | 0.00 |  ║ | 8.12 | 0.00 | 0.00 | 8.00 |  ║ | 8.18 | 7.50 | 5.83 |  ║ | 0.00 | 0.00 | 8.18 | 0.00 |
+| 🟢 MySimulator |  ║ | 0.00 |  ║ | 6.67 | 7.06 | 7.50 | 6.84 |  ║ | 6.84 | 6.32 | 5.62 |  ║ | 6.88 | 6.32 | 7.78 | 8.00 |
+| 🟢 ConcreteModifier |  ║ | 0.00 |  ║ | 8.89 | 7.44 | 4.57 | 8.64 |  ║ | 9.47 | 8.38 | 9.06 |  ║ | 5.88 | 5.56 | 9.53 | 4.00 |
+| 🟢 SimpleSimulationHandler |  ║ | 0.00 |  ║ | 8.97 | 4.74 | 4.29 | 8.00 |  ║ | 8.54 | 9.61 | 7.85 |  ║ | 5.71 | 5.69 | 8.57 | 5.21 |
+| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
+| 🔴 FileManagement |  ║ | 0.00 |  ║ | 8.11 | 7.07 | 7.29 | 8.90 |  ║ | 9.05 | 8.19 | 8.18 |  ║ | 8.69 | 7.76 | 7.81 | 6.77 |
+| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
+| \***\*avg\*\*** |  ║ | 0.00 |  ║ | 7.10 | 5.44 | 4.50 | 6.42 |  ║ | 6.98 | 5.53 | 5.93 |  ║ | 5.01 | 4.13 | 6.02 | 3.53 |
+
+### Analysis — what changed vs. the initial evaluation
+
+**Most cells move by a few tenths of a point, consistent with normal code churn** — roughly two-thirds of the 220 comparable cells are within ±0.4 of their original value, which is the expected noise floor for a handful of added lines, docstrings, or renamed variables.
+
+**Real, code-driven improvements** — `ExperimentResultHandler` CoT/strict (8.40→9.00) and several `ConcreteModifier`/`SimpleSimulationHandler` cells in ZS/OT, ZS/Pe, CoT/PC, CoT/Le (+0.5 to +0.9) moved up, in line with the unit-test-failure fixes applied to those files after the original evaluation (see `evaluation/correctness/*` "Corrections applied" sections).
+
+**`CoT/riskFirst`'s global average dropped from 5.86 to 3.53, driven by `ASimulationSystemHandler` (6.84→0.00), `StartProgram` (7.86→0.00), `IExtractMeasures` (4.00→0.00), `IManageParametersFile` (5.00→0.00), `Simulation` (5.33→0.00), and smaller drops in `AModifier`, `ExperimentPlanGenerator`, `ExperimentResultHandler`, `ExperimentSimulatorHandler`, `ConcreteModifier`, `SimpleSimulationHandler`, `FileManagement`, `Environment` — root-caused below.** This is confirmed, mechanically, to be a direct side-effect of commit `8c63888` ("Fix integration tests for all 12 Python migrations"), *not* a tooling-version artifact (an earlier draft of this section wrongly blamed the pylint version — that was disproved below):
+
+- Before that commit, every riskFirst file imported its siblings with the full prefix, e.g. `from structuredsim.experimenthandling.Environment import Environment`. The commit's own message says: *"chainOfThought/riskFirst: remove structuredsim. prefix from all imports, add snake_case wrapper modules for PascalCase files"* — needed because `pytest`'s rootdir puts `structuredsim/` itself on `sys.path`, so the tests require bare `experimenthandling.X`, not `structuredsim.experimenthandling.X`.
+- Pylint auto-detects each file's import root by walking up through every ancestor directory that contains an `__init__.py`. For `structuredsim/interfaces/AModifier.py`, that walk crosses `interfaces/__init__.py` and `structuredsim/__init__.py` and stops at `chainOfThought/riskFirst/` (no `__init__.py` there) — so pylint inserts `riskFirst/` on `sys.path`, **one level higher than `structuredsim/`**.
+- Before the fix, that alignment was correct: `riskFirst/` on the path resolves `structuredsim.experimenthandling.Environment` perfectly (verified below). After the fix, the same auto-detected root (`riskFirst/`) can no longer resolve the new bare `experimenthandling.Environment` import — that needs `structuredsim/` itself on the path — so every cross-module import now trips `E0401`.
+- **Verified directly**: checking out the pre-fix tree (`git archive 8c63888^`) and running the exact same `pylint --score=y <file>` (same pylint 4.0.6, same cwd, same "no `PYTHONPATH`" invocation) reproduces the original table's numbers exactly and with **zero** `E0401` — `AModifier` 6.00, `ASimulationSystemHandler` 6.84, `StartProgram` 7.86, `ExperimentPlanGenerator` 8.31, `ExperimentResultHandler` 7.74, `ExperimentSimulatorHandler` 7.18, `ConcreteModifier` 8.29, `SimpleSimulationHandler` 8.77, `FileManagement` 7.72, `Simulation` 5.33. Same pylint version, same files' logic, only the import-prefix differs — which proves the drop is 100% attributable to that one code change, via its interaction with pylint's per-file root-detection, and 0% attributable to the pylint version.
+- Note this is the *same* structural pattern the original analysis (line 124 above) already documented for `ZS/onlyTask`, `ZS/persona`, `CoT/perClass`, and `CoT/lenient` — those four migrations already had an extra root-level `__init__.py` from the start, so they already paid this E0401 tax in the original table. `CoT/riskFirst` simply joined that group once its import style was flattened to match.
+
+**Practical takeaway**: the `structuredsim.` prefix removal was correct and necessary (it made 44/44 integration tests and 40/40 unit tests pass — see `evaluation/correctness/chainOfThought/riskFirst.md`). The pylint score drop it causes here is an artifact of running pylint per-file without setting `PYTHONPATH` to the package root, not evidence the fix made the code worse. Running the affected files with `PYTHONPATH=<path to structuredsim/>` restores every one of the cells listed above to (near-)exactly its original value.
+
+---
+
+## Pyright Error Count — Current Code (re-run)
+
+Same re-run, same methodology (`pyright`, per file, cwd = migration root so intra-migration imports resolve), using `pyright 1.1.408` (again, the version behind the original table is unknown/unpinned).
+
+| Class |  ║ | Trans |  ║ | ZS/NC | ZS/OT | ZS/Pe | ZS/Ctx |  ║ | OS/AS | OS/CM | OS/EP |  ║ | CoT/PC | CoT/Le | CoT/St | CoT/RF |
+| ------------------------------ | :-: | ----- | :-: | ----- | ----- | ----- | ------ | :-: | ----- | ----- | ----- | :-: | ------ | ------ | ------ | ------ |
+| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
+| 🔵 Environment |  ║ | 19 |  ║ | 0 | 0 | 0 | 4 |  ║ | 1 | 1 | 1 |  ║ | 1 | 4 | 0 | 0 |
+| 🔵 Parameter |  ║ | 4 |  ║ | 2 | 0 | 0 | 0 |  ║ | 0 | 0 | 1 |  ║ | 0 | 0 | 0 | 1 |
+| 🔵 ExperimentPlanGenerator |  ║ | 45 |  ║ | 0 | 0 | 3 | 0 |  ║ | 6 | 3 | 1 |  ║ | 6 | 1 | 0 | 4 |
+| 🔵 ExperimentResultHandler |  ║ | 18 |  ║ | 0 | 0 | 1 | 0 |  ║ | 1 | 0 | 0 |  ║ | 2 | 0 | 0 | 1 |
+| 🔵 Measure |  ║ | 0 |  ║ | 0 | 0 | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
+| 🔵 ExperimentSimulatorHandler |  ║ | 22 |  ║ | 0 | 0 | 3 | 0 |  ║ | 1 | 0 | 1 |  ║ | 9 | 0 | 0 | 4 |
+| 🔵 Options |  ║ | 2 |  ║ | 0 | 0 | 0 | 5 |  ║ | 0 | 4 | 0 |  ║ | 0 | 6 | 0 | 0 |
+| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
+| 🟣 AModifier |  ║ | 6 |  ║ | 0 | 0 | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
+| 🟣 ASimulationSystemHandler |  ║ | 12 |  ║ | 0 | 0 | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
+| 🟣 StartProgram |  ║ | 22 |  ║ | 1 | 0 | 1 | 0 |  ║ | 3 | 1 | 0 |  ║ | 2 | 0 | 0 | 1 |
+| 🟣 IExtractMeasures |  ║ | 4 |  ║ | N/A | N/A | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
+| 🟣 IStopProgram |  ║ | 2 |  ║ | N/A | N/A | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
+| 🟣 IManageParametersFile |  ║ | 10 |  ║ | N/A | N/A | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
+| 🟣 IStartSimulation |  ║ | 2 |  ║ | N/A | N/A | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
+| 🟣 IManageModifier |  ║ | 3 |  ║ | N/A | N/A | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
+| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
+| 🟢 Simulation |  ║ | 13 |  ║ | 4 | 0 | 2 | 0 |  ║ | 1 | 0 | 1 |  ║ | 1 | 0 | 0 | 1 |
+| 🟢 MySimulator |  ║ | 15 |  ║ | 0 | 0 | 0 | 0 |  ║ | 0 | 0 | 0 |  ║ | 0 | 0 | 0 | 0 |
+| 🟢 ConcreteModifier |  ║ | 14 |  ║ | 0 | 0 | 0 | 2 |  ║ | 0 | 0 | 0 |  ║ | 0 | 1 | 0 | 0 |
+| 🟢 SimpleSimulationHandler |  ║ | 67 |  ║ | 4 | 4 | 3 | 3 |  ║ | 7 | 3 | 1 |  ║ | 3 | 2 | 1 | 7 |
+| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
+| 🔴 FileManagement |  ║ | 106 |  ║ | 9 | 11 | 10 | 7 |  ║ | 10 | 0 | 0 |  ║ | 14 | 7 | 11 | 8 |
+| ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ | ══ |
+| \***\*Σ\*\*** |  ║ | 386 |  ║ | 20 | 15 | 23 | 21 |  ║ | 30 | 12 | 6 |  ║ | 38 | 21 | 12 | 27 |
+
+### Analysis — what changed vs. the initial evaluation
+
+**Totals are close but not identical: ZS/OT 23→15, OS/CM 9→12, OS/EP 20→6** — `ZS/OT` improved mainly because `StartProgram` went from 4 to 0 errors after the "Fixed imports for onlyTask migration" commit. `OS/EP` dropped mostly because of one cell (`ConcreteModifier`, next point). `Trans`, `ZS/NC`, `ZS/Pe`, `ZS/Ctx`, `OS/AS`, `CoT/St` are within ±3 of their original totals.
+
+**`ConcreteModifier` OS/expPlanGen: 12→0 errors, despite the file being unchanged** — this class still uses the same `match/case` dispatch the original analysis flagged. The original table attributed the 12 errors to Pyright checking `match/case` (Python 3.10+ syntax) against a pre-3.10 minimum-version target. `pyright 1.1.408` in this environment resolves the project's Python version differently (or defaults higher) and no longer flags it — a tooling/config artifact, not a code fix. Don't read this as "the match/case bug got fixed."
+
+**`Measure`, `AModifier`, `ASimulationSystemHandler`, `MySimulator` remain 0 everywhere** — consistent with the original finding that these are trivial, low-type-complexity classes across every migration.
+
+**Root cause of the *increases* (`Options` OS/CM 1→4, `FileManagement` OS/AS 7→10, `FileManagement` ZS/OT 9→11, `Environment` ZS/Ctx 3→4, `Environment` CoT/PC 0→1, `Environment` CoT/Le 3→4, `Simulation` ZS/NC 2→4, several `SimpleSimulationHandler` cells +1, `FileManagement` CoT/PC 13→14)** — every one of these files was touched by a "Fix unit test failures in `<migration>`" commit after the original evaluation (confirmed via `git log` on each file). These commits added new code paths to satisfy previously-failing tests, and the new code is where the new Pyright errors live — this is a real, code-driven increase, not a tooling artifact. Two representative, fully traced examples:
+
+  - **`oneShot/concreteModifier/experimenthandling/options.py` (commit `3b03488`)** added `get_cuttof_planning_h()`, which does `h.get("DATE")` on a `dict` (returning `Unknown | None`) and passes that straight into `datetime.datetime(1, 1, h.get("DATE"))`. `datetime`'s `day`/`hour`/`minute` parameters require `SupportsIndex` (not `None`), so Pyright now reports 3 new `reportArgumentType` errors (one per branch: `DAY`/`HOURS`/`MINUTES`), on top of the 1 pre-existing error — exactly the 1→4 jump seen in the table. The fix makes the unit test pass (the properties file always provides that key in practice) but is not statically null-safe.
+  - **`oneShot/aSimulationSystemHandler/util/file_management.py` (commit `39dc09b`)** changed three call sites from `timedelta(days=...)`/`timedelta(hours=...)`/`timedelta(minutes=...)` to `datetime.datetime(1, 1, ...)`/`datetime.datetime(1, 1, 1, ...)`/`datetime.datetime(1, 1, 1, 0, ...)` (needed so the resulting object exposes `.day`/`.hour`/`.minute` the way the unit tests expect), but `Options.set_cuttof_planning_h()`'s parameter is still typed `timedelta`. Pyright now reports 3 new "Argument of type `datetime` cannot be assigned to parameter ... of type `timedelta`" errors — exactly the 3 new errors behind the 7→10 jump.
+
+  The other increases (`Environment`'s new copy-constructor branches assigning `self.path_save_result = None` against a `str`-typed attribute, etc.) follow the same shape: a fix that makes runtime/test behavior correct while trading away some static type-precision (bare `None` defaults, un-narrowed `dict.get()`). None of them are pyright-version artifacts — they reproduce identically by just reading the diff.
+
+**The one confirmed *tooling* artifact — `ConcreteModifier` OS/expPlanGen: 12→0 errors, despite the file being unchanged** — this class still uses the same `match/case` dispatch the original analysis flagged, verified via `git log` to be untouched since the original migration. The original table attributed the 12 errors to Pyright checking `match/case` (Python 3.10+ syntax) against a pre-3.10 minimum-version target. `pyright 1.1.408` in this environment resolves the project's Python version differently (or defaults higher) and no longer flags it — this one is a tooling/config artifact, not a code fix.
+
+**Everything else moves by only 1-4 errors per cell**, following the same "real fix, new edge case" pattern as above.
 
 ---
 
