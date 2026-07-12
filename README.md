@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This repository was used in the context of the bachelor thesis "MAIgration : How can generative AI support developpers in software migration projects ?", done in 2026 by Matthias Gaillard. In this project, a framework of the SiLab group made in Java (https://github.com/SiLab-group/structSim/tree/master) was studied and migrated in Python in multiple attempts using generative AI. Every code is in this repository.
+This repository (https://github.com/Matthjass13/structSim_py) was used in the context of the bachelor thesis "MAIgration : How can generative AI support developpers in software migration projects ?", done in 2026 by Matthias Gaillard. In this project, a framework of the SiLab group made in Java (https://github.com/SiLab-group/structSim/tree/master) was studied and migrated in Python in multiple attempts using generative AI. Every code is in this repository.
 
 ## Project Structure
 
